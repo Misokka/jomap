@@ -1,0 +1,15 @@
+{
+    "name": "jomap",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "parcel index.html",
+        "sass": "sass --watch styles/main.scss:styles/main.css"
+    },
+    "devDependencies": {
+        "lite-server": "^2.6.1",
+        "parcel": "^2.5.0"
+    },
+    "dependencies": {
+        "mapbox-gl": "^2.15.0"
+    }
+}
