@@ -1,7 +1,10 @@
-import Page1 from "./views/Page1.js";
-import Page404 from "./views/Page404.js";
+import page1 from "./pages/page1.js";
+import page2 from "./pages/page2.js";
+import MapPage from "./pages/mapPage.js";
 
 export default {
-  "/page1": Page1,
-  "*": Page404,
+  "*": page1,
+  "/page1": page1,
+  "/page2": page2,
+  "/page3": MapPage,
 };

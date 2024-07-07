@@ -1,48 +1,54 @@
-import structureToDom from "../core/structureToDom.js";
+const BrowserRouter = function (routes, rootElement) {
+  const generatePage = () => {
+    const path = location.pathname;
+    const structure = routes[path] ?? routes["*"];
+    console.log("Generating page for path:", path, structure);
+    if (!structure) {
+      console.error("No structure found for path:", path);
+      return;
+    }
+    if (rootElement.childNodes.length) {
+      rootElement.replaceChild(
+        this.renderStructure(structure),
+        rootElement.childNodes[0]
+      );
+    } else {
+      rootElement.appendChild(this.renderStructure(structure));
+    }
+  };
+  
+  generatePage();
+  
+  const oldPushState = history.pushState;
+  history.pushState = function (state, title, url) {
+    oldPushState.call(history, state, title, url);
+    window.dispatchEvent(new Event("popstate"));
+  };
+  
+  window.onpopstate = generatePage;
+};
 
-export default function BrowserRouter(rootElement, routes) {
-  function managePath() {
-    const currentPath = window.location.pathname;
-    const elementGenerator = routes[currentPath] ?? routes["*"];
-    const elem = elementGenerator();
-    return elem;
-  }
-
-  rootElement.appendChild(structureToDom(managePath()));
-
-  window.addEventListener("popstate", function () {
-    rootElement.replaceChild(
-      structureToDom(managePath()),
-      rootElement.childNodes[0]
-    );
-  });
-  window.addEventListener("pushstate", function () {
-    rootElement.replaceChild(
-      structureToDom(managePath()),
-      rootElement.childNodes[0]
-    );
-  });
-}
-
-export function BrowserLink(title, url) {
+export const BrowserLink = function (props) {
   return {
     type: "a",
-    attributes: {
-      href: url,
+    props: {
+      href: props.to,
     },
     events: {
       click: [
-        (e) => {
-          e.preventDefault();
-          window.history.pushState(
-            {},
-            null,
-            e.currentTarget.getAttribute("href")
-          );
-          window.dispatchEvent(new Event("pushstate"));
+        function (event) {
+          event.preventDefault();
+          history.pushState(null, null, props.to);
         },
       ],
     },
-    children: [title],
+    children: [
+      {
+        type: "TEXT_NODE",
+        content: props.title,
+      },
+    ],
   };
-}
+};
+
+export default BrowserRouter;
