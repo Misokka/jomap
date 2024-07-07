@@ -19,26 +19,25 @@
  * })
  */
 function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function wait(timing) {
-  return new Promise(function (resolve) {
-    setTimeout(resolve, timing);
-  });
-}
-
-function getStudents() {
-  return wait(randomInt(1, 2) * 1000).then(function () {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  
+  function wait(timing) {
+    return new Promise(function (resolve) {
+      setTimeout(resolve, timing);
+    });
+  }
+  
+  async function getStudents() {
+    await wait(randomInt(1, 2) * 1000);
     return [
       { name: "Dupont", courses: [1, 3, 5] },
       { name: "Lea", courses: [2, 4] },
       { name: "Charles", courses: [1] },
     ];
-  });
-}
-function getCourses() {
-  return wait(randomInt(2, 4) * 1000).then(function () {
+  }
+  async function getCourses() {
+    await wait(randomInt(2, 4) * 1000);
     return [
       { id: 1, name: "JS" },
       { id: 2, name: "PHP" },
@@ -46,11 +45,11 @@ function getCourses() {
       { id: 4, name: "F#" },
       { id: 5, name: "CSS" },
     ];
-  });
-}
-
-function mapStudents(students, courses) {
-  return wait(randomInt(1, 4) * 1000).then(function () {
+  }
+  
+  async function mapStudents(students, courses) {
+    await wait(randomInt(1, 4) * 1000);
+  
     return students.map(function (student) {
       student.courses = student.courses.map(function (idCourse) {
         return courses.find(function (course) {
@@ -59,27 +58,25 @@ function mapStudents(students, courses) {
       });
       return student;
     });
-  });
-}
-
-function mainProcess() {
-  return Promise.all([getCourses(), getStudents()]).then(function (results) {
-    return mapStudents(results[1], results[0]).then(function (students) {
-      return students;
-    });
-  });
-}
-
-function timer() {
-  return wait(2 * 1000).then(function(){
-    return Promise.reject();
-  });
-}
-
-Promise.race([mainProcess(), timer()])
-.then(function() {
-  console.log("Merge OK");
-})
-.catch(function() {
-  console.log('Timeout');
-})
+  }
+  
+  async function mainProcess() {
+    const results = await Promise.all([getCourses(), getStudents()]);
+    const students = await mapStudents(results[1], results[0]);
+    return students;
+  }
+  
+  async function timer() {
+    await wait(2 * 1000);
+    throw new Error("Timeout");
+  }
+  
+  (async function () {
+    try {
+      await Promise.race([mainProcess(), timer()]);
+      console.log("Merge OK");
+    } catch {
+      console.log("Timeout");
+    }
+  })();
+  

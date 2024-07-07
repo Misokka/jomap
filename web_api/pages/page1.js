@@ -1,46 +1,74 @@
-export default function Page1() {
-  const COL_MAX = 5;
-  const ROW_MAX = 5;
+import { BrowserLink } from "../components/BrowserRouter.js";
 
-  function textIntoInput(event) {
-    const tdElem = event.currentTarget;
-    console.log(tdElem);
-    const textNode = tdElem.childNodes[0];
-    const text = textNode.textContent;
-    const input = document.createElement("input");
-    input.value = text;
-    input.addEventListener("blur", inputIntoText);
-    tdElem.removeChild(textNode);
-    tdElem.appendChild(input);
-    tdElem.removeEventListener("click", textIntoInput);
-    input.focus();
-  }
+const data = JSON.parse(localStorage.getItem("data") || "{}");
 
-  function inputIntoText(event) {
-    const input = event.currentTarget;
-    const value = input.value;
-    const textNode = document.createTextNode(value);
-    const td = input.parentNode;
-    td.removeChild(input);
-    td.appendChild(textNode);
-  }
-
-  return {
-    type: "table",
-    children: [
-      {
-        type: "tbody",
-        children: Array.from({ length: ROW_MAX }, (_, i) => ({
-          type: "tr",
-          children: Array.from({ length: COL_MAX }, (_, j) => ({
-            type: "td",
-            events: {
-              click: [textIntoInput],
-            },
-            children: ["Default"],
-          })),
-        })),
-      },
-    ],
-  };
+function textToInput(event) {
+  const contentNode = event.currentTarget.childNodes[0];
+  const content = contentNode.textContent;
+  const input = document.createElement("input");
+  input.value = content;
+  event.currentTarget.removeChild(contentNode);
+  event.currentTarget.appendChild(input);
+  input.focus();
+  input.addEventListener("blur", function (event) {
+    const content = event.currentTarget.value;
+    const td = event.currentTarget.parentNode;
+    // start backend
+    data[td.dataset.position] = content;
+    localStorage.setItem("data", JSON.stringify(data));
+    // end backend
+    const contentNode = document.createTextNode(content);
+    td.replaceChild(contentNode, event.currentTarget);
+    td.addEventListener("click", textToInput);
+  });
+  event.currentTarget.removeEventListener("click", textToInput);
 }
+
+export default {
+  type: "div",
+  children: [
+    BrowserLink({
+      title: "Page 2",
+      to: "/page2",
+    }),
+    {
+      type: "table",
+      props: {},
+      events: {},
+      children: [
+        {
+          type: "tbody",
+          props: {
+            style: {
+              "background-color": "pink",
+            },
+          },
+          events: {},
+          children: Array.from({ length: 12 }, (_, indexTr) => ({
+            type: "tr",
+            props: {},
+            events: {},
+            children: Array.from({ length: 12 }, (_, indexTd) => ({
+              type: "td",
+              props: {
+                toto: "test",
+                "data-position": indexTr + "-" + indexTd,
+              },
+              events: {
+                click: [textToInput],
+              },
+              children: [
+                {
+                  type: "TEXT_NODE",
+                  content:
+                    data[indexTr + "-" + indexTd] ??
+                    `Default ${indexTr} ${indexTd}`,
+                },
+              ],
+            })),
+          })),
+        },
+      ],
+    },
+  ],
+};

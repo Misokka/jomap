@@ -1,19 +1,30 @@
-import structureToDom from "../core/structureToDom.js";
+const HashRouter = function (routes, rootElement) {
+  const generatePage = () => {
+    const path = location.hash.slice(1);
+    if (rootElement.childNodes.length) {
+      rootElement.replaceChild(
+        this.renderStructure(routes[path]),
+        rootElement.childNodes[0]
+      );
+    } else rootElement.appendChild(this.renderStructure(routes[path]));
+  };
+  generatePage();
+  window.onhashchange = generatePage;
+};
 
-export default function HashRouter(rootElement, routes) {
-  function managePath() {
-    const currentPath = window.location.hash.slice(1);
-    const elementGenerator = routes[currentPath] ?? routes["*"];
-    const elem = elementGenerator();
-    return elem;
-  }
+export const HashLink = function (props) {
+  return {
+    type: "a",
+    props: {
+      href: "#" + props.to,
+    },
+    children: [
+      {
+        type: "TEXT_NODE",
+        content: props.title,
+      },
+    ],
+  };
+};
 
-  rootElement.appendChild(structureToDom(managePath()));
-
-  window.addEventListener("hashchange", function () {
-    rootElement.replaceChild(
-      structureToDom(managePath()),
-      rootElement.childNodes[0]
-    );
-  });
-}
+export default HashRouter;
