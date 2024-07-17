@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // Configuration options
+  root: './src/', // Le dossier racine de votre projet
+  // Ajoutez d'autres configurations ici si nécessaire
 });
