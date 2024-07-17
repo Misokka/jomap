@@ -1,0 +1,32 @@
+{
+  "name": "jomap",
+  "version": "1.0.0",
+  "description": "Framework JavaScript x Figma (Final project JS / Figma)",
+  "main": "index.js",
+  
+    "scripts": {
+      "watch": "sass --watch ./src/css/main.scss ./src/style.css",
+      "dev": "vite",
+      "build": "vite build",
+      "serve": "vite preview"
+    },
+  "authors": [
+    {
+      "name": "Maheanuu Allain",
+      "email": "maheanuu.allain@gmail.com"
+    },
+    {
+      "name": "Jéremy Caron-Labalette",
+      "email": "jeremy.caron.labalette@gmail.com"
+    },
+    {
+      "name": "Loan Pena",
+      "email": "loanpena77@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.77.8",
+    "vite": "^5.3.4"
+  }
+}
