@@ -121,17 +121,6 @@ export default {
       props: {
         class: 'breadcrumb',
       },
-      children: [
-        BrowserLink({
-          title: 'Accueil',
-          to: '/page1',
-        }),
-        ' / ',
-        BrowserLink({
-          title: 'Liste événement',
-          to: '/page2',
-        }),
-      ],
     },
     EventList,
   ],
