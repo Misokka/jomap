@@ -1,3 +1,40 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+// _fonts.scss
 
-$font1: "Inter", sans-serif;
+@font-face {
+    font-family: 'Olympic Headline';
+    src: url('../fonts/Olympic-Headline.woff2') format('woff2'),
+         url('../fonts/Olympic-Headline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Olympic Sans';
+    src: url('../fonts/Olympic-Sans.woff2') format('woff2'),
+         url('../fonts/Olympic-Sans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Olympic Sans Bold';
+    src: url('../fonts/Olympic-Sans-Bold.woff2') format('woff2'),
+         url('../fonts/Olympic-Sans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Olympic Sans Medium';
+    src: url('../fonts/Olympic-Sans-Medium.woff2') format('woff2'),
+         url('../fonts/Olympic-Sans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  // Variables pour les polices
+  $font-headline: "Olympic Headline", sans-serif;
+  $font-sans: "Olympic Sans", sans-serif;
+  $font-sans-bold: "Olympic Sans Bold", sans-serif;
+  $font-sans-medium: "Olympic Sans Medium", sans-serif;
+  
