@@ -1,0 +1,31 @@
+// Couleurs
+$primary-color: #1e90ff;
+$secondary-color: #ff6347;
+$text-color: #333;
+$background-color: #f8f9fa;
+$border-color: #ddd;
+
+// Typographie
+$font1: "Inter", sans-serif;
+
+// Dimensions
+$container-width: rem(1200);
+$gutter: rem(16);
+
+
+// Z-index
+$z-index-header: 1000;
+$z-index-modal: 1050;
+
+:root {
+  --primary-color: #1e90ff;
+  --secondary-color: #ff6347;
+  --text-color: #333;
+  --background-color: #f8f9fa;
+  --border-color: #ddd;
+  --font1: "Inter", sans-serif;
+  --container-width: #{rem(1200)};
+  --gutter: #{rem(16)};
+  --z-index-header: 1000;
+  --z-index-modal: 1050;
+}
