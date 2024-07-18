@@ -1,0 +1,22 @@
+.searchbar {
+    @include flexbox(row, nowrap, center, center);
+    background: rgba(255, 255, 255, 0.9);
+    padding: rem(10);
+    border-radius: rem(8);
+    box-shadow: 0px rem(1) rem(2) rgba(0, 0, 0, 0.1);
+  }
+  
+  .searchbar input {
+    border: none;
+    outline: none;
+    padding: rem(5) rem(10);
+    font-size: rem(16);
+  }
+  
+  .search-filter-container {
+    position: absolute;
+    top: rem(20);
+    left: rem(20);
+    @include flexbox(row, nowrap, center, center, rem(20));
+  }
+  
