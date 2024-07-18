@@ -1,19 +1,33 @@
+// _globals.scss
+
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	font-family: $font1;
-	color: var(--text-color);
-	//background-color: $grey;
+  font-family: $font-sans;
+  color: var(--text-color);
+//   background-color: $grey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-headline;
+}
+
+strong {
+  font-family: $font-sans-bold;
+}
+
+em {
+  font-family: $font-sans-medium;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 a {
-	color: var(--blue);
-	text-decoration: none;
+  color: var(--blue);
+  text-decoration: none;
 }

@@ -1,24 +1,17 @@
 const SearchBar = {
-    type: 'div',
-    props: {
-      class: 'searchbar',
-    },
-    children: [
-      {
-        type: 'input',
-        props: {
-          type: 'text',
-          placeholder: 'Rechercher...',
-          style: {
-            display: 'flex',
-            width: '574px',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-          },
-        },
+  type: 'div',
+  props: {
+    class: 'searchbar',
+  },
+  children: [
+    {
+      type: 'input',
+      props: {
+        type: 'text',
+        placeholder: 'Rechercher',
       },
-    ],
-  };
-  
-  export default SearchBar;
-  
+    },
+  ],
+};
+
+export default SearchBar;
