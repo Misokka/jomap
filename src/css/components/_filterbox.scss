@@ -1,0 +1,48 @@
+.filter-box {
+  width: rem(300);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: rem(10);
+  padding: rem(20);
+  position: absolute;
+  top: rem(60); /* Ajustez cette valeur pour qu'elle soit juste en dessous des boutons */
+  left: rem(5); /* Placez la boîte de filtre à gauche */
+  z-index: $z-index-modal;
+  display: none;
+
+  .filter-box-header {
+    @include flexbox(row, nowrap, space-between, center);
+  }
+
+  .filter-box-title {
+    font-size: rem(20);
+    font-weight: bold;
+  }
+
+  .filter-box-close-button {
+    @include resetButton;
+    font-size: rem(20);
+    cursor: pointer;
+  }
+
+  .filter-group {
+    margin-top: rem(20);
+
+    .filter-group-title {
+      font-size: rem(16);
+      font-weight: bold;
+    }
+
+    .filter-options {
+      @include flexbox(row, wrap, flex-start, center);
+      gap: rem(10);
+
+      .filter-option {
+        background-color: var(--background-color, #fff);
+        border: rem(1) solid var(--border-color, #ccc);
+        border-radius: rem(5);
+        padding: rem(5) rem(10);
+        cursor: pointer;
+      }
+    }
+  }
+}

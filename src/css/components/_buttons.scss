@@ -1,13 +1,24 @@
-.button-container {
-  @include flexbox(row, nowrap, center, center, rem(10));
+.buttons, .filter-button, .searchbar-close-button {
+  @include resetButton;
+  display: inline-flex;
+  padding: rem(13);
+  justify-content: center;
+  align-items: center;
+  gap: rem(10);
+  border-radius: rem(12);
+  border: rem(1) solid var(--outline-theme_light-low_em, #ECECED);
+  background: var(--surface-theme_light-surface_0, #FFF);
+  box-shadow: 0px rem(1) rem(2) -rem(1) rgba(17, 12, 34, 0.08);
+  margin: rem(10) rem(10) 0 0;
+  cursor: pointer;
 }
 
-.buttons, .filter-button {
-  @include resetButton;
-  background-color: #fff;
-  border: rem(1) solid #ccc;
-  border-radius: rem(8);
-  padding: rem(10) rem(20);
-  cursor: pointer;
-  font-family: $font-sans-medium;
+.button-container {
+  @include flexbox(row, nowrap, center, center, rem(10));
+  position: absolute;
+  right: rem(20);
+}
+
+.searchbar-button {
+  margin-right: rem(10);
 }

@@ -1,28 +1,27 @@
 .navbar {
-    @include flexbox(row, nowrap, space-between, center);
-    padding: rem(20);
-    background-color: #fff;
-  }
-  
-  .navbar h1 {
+  @include flexbox(row, nowrap, space-between, center);
+  padding: rem(20);
+  background-color: var(--background-color, #fff); 
+
+  h1 {
     font-size: rem(24);
     font-weight: bold;
     margin: 0;
-    flex: 1; 
-    text-align: left; 
+    flex: 1;
+    text-align: left;
   }
-  
+
   .logo-container {
     @include flexbox(row, nowrap, center, center);
-    flex: 1; 
+    flex: 1;
+
+    .logo {
+      width: rem(100);
+      height: auto;
+    }
   }
-  
-  .logo {
-    width: rem(100);
-    height: auto;
-  }
-  
+
   .spacer {
     flex: 1;
   }
-  
+}

@@ -1,16 +1,12 @@
-// _map.scss
 .map-container {
-    width: 100%;
-    height: calc(100vh - 60px); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  
+  width: 100%;
+  height: calc(100vh - rem(60)); // Assurez-vous que la hauteur prend en compte la barre de navigation
+  @include flexbox(row, nowrap, center, center);
+  position: relative;
+  overflow: hidden;
+
   .map {
     width: 100%;
     height: 100%;
   }
-  
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Olympic Headline";
   src: url("../fonts/Olympic-Headline.woff2") format("woff2"), url("../fonts/Olympic-Headline.woff") format("woff");
@@ -26,7 +27,7 @@
   --primary-color: #1e90ff;
   --secondary-color: #ff6347;
   --text-color: #333;
-  --background-color: #f8f9fa;
+  --background-color: #ffffff;
   --border-color: #ddd;
   --font1: "Inter", sans-serif;
   --container-width: 75rem;
@@ -66,6 +67,23 @@ a {
   text-decoration: none;
 }
 
+.buttons, .filter-button, .searchbar-close-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  padding: 0.8125rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.75rem;
+  border: 0.0625rem solid var(--outline-theme_light-low_em, #ECECED);
+  background: var(--surface-theme_light-surface_0, #FFF);
+  box-shadow: 0px 0.0625rem 0.125rem -rem(1) rgba(17, 12, 34, 0.08);
+  margin: 0.625rem 0.625rem 0 0;
+  cursor: pointer;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
@@ -73,18 +91,12 @@ a {
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
+  position: absolute;
+  right: 1.25rem;
 }
 
-.buttons, .filter-button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  background-color: #fff;
-  border: 0.0625rem solid #ccc;
-  border-radius: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  cursor: pointer;
-  font-family: "Olympic Sans Medium", sans-serif;
+.searchbar-button {
+  margin-right: 0.625rem;
 }
 
 .breadcrumb {
@@ -92,28 +104,76 @@ a {
   font-size: 0.875rem;
 }
 
-.events {
-  margin: 1.25rem;
+.event-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  background: var(--background-color, #fff);
+  border-radius: 0.5rem;
+  padding: 0.9375rem;
+  margin-bottom: 0.625rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  border: none;
 }
-
-.event {
-  background-color: #f9f9f9;
+.event-item .event-date {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: var(--secondary-color, #FFB114);
   border-radius: 0.5rem;
   padding: 0.625rem;
-  margin-bottom: 0.625rem;
+  color: var(--text-color, #000);
+}
+.event-item .event-details {
+  flex-grow: 1;
+  margin-left: 0.9375rem;
+}
+.event-item .event-details .event-type {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color, #333);
+}
+.event-item .event-details .event-description {
+  font-size: 0.875rem;
+  color: var(--text-color, #666);
+  margin-top: 0.3125rem;
+}
+.event-item .event-details .event-location {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  margin-top: 0.3125rem;
+}
+.event-item .event-details .event-location img {
+  margin-right: 0.3125rem;
+}
+.event-item .event-details .event-location .location-text {
+  font-size: 0.875rem;
+  color: var(--text-color, #666);
 }
 
 .map-container {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 3.75rem);
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  gap: 0;
   position: relative;
   overflow: hidden;
 }
-
-.map {
+.map-container .map {
   width: 100%;
   height: 100%;
 }
@@ -126,9 +186,8 @@ a {
   align-items: center;
   gap: 0;
   padding: 1.25rem;
-  background-color: #fff;
+  background-color: var(--background-color, #fff);
 }
-
 .navbar h1 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -136,8 +195,7 @@ a {
   flex: 1;
   text-align: left;
 }
-
-.logo-container {
+.navbar .logo-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -146,14 +204,24 @@ a {
   gap: 0;
   flex: 1;
 }
-
-.logo {
+.navbar .logo-container .logo {
   width: 6.25rem;
   height: auto;
 }
-
-.spacer {
+.navbar .spacer {
   flex: 1;
+}
+
+.searchbar-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  margin-top: 1.25rem;
+  border: none;
 }
 
 .searchbar {
@@ -163,12 +231,13 @@ a {
   justify-content: center;
   align-items: center;
   gap: 0;
-  background: white;
+  background: var(--background-color, #fff);
   padding: 0.625rem;
   border-radius: 0.5rem;
   width: 100%;
+  border: none;
+  box-shadow: 0px 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
-
 .searchbar input {
   border: none;
   outline: none;
@@ -176,6 +245,17 @@ a {
   font-size: 1rem;
   width: 100%;
   font-family: "Olympic Sans Medium", sans-serif;
+}
+.searchbar input:focus {
+  border: none;
+  outline: none;
+}
+.searchbar button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0.625rem;
+  margin-left: 0.625rem;
 }
 
 .search-filter-container {
@@ -185,10 +265,117 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0;
   width: calc(100% - 2.5rem);
+}
+
+.advanced-search {
+  width: 37.625rem;
+  height: 46.0625rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.84375rem);
+  position: absolute;
+  top: 0.125rem;
+  left: 0.0625rem;
+  padding: 1.25rem;
+  z-index: 1050;
+  display: none; /* Masqué par défaut */
+}
+.advanced-search.show {
+  display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+}
+.advanced-search .advanced-search-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+.advanced-search .advanced-search-title {
+  color: var(--text-color, #000);
+  font-family: "Olympic Headline", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: normal;
+}
+.advanced-search .search-results {
+  position: absolute;
+  top: 7.5rem;
+  left: 1.25rem;
+  z-index: 1050;
+  background: none;
+  border-radius: 0.5rem;
+  width: calc(100% - 2.5rem);
+  max-height: 31.25rem;
+  overflow-y: auto;
+  display: none; /* Masqué par défaut */
+  padding: 0.625rem;
+  border: none;
+}
+.advanced-search .search-results.show {
+  display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+}
+.advanced-search .search-results:empty {
+  display: none;
+}
+
+.filter-box {
+  width: 18.75rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.625rem;
+  padding: 1.25rem;
+  position: absolute;
+  top: 3.75rem; /* Ajustez cette valeur pour qu'elle soit juste en dessous des boutons */
+  left: 0.3125rem; /* Placez la boîte de filtre à gauche */
+  z-index: 1050;
+  display: none;
+}
+.filter-box .filter-box-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+.filter-box .filter-box-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.filter-box .filter-box-close-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.filter-box .filter-group {
+  margin-top: 1.25rem;
+}
+.filter-box .filter-group .filter-group-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.filter-box .filter-group .filter-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  gap: 0.625rem;
+}
+.filter-box .filter-group .filter-options .filter-option {
+  background-color: var(--background-color, #fff);
+  border: 0.0625rem solid var(--border-color, #ccc);
+  border-radius: 0.3125rem;
+  padding: 0.3125rem 0.625rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
