@@ -1,25 +1,44 @@
+.searchbar-container {
+  @include flexbox(row, nowrap, flex-start, center);
+  width: 100%;
+  margin-top: rem(20);
+  border: none;
+}
+
 .searchbar {
-    @include flexbox(row, nowrap, center, center);
-    background: white;
-    padding: rem(10);
-    border-radius: rem(8);
-    width: 100%; 
-  }
-  
-  .searchbar input {
+  @include flexbox(row, nowrap, center, center);
+  background: var(--background-color, #fff);
+  padding: rem(10);
+  border-radius: rem(8);
+  width: 100%;
+  border: none;
+  box-shadow: 0px rem(1) rem(2) rgba(0, 0, 0, 0.1);
+
+  input {
     border: none;
     outline: none;
     padding: rem(5) rem(10);
     font-size: rem(16);
-    width: 100%; 
-    font-family: $font-sans-medium; 
+    width: 100%;
+    font-family: $font-sans-medium;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
   }
-  
-  .search-filter-container {
-    position: absolute;
-    top: rem(20);
-    left: rem(20);
-    @include flexbox(row, nowrap, center, center, rem(20));
-    width: calc(100% - rem(40)); 
+
+  button {
+    @include resetButton;
+    padding: rem(10);
+    margin-left: rem(10);
   }
-  
+}
+
+.search-filter-container {
+  position: absolute;
+  top: rem(20); // Ajustez cette valeur pour aligner correctement
+  left: rem(20);
+  @include flexbox(row, nowrap, flex-start, center);
+  width: calc(100% - rem(40));
+}

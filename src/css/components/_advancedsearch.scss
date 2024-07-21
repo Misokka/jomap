@@ -1,0 +1,53 @@
+.advanced-search {
+  width: rem(602);
+  height: rem(737);
+  flex-shrink: 0;
+  border-radius: rem(16);
+  background: rgba(255, 255, 255, 0.50);
+  backdrop-filter: blur(rem(13.5));
+  position: absolute;
+  top: rem(2);
+  left: rem(1);
+  padding: rem(20);
+  z-index: $z-index-modal;
+  display: none; /* Masqué par défaut */
+
+  &.show {
+    display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+  }
+
+  .advanced-search-header {
+    @include flexbox(row, nowrap, space-between, center);
+  }
+
+  .advanced-search-title {
+    color: var(--text-color, #000);
+    font-family: $font-headline;
+    font-size: rem(20);
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .search-results {
+    position: absolute;
+    top: rem(120);
+    left: rem(20);
+    z-index: $z-index-modal;
+    background: none;
+    border-radius: rem(8);
+    width: calc(100% - rem(40));
+    max-height: rem(500);
+    overflow-y: auto;
+    display: none; /* Masqué par défaut */
+    padding: rem(10);
+    border: none;
+
+    &.show {
+      display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+}

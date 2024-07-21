@@ -1,11 +1,48 @@
-.events {
-    margin: rem(20);
-  }
-  
-  .event {
-    background-color: #f9f9f9;
+.event-item {
+  @include flexbox(row, nowrap, space-between, center);
+  background: var(--background-color, #fff);
+  border-radius: rem(8);
+  padding: rem(15);
+  margin-bottom: rem(10);
+  box-shadow: 0 rem(2) rem(4) rgba(0, 0, 0, 0.1);
+  border: none;
+
+  .event-date {
+    @include flexbox(column, nowrap, center, center);
+    background: var(--secondary-color, #FFB114);
     border-radius: rem(8);
     padding: rem(10);
-    margin-bottom: rem(10);
+    color: var(--text-color, #000);
   }
-  
+
+  .event-details {
+    flex-grow: 1;
+    margin-left: rem(15);
+
+    .event-type {
+      font-size: rem(16);
+      font-weight: bold;
+      color: var(--text-color, #333);
+    }
+
+    .event-description {
+      font-size: rem(14);
+      color: var(--text-color, #666);
+      margin-top: rem(5);
+    }
+
+    .event-location {
+      @include flexbox(row, nowrap, flex-start, center);
+      margin-top: rem(5);
+
+      img {
+        margin-right: rem(5);
+      }
+
+      .location-text {
+        font-size: rem(14);
+        color: var(--text-color, #666);
+      }
+    }
+  }
+}

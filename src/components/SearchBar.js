@@ -1,17 +1,19 @@
 const SearchBar = {
   type: 'div',
   props: {
-    class: 'searchbar',
+    class: 'searchbar-container',
   },
   children: [
     {
-      type: 'input',
+      type: 'div',
       props: {
-        type: 'text',
-        placeholder: 'Rechercher',
+        class: 'search-results',
       },
+      children: [],
     },
   ],
 };
 
 export default SearchBar;
+
+
