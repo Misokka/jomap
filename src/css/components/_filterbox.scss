@@ -4,8 +4,8 @@
   border-radius: rem(10);
   padding: rem(20);
   position: absolute;
-  top: rem(60); /* Ajustez cette valeur pour qu'elle soit juste en dessous des boutons */
-  left: rem(5); /* Placez la boîte de filtre à gauche */
+  top: rem(60); 
+  left: rem(5); 
   z-index: $z-index-modal;
   display: none;
 
@@ -44,5 +44,24 @@
         cursor: pointer;
       }
     }
+
+    .sports-select {
+      width: 100%;
+      padding: rem(5);
+      border: rem(1) solid var(--border-color, #ccc);
+      border-radius: rem(5);
+      background-color: var(--background-color, #fff);
+      height: auto;
+    }
+  }
+
+  .apply-filters-button {
+    margin-top: rem(20);
+    padding: rem(10) rem(20);
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    border-radius: rem(5);
+    cursor: pointer;
   }
 }

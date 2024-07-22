@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Olympic Headline";
   src: url("../fonts/Olympic-Headline.woff2") format("woff2"), url("../fonts/Olympic-Headline.woff") format("woff");
@@ -72,7 +71,8 @@ a {
   border: none;
   background-color: transparent;
   display: inline-flex;
-  padding: 0.8125rem;
+  height: 2.5rem;
+  padding: 0.625rem 0.9375rem;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
@@ -80,7 +80,8 @@ a {
   border: 0.0625rem solid var(--outline-theme_light-low_em, #ECECED);
   background: var(--surface-theme_light-surface_0, #FFF);
   box-shadow: 0px 0.0625rem 0.125rem -rem(1) rgba(17, 12, 34, 0.08);
-  margin: 0.625rem 0.625rem 0 0;
+  margin: 0.625rem 0 0 0.625rem;
+  margin-right: 0.625rem;
   cursor: pointer;
 }
 
@@ -232,10 +233,12 @@ a {
   align-items: center;
   gap: 0;
   background: var(--background-color, #fff);
-  padding: 0.625rem;
+  padding: 0.625rem 0.9375rem;
   border-radius: 0.5rem;
+  height: 2.5rem;
   width: 100%;
   border: none;
+  margin-top: 0.625rem;
   box-shadow: 0px 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
 .searchbar input {
@@ -254,7 +257,8 @@ a {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  padding: 0.625rem;
+  padding: 0.625rem 0.9375rem;
+  height: 2.5rem;
   margin-left: 0.625rem;
 }
 
@@ -283,10 +287,10 @@ a {
   left: 0.0625rem;
   padding: 1.25rem;
   z-index: 1050;
-  display: none; /* Masqué par défaut */
+  display: none;
 }
 .advanced-search.show {
-  display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+  display: block;
 }
 .advanced-search .advanced-search-header {
   display: flex;
@@ -313,15 +317,20 @@ a {
   width: calc(100% - 2.5rem);
   max-height: 31.25rem;
   overflow-y: auto;
-  display: none; /* Masqué par défaut */
+  display: none;
   padding: 0.625rem;
   border: none;
 }
 .advanced-search .search-results.show {
-  display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+  display: block;
 }
 .advanced-search .search-results:empty {
   display: none;
+}
+.advanced-search .filter-box-close-button {
+  height: 2.5rem;
+  padding: 0.625rem 0.9375rem;
+  margin: 0.625rem 0 0 0.625rem;
 }
 
 .filter-box {
@@ -330,8 +339,8 @@ a {
   border-radius: 0.625rem;
   padding: 1.25rem;
   position: absolute;
-  top: 3.75rem; /* Ajustez cette valeur pour qu'elle soit juste en dessous des boutons */
-  left: 0.3125rem; /* Placez la boîte de filtre à gauche */
+  top: 3.75rem;
+  left: 0.3125rem;
   z-index: 1050;
   display: none;
 }
@@ -375,6 +384,23 @@ a {
   border: 0.0625rem solid var(--border-color, #ccc);
   border-radius: 0.3125rem;
   padding: 0.3125rem 0.625rem;
+  cursor: pointer;
+}
+.filter-box .filter-group .sports-select {
+  width: 100%;
+  padding: 0.3125rem;
+  border: 0.0625rem solid var(--border-color, #ccc);
+  border-radius: 0.3125rem;
+  background-color: var(--background-color, #fff);
+  height: auto;
+}
+.filter-box .apply-filters-button {
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 0.3125rem;
   cursor: pointer;
 }
 
