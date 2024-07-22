@@ -1,4 +1,9 @@
 export const createElement = (component) => {
+  // Vérifiez si component est un élément DOM directement retourné par EventItem
+  if (component instanceof HTMLElement) {
+    return component;
+  }
+
   // Création de l'élément DOM en fonction du type spécifié dans le composant
   const element = document.createElement(component.type);
 
@@ -18,7 +23,7 @@ export const createElement = (component) => {
   }
 
   // Gestion des enfants du composant
-  if (component.children) {
+  if (component.children && Array.isArray(component.children)) {
     component.children.forEach(child => {
       if (typeof child === 'string') {
         element.appendChild(document.createTextNode(child));

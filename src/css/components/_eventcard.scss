@@ -1,0 +1,66 @@
+.event-card {
+    position: fixed;
+    bottom: rem(20);
+    left: rem(20);
+    width: rem(300);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: rem(10);
+    box-shadow: 0 rem(4) rem(8) rgba(0, 0, 0, 0.1);
+    padding: rem(20);
+    z-index: $z-index-modal; 
+
+    .event-card-close-button {
+        position: absolute;
+        top: rem(10);
+        right: rem(10);
+        background: none;
+        border: none;
+        font-size: rem(20);
+        cursor: pointer;
+    }
+
+    .event-card-title {
+        font-size: rem(18);
+        font-weight: bold;
+        margin-bottom: rem(10);
+    }
+
+    .event-card-date,
+    .event-card-time,
+    .event-card-location {
+        margin-bottom: rem(10);
+    }
+
+    .event-card-date,
+    .event-card-time {
+        font-size: rem(14);
+        color: var(--text-color, #000);
+    }
+
+    .event-card-location {
+        @include flexbox(row, nowrap, flex-start, center);
+
+        .location-icon {
+            width: rem(16);
+            height: rem(16);
+            margin-right: rem(5);
+        }
+
+        .location-text {
+            font-size: rem(14);
+            color: var(--text-color, #000);
+        }
+    }
+
+    .view-more-button {
+        background-color: var(--primary-color, #007bff);
+        color: #fff;
+        border: none;
+        border-radius: rem(5);
+        padding: rem(10);
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        font-size: rem(14);
+    }
+}

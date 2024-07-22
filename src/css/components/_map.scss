@@ -1,6 +1,6 @@
 .map-container {
   width: 100%;
-  height: calc(100vh - rem(60)); // Assurez-vous que la hauteur prend en compte la barre de navigation
+  height: calc(100vh - rem(60)); 
   @include flexbox(row, nowrap, center, center);
   position: relative;
   overflow: hidden;

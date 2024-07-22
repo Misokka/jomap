@@ -1,104 +1,60 @@
 const EventItem = (event) => {
-    return {
-      type: 'div',
-      props: {
-        class: 'event-item',
-      },
-      children: [
-        {
-          type: 'div',
-          props: {
-            class: 'event-date',
-          },
-          children: [
-            {
-              type: 'div',
-              props: {
-                class: 'date-text',
-              },
-              children: [
-                {
-                  type: 'TEXT_NODE',
-                  content: new Date(event.start_date).toLocaleDateString(),
-                },
-              ],
-            },
-            {
-              type: 'div',
-              props: {
-                class: 'time-text',
-              },
-              children: [
-                {
-                  type: 'TEXT_NODE',
-                  content: new Date(event.start_date).toLocaleTimeString(),
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: 'div',
-          props: {
-            class: 'event-details',
-          },
-          children: [
-            {
-              type: 'div',
-              props: {
-                class: 'event-type',
-              },
-              children: [
-                {
-                  type: 'TEXT_NODE',
-                  content: event.sport,
-                },
-              ],
-            },
-            {
-              type: 'div',
-              props: {
-                class: 'event-description',
-              },
-              children: [
-                {
-                  type: 'TEXT_NODE',
-                  content: event.description,
-                },
-              ],
-            },
-            {
-              type: 'div',
-              props: {
-                class: 'event-location',
-              },
-              children: [
-                {
-                  type: 'img',
-                  props: {
-                    class: 'location-icon',
-                    src: '/path/to/location/icon.png', // Replace with the correct path
-                  },
-                },
-                {
-                  type: 'div',
-                  props: {
-                    class: 'location-text',
-                  },
-                  children: [
-                    {
-                      type: 'TEXT_NODE',
-                      content: event.nom_site || 'Location Unknown',
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    };
-  };
-  
-  export default EventItem;
-  
+  const eventElement = document.createElement('div');
+  eventElement.className = 'search-result-item';
+
+  const eventItem = document.createElement('div');
+  eventItem.className = 'event-item';
+
+  const eventDate = document.createElement('div');
+  eventDate.className = 'event-date';
+
+  const dateText = document.createElement('div');
+  dateText.className = 'date-text';
+  dateText.textContent = new Date(event.start_date).toLocaleDateString();
+
+  const timeText = document.createElement('div');
+  timeText.className = 'time-text';
+  timeText.textContent = new Date(event.start_date).toLocaleTimeString();
+
+  eventDate.appendChild(dateText);
+  eventDate.appendChild(timeText);
+
+  const eventDetails = document.createElement('div');
+  eventDetails.className = 'event-details';
+
+  const eventType = document.createElement('div');
+  eventType.className = 'event-type';
+  eventType.textContent = event.sport || 'Sport inconnu';
+
+  const eventDescription = document.createElement('div');
+  eventDescription.className = 'event-description';
+  eventDescription.textContent = event.description;
+
+  const eventLocation = document.createElement('div');
+  eventLocation.className = 'event-location';
+
+  const locationIcon = document.createElement('img');
+  locationIcon.className = 'location-icon';
+  locationIcon.src = '/path/to/location/icon.png';
+  locationIcon.alt = 'localisation';
+
+  const locationText = document.createElement('div');
+  locationText.className = 'location-text';
+  locationText.textContent = event.nom_site || 'Paris';
+
+  eventLocation.appendChild(locationIcon);
+  eventLocation.appendChild(locationText);
+
+  eventDetails.appendChild(eventType);
+  eventDetails.appendChild(eventDescription);
+  eventDetails.appendChild(eventLocation);
+
+  eventItem.appendChild(eventDate);
+  eventItem.appendChild(eventDetails);
+
+  eventElement.appendChild(eventItem);
+
+  return eventElement;
+};
+
+export default EventItem;

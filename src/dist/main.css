@@ -84,6 +84,11 @@ a {
   margin-right: 0.625rem;
   cursor: pointer;
 }
+.buttons.active, .filter-button.active, .searchbar-close-button.active {
+  background-color: var(--primary-color, #007bff);
+  color: #fff;
+  border-color: var(--primary-color, #007bff);
+}
 
 .button-container {
   display: flex;
@@ -112,11 +117,10 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 0;
-  background: var(--background-color, #fff);
+  background: rgba(255, 255, 255, 0.258);
   border-radius: 0.5rem;
   padding: 0.9375rem;
   margin-bottom: 0.625rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   border: none;
 }
 .event-item .event-date {
@@ -276,7 +280,7 @@ a {
 }
 
 .advanced-search {
-  width: 37.625rem;
+  width: 31.25rem;
   height: 46.0625rem;
   flex-shrink: 0;
   border-radius: 1rem;
@@ -335,7 +339,7 @@ a {
 
 .filter-box {
   width: 18.75rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 0.625rem;
   padding: 1.25rem;
   position: absolute;
@@ -395,6 +399,77 @@ a {
   height: auto;
 }
 .filter-box .apply-filters-button {
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+}
+
+.advanced-filter-box {
+  width: 18.75rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.625rem;
+  padding: 1.25rem;
+  position: absolute;
+  top: 3.75rem;
+  left: 0.3125rem;
+  z-index: 1050;
+  display: none;
+}
+.advanced-filter-box .advanced-filter-box-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+.advanced-filter-box .advanced-filter-box-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.advanced-filter-box .advanced-filter-box-close-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.advanced-filter-box .filter-group {
+  margin-top: 1.25rem;
+}
+.advanced-filter-box .filter-group .filter-group-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.advanced-filter-box .filter-group .filter-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  gap: 0.625rem;
+}
+.advanced-filter-box .filter-group .filter-options .filter-option {
+  background-color: var(--background-color, #fff);
+  border: 0.0625rem solid var(--border-color, #ccc);
+  border-radius: 0.3125rem;
+  padding: 0.3125rem 0.625rem;
+  cursor: pointer;
+}
+.advanced-filter-box .filter-group .sports-select {
+  width: 100%;
+  padding: 0.3125rem;
+  border: 0.0625rem solid var(--border-color, #ccc);
+  border-radius: 0.3125rem;
+  background-color: var(--background-color, #fff);
+  height: auto;
+}
+.advanced-filter-box .apply-filters-button {
   margin-top: 1.25rem;
   padding: 0.625rem 1.25rem;
   background-color: #1e90ff;
