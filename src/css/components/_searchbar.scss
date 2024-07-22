@@ -8,10 +8,12 @@
 .searchbar {
   @include flexbox(row, nowrap, center, center);
   background: var(--background-color, #fff);
-  padding: rem(10);
+  padding: rem(10) rem(15); 
   border-radius: rem(8);
+  height: rem(40); 
   width: 100%;
   border: none;
+  margin-top: rem(10);
   box-shadow: 0px rem(1) rem(2) rgba(0, 0, 0, 0.1);
 
   input {
@@ -30,14 +32,15 @@
 
   button {
     @include resetButton;
-    padding: rem(10);
+    padding: rem(10) rem(15); 
+    height: rem(40); 
     margin-left: rem(10);
   }
 }
 
 .search-filter-container {
   position: absolute;
-  top: rem(20); // Ajustez cette valeur pour aligner correctement
+  top: rem(20); 
   left: rem(20);
   @include flexbox(row, nowrap, flex-start, center);
   width: calc(100% - rem(40));

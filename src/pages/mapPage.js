@@ -10,79 +10,77 @@ import { initializeMap, createMarker, clearMarkers } from "../utils/mapConfig.js
 import { handleSearchInput, setupFilterButtons, setupResetFiltersButton } from "../utils/eventHandlers.js";
 import { showAdvancedSearch, hideAdvancedSearch, showFilterBox, hideFilterBox } from "../utils/uiHelpers.js";
 import { createElement } from "../utils/createElement.js";
+import { showAllEvents } from '../utils/searchUtils.js';
 
-// Clé d'accès Mapbox
+// Configuration du token d'accès pour Mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibWlzb2thIiwiYSI6ImNseGhnczJweDE3bzMycnF0NHRqM3F0ZmoifQ.HHqpWObbvpH65lb6Ma14mQ';
 
 let map;
-let markers = []; // Tableau pour stocker les marqueurs
-let events = []; // Tableau pour stocker les événements
+let markers = [];
+let events = [];
 
-// Fonction asynchrone pour initialiser la carte
 async function initMap() {
-  console.log("Initializing map...");
+  console.log("Initialisation de la carte...");
   try {
-    // Récupération de tous les événements
-    events = await fetchAllEvents(); 
+    // Récupération des événements via l'API
+    const fetchedEvents = await fetchAllEvents();
+    events = Array.isArray(fetchedEvents) ? fetchedEvents : [];
+    console.log("Événements récupérés :", events);
 
-    // Vérification si des événements sont disponibles
     if (events.length === 0) {
-      console.error('No events to display on the map.');
+      console.error('Aucun événement à afficher sur la carte.');
       return;
     }
 
-    // Initialisation de la carte
+    // Initialisation de la carte avec Mapbox
     map = initializeMap([2.3522, 48.8566], 12);
     window.map = map;
 
-    // Ajout des marqueurs à la carte lorsque celle-ci est chargée
     map.on('load', () => {
+      // Création des marqueurs pour chaque événement
       markers = events.map(event => createMarker(event, map, markers));
       window.markers = markers;
-      console.log("Map initialized with events:", events);
+      console.log("Carte initialisée avec les événements :", events);
     });
 
-    // Sélection des éléments de la barre de recherche avancée
-    const searchBarInput = document.querySelector('.advanced-search .searchbar input'); 
+    // Gestion de la recherche dans la barre de recherche avancée
+    const searchBarInput = document.querySelector('.advanced-search .searchbar input');
     const searchResultsContainer = document.getElementById('search-results');
 
-    // Configuration de la recherche si l'élément est disponible
     if (searchBarInput) {
       handleSearchInput(searchBarInput, searchResultsContainer, events, map, markers);
     }
 
-    // Sélection des éléments pour la recherche avancée
+    // Gestion de la recherche avancée dans la boîte avancée
     const advancedSearchBarInput = document.querySelector('.advanced-search .searchbar');
     const advancedSearchResultsContainer = document.querySelector('.advanced-search .search-results');
 
-    // Configuration de la recherche avancée si l'élément est disponible
     if (advancedSearchBarInput) {
       handleSearchInput(advancedSearchBarInput, advancedSearchResultsContainer, events, map, markers);
     }
 
-    // Configuration des boutons de filtre
-    setupFilterButtons(events, map, markers);
-    // Configuration du bouton de réinitialisation des filtres
+    // Configuration des boutons de filtre et de réinitialisation des filtres
+    setupFilterButtons(map, markers);
     setupResetFiltersButton(map, markers);
+    window.selectedSports = [];
+    window.events = events;
 
   } catch (error) {
-    console.error('Error fetching events:', error);
+    console.error('Erreur lors de la récupération des événements :', error);
   }
 }
 
-// Initialisation de la carte après le chargement du contenu du document
 document.addEventListener('DOMContentLoaded', initMap);
 
-// Ajout de l'élément de recherche avancée au document
+// Ajout du composant de recherche avancée à l'initialisation de la page
 document.body.appendChild(createElement(AdvancedSearch));
 
-// Fonctions pour afficher et masquer les éléments de l'interface utilisateur
+// Rendre les fonctions globales pour une utilisation dans les éléments HTML
 window.showAdvancedSearch = showAdvancedSearch;
 window.hideAdvancedSearch = hideAdvancedSearch;
 window.showFilterBox = showFilterBox;
 window.hideFilterBox = hideFilterBox;
 
-// Structure de la page exportée par défaut
 export default {
   type: 'div',
   children: [
@@ -111,7 +109,7 @@ export default {
             {
               type: 'img',
               props: {
-                src: '/images/logojo.png', 
+                src: '/images/logojo.png',
                 class: 'logo',
               },
             },

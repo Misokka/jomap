@@ -10,10 +10,10 @@
   left: rem(1);
   padding: rem(20);
   z-index: $z-index-modal;
-  display: none; /* Masqué par défaut */
+  display: none; 
 
   &.show {
-    display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+    display: block; 
   }
 
   .advanced-search-header {
@@ -38,16 +38,22 @@
     width: calc(100% - rem(40));
     max-height: rem(500);
     overflow-y: auto;
-    display: none; /* Masqué par défaut */
+    display: none; 
     padding: rem(10);
     border: none;
 
     &.show {
-      display: block; /* Affiché lorsque la classe 'show' est ajoutée */
+      display: block; 
     }
 
     &:empty {
       display: none;
     }
+  }
+
+  .filter-box-close-button {
+    height: rem(40); 
+    padding: rem(10) rem(15); 
+    margin: rem(10) 0 0 rem(10); 
   }
 }

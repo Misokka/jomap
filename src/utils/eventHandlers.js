@@ -60,27 +60,29 @@ export async function handleSearchInput(inputElement, resultsContainer, events, 
 }
 
 // Fonction pour configurer les boutons de filtre
-export function setupFilterButtons(events, map, markers) {
+export function setupFilterButtons(map, markers) {
   document.querySelectorAll('.filter-button').forEach(button => {
     button.addEventListener('click', async (event) => {
       const filterType = event.target.textContent.trim();
-      events = await fetchEvents(filterType); // Récupérer les événements en fonction du filtre
+      let events = await fetchEvents(filterType); // Récupérer les événements en fonction du filtre
       markers = clearMarkers(markers);
       markers = events.map(event => createMarker(event, map, markers));
       window.markers = markers;
+      window.events = events; // Mise à jour des événements globaux
     });
   });
 }
 
 // Fonction pour configurer le bouton de réinitialisation des filtres
-export function setupResetFiltersButton(map, markers, events) {
+export function setupResetFiltersButton(map, markers) {
   const resetFiltersButton = document.querySelector('.reset-filters-button');
   if (resetFiltersButton) {
     resetFiltersButton.addEventListener('click', async () => {
-      events = await fetchAllEvents(); // Réinitialiser les événements par défaut
+      let events = await fetchAllEvents(); // Réinitialiser les événements par défaut
       markers = clearMarkers(markers);
       markers = events.map(event => createMarker(event, map, markers));
       window.markers = markers;
+      window.events = events; // Mise à jour des événements globaux
     });
   }
 }
