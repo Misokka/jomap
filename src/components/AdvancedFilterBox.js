@@ -1,36 +1,36 @@
 import { performAdvancedSearch } from '../utils/searchUtils.js';
 
-const sportsOptions = ['Basket', 'Foot', 'Tir', 'Natation', 'Athletisme']; // Liste fixe de sports
+const advancedSportsOptions = ['Basket', 'Foot', 'Tir', 'Natation', 'Athletisme']; // Liste fixe de sports
 
-const FilterBox = {
+const AdvancedFilterBox = {
   type: 'div',
   props: {
-    class: 'filter-box',
+    class: 'advanced-filter-box',
   },
   children: [
     {
       type: 'div',
       props: {
-        class: 'filter-box-header',
+        class: 'advanced-filter-box-header',
       },
       children: [
         {
           type: 'h2',
           props: {
-            class: 'filter-box-title',
+            class: 'advanced-filter-box-title',
           },
           children: [
             {
               type: 'TEXT_NODE',
-              content: 'Filtres',
+              content: 'Filtres avancés',
             },
           ],
         },
         {
           type: 'button',
           props: {
-            class: 'filter-box-close-button',
-            onclick: 'hideFilterBox()',
+            class: 'advanced-filter-box-close-button',
+            onclick: 'hideAdvancedFilterBox()',
           },
           children: [
             {
@@ -44,7 +44,7 @@ const FilterBox = {
     {
       type: 'div',
       props: {
-        class: 'filter-box-content',
+        class: 'advanced-filter-box-content',
       },
       children: [
         {
@@ -70,7 +70,7 @@ const FilterBox = {
               props: {
                 type: 'date',
                 class: 'date-filter',
-                id: 'date-from',
+                id: 'advanced-date-from',
               },
             },
           ],
@@ -98,7 +98,7 @@ const FilterBox = {
               props: {
                 type: 'date',
                 class: 'date-filter',
-                id: 'date-to',
+                id: 'advanced-date-to',
               },
             },
           ],
@@ -124,10 +124,10 @@ const FilterBox = {
             {
               type: 'div',
               props: {
-                id: 'sports-checkboxes',
+                id: 'advanced-sports-checkboxes',
                 class: 'filter-options',
               },
-              children: sportsOptions.map(sport => ({
+              children: advancedSportsOptions.map(sport => ({
                 type: 'label',
                 children: [
                   {
@@ -135,7 +135,7 @@ const FilterBox = {
                     props: {
                       type: 'checkbox',
                       value: sport,
-                      onchange: 'updateSelectedSports()',
+                      onchange: 'updateAdvancedSelectedSports()',
                     },
                   },
                   {
@@ -151,7 +151,7 @@ const FilterBox = {
           type: 'button',
           props: {
             class: 'apply-filters-button',
-            onclick: 'applyFilters()',
+            onclick: 'applyAdvancedFilters()',
           },
           children: [
             {
@@ -165,8 +165,8 @@ const FilterBox = {
   ],
 };
 
-function getSelectedSports() {
-  const checkboxes = document.querySelectorAll('#sports-checkboxes input[type="checkbox"]');
+function getAdvancedSelectedSports() {
+  const checkboxes = document.querySelectorAll('#advanced-sports-checkboxes input[type="checkbox"]');
   const selectedSports = [];
   checkboxes.forEach(checkbox => {
     if (checkbox.checked) {
@@ -176,21 +176,21 @@ function getSelectedSports() {
   return selectedSports;
 }
 
-function resetQuickFilters() {
-  document.querySelectorAll('.filter-button.filter').forEach(button => button.classList.remove('active'));
-}
+window.applyAdvancedFilters = function () {
+  const fromDate = document.getElementById('advanced-date-from').value;
+  const toDate = document.getElementById('advanced-date-to').value;
+  const selectedSports = getAdvancedSelectedSports();
+  console.log('Filtres avancés appliqués:', { fromDate, toDate, selectedSports });
 
-window.applyFilters = function () {
-  const fromDate = document.getElementById('date-from').value;
-  const toDate = document.getElementById('date-to').value;
-  const selectedSports = getSelectedSports();
-  console.log('Filters applied:', { fromDate, toDate, selectedSports });
-
-  // Réinitialiser les filtres rapides
-  resetQuickFilters();
-
-  // Appliquer la recherche avancée
   performAdvancedSearch(window.events, window.map, window.markers, { fromDate, toDate, selectedSports });
 };
 
-export default FilterBox;
+window.showAdvancedFilterBox = function () {
+  document.querySelector('.advanced-filter-box').style.display = 'block';
+};
+
+window.hideAdvancedFilterBox = function () {
+  document.querySelector('.advanced-filter-box').style.display = 'none';
+};
+
+export default AdvancedFilterBox;

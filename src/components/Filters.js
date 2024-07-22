@@ -1,6 +1,5 @@
-import { fetchEvents } from '../utils/fetchEvents.js'; // Importer la fonction fetchEvents
+import { fetchEvents } from '../utils/fetchEvents.js'; 
 import { clearMarkers, createMarker } from '../utils/mapConfig.js';
-import { setupResetFiltersButton } from '../utils/eventHandlers.js';
 
 const Filters = {
   type: 'div',
@@ -11,7 +10,7 @@ const Filters = {
     {
       type: 'button',
       props: {
-        class: 'filter-button',
+        class: 'filter-button filter', 
         onclick: () => applyFilter('Sites de compétition'),
       },
       children: [
@@ -24,7 +23,7 @@ const Filters = {
     {
       type: 'button',
       props: {
-        class: 'filter-button',
+        class: 'filter-button filter', 
         onclick: () => applyFilter('Événements culturels'),
       },
       children: [
@@ -37,25 +36,13 @@ const Filters = {
     {
       type: 'button',
       props: {
-        class: 'filter-button',
+        class: 'filter-button filter', 
         onclick: () => applyFilter('Lieux iconiques'),
       },
       children: [
         {
           type: 'TEXT_NODE',
           content: 'Lieux iconiques',
-        },
-      ],
-    },
-    {
-      type: 'button',
-      props: {
-        class: 'filter-button reset-filters-button', // Ajout de filter-button ici
-      },
-      children: [
-        {
-          type: 'TEXT_NODE',
-          content: 'Réinitialiser les filtres',
         },
       ],
     },
@@ -71,10 +58,6 @@ async function applyFilter(filterType) {
   markers = filteredEvents.map(event => createMarker(event, map, markers));
   window.markers = markers; 
   window.events = filteredEvents; // Mise à jour des événements globaux
-}
-
-function resetFilters() {
-  window.location.reload(); 
 }
 
 export default Filters;
