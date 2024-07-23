@@ -13,7 +13,7 @@
   }
   
   .logo-container {
-    @include flexbox(row, nowrap, center, center);
+    @include flexbox(row, nowrap, normal, center);
     flex: 1; 
   }
   
