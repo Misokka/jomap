@@ -1,5 +1,6 @@
 import { BrowserLink } from "../components/BrowserRouter.js";
 import Header from "../components/Header.js";
+import svg from "../../svg/xl_right_icon.svg"
 
 export default {
     type: "div",
@@ -7,7 +8,9 @@ export default {
         Header,
         {
             type: "main",
-            props: {},
+            props: {
+                class: "relative"
+            },
             children: [
                 {
                     type: "img",
@@ -18,21 +21,54 @@ export default {
                     },
                 },
                 {
-                    type: "div",
+                    type: 'div',
+                    props: {
+                        class: "home-title"
+                    },
                     children: [
-                        BrowserLink({
-                            title: 'Carte',
-                            to: '/map',
-                          }),
-                          {
-                            type: "img",
+                        {
+                            type: 'h3',
+                            children: [
+                                {
+                                    type: 'TEXT_NODE',
+                                    content: "Découvrez les meilleurs lieux",
+                                },
+                                {
+                                    type: 'br',
+                                },
+                                {
+                                    type: 'TEXT_NODE',
+                                    content: "des jeux olympiques 2024",
+                                },
+                                {
+                                    type: 'br',
+                                },
+                                {
+                                    type: 'TEXT_NODE',
+                                    content: "paris",
+                                }
+                            ],
+                        },
+                        {
+                            type: "div",
                             props: {
-                                src: "./svg/xl_right_icon.svg",
-                                alt: "icon"
-                            }
-                          }
+                                class: "btn-map"
+                            },
+                            children: [
+                                BrowserLink({
+                                    title: 'CARTE',
+                                    to: '/map',
+                                  }),
+                                  {
+                                    type: 'i',
+                                    props: {
+                                      class: "fa-solid fa-angle-right",
+                                    },
+                                  },
+                            ]
+                        } 
                     ]
-                }
+                },
             ],
         },
     ],

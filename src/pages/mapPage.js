@@ -56,8 +56,7 @@ async function initMap() {
 
 document.addEventListener('DOMContentLoaded', initMap);
 
-document.body.appendChild(createElement(AdvancedSearch));
-
+// Exposition des fonctions pour montrer/cacher les boîtes de recherche et de filtre
 window.showAdvancedSearch = showAdvancedSearch;
 window.hideAdvancedSearch = hideAdvancedSearch;
 window.showFilterBox = showFilterBox;
