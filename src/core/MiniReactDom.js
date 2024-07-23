@@ -5,58 +5,73 @@ const MiniReactDom = {
     BrowserRouter.bind(this)(routes, rootElement);
   },
   renderStructure: function generateDom(structure) {
-    let element;
-
     if (!structure) {
       return document.createElement('div'); // Return an empty div to avoid errors
     }
 
+    let element = this.createElement(structure);
+
+    if (structure.props) {
+      this.applyProps(element, structure.props);
+    }
+
+    if (structure.events) {
+      this.applyEvents(element, structure.events);
+    }
+
+    if (structure.children) {
+      this.appendChildren(element, structure.children);
+    }
+
+    return element;
+  },
+
+  createElement: function (structure) {
     if (typeof structure.type === "string") {
       if (structure.type === "TEXT_NODE") {
         return document.createTextNode(structure.content);
       }
-      element = document.createElement(structure.type);
+      return document.createElement(structure.type);
     } else if (typeof structure.type === "function") {
       // Handle custom components
       const componentInstance = new structure.type(structure.props);
       const componentRenderedStructure = componentInstance.render();
-      element = this.renderStructure(componentRenderedStructure);
+      return this.renderStructure(componentRenderedStructure);
     }
+    return document.createElement('div'); // Default fallback
+  },
 
-    if (!element) {
-      element = document.createElement('div');
-    }
-
-    if (structure.props) {
-      for (const propName in structure.props) {
-        if (propName === "style") {
-          Object.assign(element.style, structure.props[propName]);
-        } else if (propName.startsWith("data-")) {
-          element.dataset[propName.replace("data-", "")] = structure.props[propName];
-        } else {
-          element.setAttribute(propName, structure.props[propName]);
-        }
+  applyProps: function (element, props) {
+    for (const propName in props) {
+      if (propName === "style") {
+        Object.assign(element.style, props[propName]);
+      } else if (propName.startsWith("data-")) {
+        element.dataset[propName.replace("data-", "")] = props[propName];
+      } else {
+        element.setAttribute(propName, props[propName]);
       }
     }
-    if (structure.events) {
-      for (const eventName in structure.events) {
-        for (const eventListeners of structure.events[eventName]) {
-          element.addEventListener(eventName, eventListeners);
-        }
-      }
-    }
-    if (structure.children) {
-      for (const child of structure.children) {
-        const childNode = this.renderStructure(child);
-        if (childNode) {
-          element.appendChild(childNode);
-        } else {
-          console.error("Child node is null or undefined:", child);
-        }
-      }
-    }
+  },
 
-    return element;
+  applyEvents: function (element, events) {
+    for (const eventName in events) {
+      for (const eventListener of events[eventName]) {
+        element.addEventListener(eventName, eventListener);
+      }
+    }
+  },
+
+  appendChildren: function (element, children) {
+    const fragment = document.createDocumentFragment();
+    for (const child of children) {
+      const childNode = this.renderStructure(child);
+      if (childNode) {
+        fragment.appendChild(childNode);
+      } else {
+        console.error("Child node is null or undefined:", child);
+      }
+    }
+    element.appendChild(fragment);
   },
 };
 
