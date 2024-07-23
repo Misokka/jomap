@@ -1,5 +1,4 @@
 import mapboxgl from 'mapbox-gl';
-import { BrowserLink } from "../components/BrowserRouter.js";
 import "../css/main.scss";
 import Filters from "../components/Filters.js";
 import AdvancedSearch from "../components/AdvancedSearch.js";
@@ -33,7 +32,6 @@ async function initMap() {
     return;
   }
 
-  // Initialisation de la carte centré sur Paris
   map = initializeMap([2.3522, 48.8566], 12);
   window.map = map;
 
@@ -64,16 +62,14 @@ async function initMap() {
   setupFilterButtons(map, markers);
   window.selectedSports = [];
   window.events = events;
+
+  window.showAdvancedSearch = showAdvancedSearch;
+  window.hideAdvancedSearch = hideAdvancedSearch;
+  window.showFilterBox = showFilterBox;
+  window.hideFilterBox = hideFilterBox;
 }
 
-// Initialisation de la carte au chargement du document
-document.addEventListener('DOMContentLoaded', initMap);
-
-// Exposition des fonctions pour montrer/cacher les boîtes de recherche et de filtre
-window.showAdvancedSearch = showAdvancedSearch;
-window.hideAdvancedSearch = hideAdvancedSearch;
-window.showFilterBox = showFilterBox;
-window.hideFilterBox = hideFilterBox;
+export { initMap };
 
 export default {
   type: 'div',
