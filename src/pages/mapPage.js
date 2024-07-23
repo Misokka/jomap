@@ -69,9 +69,6 @@ async function initMap() {
 // Initialisation de la carte au chargement du document
 document.addEventListener('DOMContentLoaded', initMap);
 
-// Ajout de la recherche avancée au DOM
-document.body.appendChild(createElement(AdvancedSearch));
-
 // Exposition des fonctions pour montrer/cacher les boîtes de recherche et de filtre
 window.showAdvancedSearch = showAdvancedSearch;
 window.hideAdvancedSearch = hideAdvancedSearch;
