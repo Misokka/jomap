@@ -1,3 +1,8 @@
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+
 @font-face {
   font-family: "Olympic Headline";
   src: url("../fonts/Olympic-Headline.woff2") format("woff2"), url("../fonts/Olympic-Headline.woff") format("woff");
@@ -337,8 +342,14 @@ a {
   border: none;
 }
 .advanced-search .search-results.show {
+
   display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 16 \2502  @import \"components/home\";\a    \2502          ^^^^^^^^^^^^^^^^^\a    \2575 \a   src/css/main.scss 16:9  root stylesheet";
 }
+  
 .advanced-search .search-results:empty {
   display: none;
 }
@@ -670,3 +681,4 @@ a {
 }
 
 /*# sourceMappingURL=main.css.map */
+

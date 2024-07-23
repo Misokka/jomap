@@ -1,5 +1,4 @@
 import mapboxgl from 'mapbox-gl';
-import { BrowserLink } from "../components/BrowserRouter.js";
 import "../css/main.scss";
 import Filters from "../components/Filters.js";
 import AdvancedSearch from "../components/AdvancedSearch.js";
@@ -29,7 +28,6 @@ async function initMap() {
 
     map = initializeMap([2.3522, 48.8566], 12);
     window.map = map;
-
     map.on('load', () => {
         markers = events.map(event => createMarker(event, map, markers));
         window.markers = markers;
@@ -49,18 +47,17 @@ async function initMap() {
         handleSearchInput(advancedSearchBarInput, advancedSearchResultsContainer, events, map, markers);
     }
 
-    setupFilterButtons(map, markers);
-    window.selectedSports = [];
-    window.events = events;
+  // Configuration des boutons de filtre
+  setupFilterButtons(map, markers);
+  window.selectedSports = [];
+  window.events = events;
+
+  window.showAdvancedSearch = showAdvancedSearch;
+  window.hideAdvancedSearch = hideAdvancedSearch;
+  window.showFilterBox = showFilterBox;
+  window.hideFilterBox = hideFilterBox;
 }
-
-document.addEventListener('DOMContentLoaded', initMap);
-
-// Exposition des fonctions pour montrer/cacher les boîtes de recherche et de filtre
-window.showAdvancedSearch = showAdvancedSearch;
-window.hideAdvancedSearch = hideAdvancedSearch;
-window.showFilterBox = showFilterBox;
-window.hideFilterBox = hideFilterBox;
+export { initMap };
 
 export default {
     type: 'div',
@@ -165,5 +162,9 @@ export default {
                 },
             ],
         },
+      ],
+    },
+  ],
+};
     ],
 };
