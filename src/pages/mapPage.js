@@ -10,6 +10,7 @@ import { handleSearchInput, setupFilterButtons } from "../utils/eventHandlers.js
 import { showAdvancedSearch, hideAdvancedSearch, showFilterBox, hideFilterBox } from "../utils/uiHelpers.js";
 import { createElement } from "../utils/createElement.js";
 import { showAllEvents } from '../utils/searchUtils.js';
+import Header from '../components/Header.js';
 
 // Clé d'accès pour Mapbox
 mapboxgl.accessToken = 'pk.eyJ1IjoibWlzb2thIiwiYSI6ImNseGhnczJweDE3bzMycnF0NHRqM3F0ZmoifQ.HHqpWObbvpH65lb6Ma14mQ';
@@ -80,45 +81,7 @@ window.hideFilterBox = hideFilterBox;
 export default {
   type: 'div',
   children: [
-    {
-      type: 'div',
-      props: {
-        id: 'navbar',
-        class: 'navbar',
-      },
-      children: [
-        {
-          type: 'h1',
-          children: [
-            {
-              type: 'TEXT_NODE',
-              content: 'PARIS 2024 - JEUX OLYMPIQUES',
-            },
-          ],
-        },
-        {
-          type: 'div',
-          props: {
-            class: 'logo-container',
-          },
-          children: [
-            {
-              type: 'img',
-              props: {
-                src: '/images/logojo.png',
-                class: 'logo',
-              },
-            },
-          ],
-        },
-        {
-          type: 'div',
-          props: {
-            class: 'spacer',
-          },
-        },
-      ],
-    },
+    Header,
     {
       type: 'div',
       props: {
