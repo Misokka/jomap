@@ -1,5 +1,9 @@
+import mapboxgl from 'mapbox-gl';
 import { performAdvancedSearch } from '../utils/searchUtils.js';
 import AdvancedFilterBox from './AdvancedFilterBox.js';
+import EventCard from './EventCard.js';
+import { createElement } from '../utils/createElement.js';
+import EventItem from './EventItem.js';
 
 const AdvancedSearch = {
   type: 'div',
@@ -90,11 +94,27 @@ function getAdvancedSelectedSports() {
 window.updateSearchResults = function () {
   const query = document.querySelector('.advanced-search .searchbar').value.toLowerCase();
   const selectedSports = getAdvancedSelectedSports();
-  console.log('Recherche avancée mise à jour:', { query, selectedSports });
 
   performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports });
 };
 
 window.updateAdvancedSelectedSports = getAdvancedSelectedSports;
+
+window.onEventItemClick = function (event) {
+  const map = window.map;
+  if (map) {
+    map.flyTo({ center: event.coordinates, zoom: 15 });
+  }
+  const advancedSearchElement = document.querySelector('.advanced-search');
+  if (advancedSearchElement) {
+    advancedSearchElement.style.display = 'none';
+  }
+
+  const popupContent = createElement(EventCard(event));
+  new mapboxgl.Popup({ className: 'custom-popup' })
+      .setLngLat(event.coordinates)
+      .setDOMContent(popupContent)
+      .addTo(map);
+};
 
 export default AdvancedSearch;

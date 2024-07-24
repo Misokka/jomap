@@ -4,6 +4,7 @@ const EventItem = (event) => {
 
   const eventItem = document.createElement('div');
   eventItem.className = 'event-item';
+  eventItem.onclick = () => window.onEventItemClick(event);
 
   const eventDate = document.createElement('div');
   eventDate.className = 'event-date';
@@ -28,15 +29,13 @@ const EventItem = (event) => {
 
   const eventDescription = document.createElement('div');
   eventDescription.className = 'event-description';
-  eventDescription.textContent = event.description;
+  eventDescription.textContent = event.type === 'Sites de compétition' ? event.description : event.name;
 
   const eventLocation = document.createElement('div');
   eventLocation.className = 'event-location';
 
-  const locationIcon = document.createElement('img');
-  locationIcon.className = 'location-icon';
-  locationIcon.src = '/path/to/location/icon.png';
-  locationIcon.alt = 'localisation';
+  const locationIcon = document.createElement('i');
+  locationIcon.className = 'fas fa-map-marker-alt location-icon';
 
   const locationText = document.createElement('div');
   locationText.className = 'location-text';

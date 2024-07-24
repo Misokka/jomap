@@ -1,3 +1,4 @@
+// mapPage.js
 import mapboxgl from 'mapbox-gl';
 import { BrowserLink } from "../components/BrowserRouter.js";
 import "../css/main.scss";
@@ -5,6 +6,7 @@ import Filters from "../components/Filters.js";
 import AdvancedSearch from "../components/AdvancedSearch.js";
 import FilterBox from "../components/FilterBox.js";
 import EventCard from "../components/EventCard.js";
+import EventDetail from "../components/EventDetail.js";
 import { fetchAllEvents } from "../utils/fetchEvents.js";
 import { initializeMap, createMarker, clearMarkers, loadIconicPlaces } from "../utils/mapConfig.js";
 import { handleSearchInput, setupFilterButtons } from "../utils/eventHandlers.js";
@@ -171,6 +173,7 @@ export default {
                         AdvancedSearch,
                     ],
                 },
+                
             ],
         },
     ],
