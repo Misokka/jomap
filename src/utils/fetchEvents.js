@@ -90,7 +90,7 @@ export async function fetchAllEvents() {
         }
 
         return {
-          name: record.nom_site || record.name || 'Unnamed Event',
+          name: record.name || record.nom_site || 'Unnamed Event',
           sport: record.sports || record.discipline_principale_du_projet_c || 'Unknown Sport',
           description: record.presentation_synthetique_du_projet_c || `${record.sports} (${record.start_date} to ${record.end_date})` || 'No description available',
           coordinates: [longitude, latitude],

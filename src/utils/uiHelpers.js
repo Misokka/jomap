@@ -1,4 +1,6 @@
 import { showAllEvents } from './searchUtils.js';
+import { createElement } from './createElement.js';
+import EventDetails from '../components/EventDetail.js';
 
 // Fonction pour afficher la boîte de filtres
 export function showFilterBox() {
@@ -42,5 +44,24 @@ export function hideAdvancedSearch() {
   const filtersElement = document.querySelector('.filters');
   if (filtersElement) {
     filtersElement.style.display = 'block';
+  }
+}
+
+// Fonction pour afficher les détails de l'événement
+export function showEventDetails(event) {
+  const eventDetailsContainer = document.querySelector('.event-details-container');
+  if (eventDetailsContainer) {
+    eventDetailsContainer.innerHTML = '';
+    const eventDetailsElement = createElement(EventDetails(event));
+    eventDetailsContainer.appendChild(eventDetailsElement);
+    eventDetailsContainer.style.display = 'block';
+  }
+}
+
+// Fonction pour masquer les détails de l'événement
+export function hideEventDetails() {
+  const eventDetailsContainer = document.querySelector('.event-details-container');
+  if (eventDetailsContainer) {
+    eventDetailsContainer.style.display = 'none';
   }
 }

@@ -10,6 +10,7 @@ export async function handleSearchInput(inputElement, resultsContainer, events, 
   inputElement.addEventListener('input', () => {
     const query = inputElement.value.toLowerCase();
     const filteredEvents = events.filter(event =>
+      (typeof event.nom_site === 'string' && event.nom_site.toLowerCase().includes(query)) ||
       (typeof event.sport === 'string' && event.sport.toLowerCase().includes(query)) ||
       (typeof event.name === 'string' && event.name.toLowerCase().includes(query)) ||
       (typeof event.description === 'string' && event.description.toLowerCase().includes(query))
@@ -24,12 +25,12 @@ export async function handleSearchInput(inputElement, resultsContainer, events, 
       map.fitBounds(bounds, { padding: 50 });
     }
 
-    resultsContainer.innerHTML = ''; // Vider les résultats précédents
+    resultsContainer.innerHTML = '';
 
     filteredEvents.forEach(event => {
       const eventElement = EventItem(event);
       eventElement.addEventListener('click', () => {
-        map.flyTo({ center: event.coordinates, zoom: 15 });
+        window.showEventDetail(event);
       });
       resultsContainer.appendChild(eventElement);
     });

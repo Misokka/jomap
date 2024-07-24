@@ -8,7 +8,7 @@
 
   .event-date {
     @include flexbox(column, nowrap, center, center);
-    background: var(--secondary-color, #FFB114);
+    background: $jaune-jo;
     border-radius: rem(8);
     padding: rem(10);
     color: var(--text-color, #000);

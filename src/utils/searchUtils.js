@@ -1,14 +1,13 @@
 import EventItem from '../components/EventItem.js';
+import EventDetails from '../components/EventDetail.js'; // Correct import
 import { clearMarkers, createMarker } from './mapConfig.js';
 import mapboxgl from 'mapbox-gl';
+import { hideAdvancedSearch, showEventDetails } from './uiHelpers.js'; // Correct import
 
 // Fonction pour effectuer une recherche avancée
 export function performAdvancedSearch(events, map, markers, filters) {
   const { query, fromDate, toDate, selectedSports } = filters;
 
-  console.log('Application des filtres:', { query, fromDate, toDate, selectedSports });
-
-  // Filtrage des événements en fonction des filtres de date et de sport
   const filteredEvents = events.filter(event => {
     const eventDate = new Date(event.start_date);
     const isDateInRange = (!fromDate || eventDate >= new Date(fromDate)) && (!toDate || eventDate <= new Date(toDate));
@@ -26,23 +25,22 @@ export function performAdvancedSearch(events, map, markers, filters) {
     return isDateInRange && isSportSelected && isQueryMatch;
   });
 
-  // Suppression des marqueurs existants
   markers = clearMarkers(markers);
   window.markers = filteredEvents.map(event => createMarker(event, map, markers));
 
-  // Ajustement de la carte pour afficher tous les événements filtrés
   if (filteredEvents.length > 0) {
     const bounds = new mapboxgl.LngLatBounds();
     filteredEvents.forEach(event => bounds.extend(event.coordinates));
     map.fitBounds(bounds, { padding: 50 });
   }
 
-  // Mise à jour des résultats de la recherche avancée
   const advancedSearchResultsContainer = document.querySelector('.advanced-search .search-results');
-  advancedSearchResultsContainer.innerHTML = ''; // Vider les résultats précédents
+  advancedSearchResultsContainer.innerHTML = '';
   filteredEvents.forEach(event => {
-    const eventElement = EventItem(event); // Utilisation de la méthode manuelle
+    const eventElement = EventItem(event);
     eventElement.addEventListener('click', () => {
+      hideAdvancedSearch();
+      showEventDetails(event);
       map.flyTo({ center: event.coordinates, zoom: 15 });
     });
     advancedSearchResultsContainer.appendChild(eventElement);
