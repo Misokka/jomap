@@ -1,4 +1,4 @@
-.event-detail-container {
+.spot-detail-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -7,12 +7,12 @@
     z-index: 1000;
     display: none;
 }
-
-.event-detail-container.show {
+  
+.spot-detail-container.show {
     display: block;
 }
-
-.event-detail {
+  
+.spot-detail {
     width: rem(400);
     height: rem(600);
     flex-shrink: 0;
@@ -25,28 +25,27 @@
     padding: rem(20);
     z-index: $z-index-modal;
     display: none;
-    overflow-y: auto;
 
     &.show {
         display: block;
     }
 
-    .event-detail-close-button {
+    .spot-detail-close-button {
         position: absolute;
-        top: rem(3);
-        right: rem(3);
+        top: rem(10);
+        right: rem(10);
         background: none;
         border: none;
         font-size: rem(24);
         cursor: pointer;
     }
 
-    .event-detail-image {
+    .spot-detail-image {
         width: 100%;
         border-radius: rem(16);
     }
 
-    .event-detail-title {
+    .spot-detail-title {
         font-family: $font-sans-bold;
         font-size: rem(16); 
         font-weight: bold; 
@@ -55,27 +54,21 @@
         text-transform: none;
     }
 
-    .event-detail-location,
-    .event-detail-description,
-    .event-detail-date {
+    .spot-detail-label,
+    .spot-detail-sport {
         display: flex;
         align-items: center;
         margin-top: rem(10);
-        font-family: $font-sans-medium;
+        font-family: $font-sans-bold;
         font-size: rem(16); 
-        font-weight: medium; 
+        font-weight: bold; 
         margin-bottom: rem(8);
         color: #000;
         text-transform: none;
     }
 
-    .event-detail-description {
-        overflow-y: auto;
-    }
-
-    .event-detail-location i,
-    .event-detail-description i,
-    .event-detail-date i {
+    .spot-detail-label i,
+    .spot-detail-sport i {
         margin-right: rem(8);
     }
 }

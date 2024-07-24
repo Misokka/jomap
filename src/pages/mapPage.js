@@ -8,7 +8,7 @@ import FilterBox from "../components/FilterBox.js";
 import EventCard from "../components/EventCard.js";
 import EventDetail from "../components/EventDetail.js";
 import { fetchAllEvents } from "../utils/fetchEvents.js";
-import { initializeMap, createMarker, clearMarkers, loadIconicPlaces } from "../utils/mapConfig.js";
+import { initializeMap, createMarker, clearMarkers, loadIconicPlaces, loadSpotsForEvent } from "../utils/mapConfig.js";
 import { handleSearchInput, setupFilterButtons } from "../utils/eventHandlers.js";
 import { showAdvancedSearch, hideAdvancedSearch, showFilterBox, hideFilterBox } from "../utils/uiHelpers.js";
 import { createElement } from "../utils/createElement.js";
@@ -55,19 +55,20 @@ async function initMap() {
     window.selectedSports = [];
     window.events = events;
 
+    async function onMarkerClick(event) {
+        const popupContent = EventCard(event).outerHTML;
+        new mapboxgl.Popup({ className: 'custom-popup' })
+            .setLngLat(event.coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
+        
+        await loadSpotsForEvent(event, map);
+    }
 
-  function onMarkerClick(event) {
-      const popupContent = EventCard(event).outerHTML;
-      new mapboxgl.Popup({ className: 'custom-popup' })
-          .setLngLat(event.coordinates)
-          .setHTML(popupContent)
-          .addTo(map);
-  }
-
-  window.showAdvancedSearch = showAdvancedSearch;
-  window.hideAdvancedSearch = hideAdvancedSearch;
-  window.showFilterBox = showFilterBox;
-  window.hideFilterBox = hideFilterBox;
+    window.showAdvancedSearch = showAdvancedSearch;
+    window.hideAdvancedSearch = hideAdvancedSearch;
+    window.showFilterBox = showFilterBox;
+    window.hideFilterBox = hideFilterBox;
 }
 
 export { initMap };

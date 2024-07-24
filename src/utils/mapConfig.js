@@ -1,8 +1,8 @@
 import mapboxgl from 'mapbox-gl';
-import EventCard from '../components/EventCard.js'; 
+import EventCard from '../components/EventCard.js';
+import SpotCard from '../components/SpotCard.js';
 
-// Clé d'accès Mapbox
-mapboxgl.accessToken = 'pk.eyJ1IjoibWlzb2thIiwiYSI6ImNseGhnczJweDE3bzMycnF0NHRqM3F0ZmoifQ.HHqpWObbvpH65lb6Ma14mQ';
+let spotsMarkers = [];
 
 // Fonction pour initialiser la carte Mapbox
 export const initializeMap = (center, zoom) => {
@@ -32,6 +32,13 @@ export function createMarker(event, mapInstance, markers, onMarkerClick) {
       .setPopup(new mapboxgl.Popup({ className: 'custom-popup' })
         .setDOMContent(EventCard(event)))
       .addTo(mapInstance);
+    
+    // Ajouter l'événement de clic
+    marker.getElement().addEventListener('click', () => {
+      if (onMarkerClick) onMarkerClick(event);
+      loadSpotsForEvent(event, mapInstance);
+    });
+
     markers.push(marker);
     return marker;
   } else {
@@ -91,6 +98,42 @@ export async function loadIconicPlaces(mapInstance) {
   } catch (error) {
     console.error('Failed to load iconic places:', error);
     return [];
+  }
+}
+
+// Fonction pour charger et afficher les meilleurs spots pour un événement
+export async function loadSpotsForEvent(event, mapInstance) {
+  try {
+    const response = await fetch('../spot.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const spots = await response.json();
+    const eventSport = event.sport;
+
+    // Effacer les anciens marqueurs de spots
+    spotsMarkers.forEach(marker => marker.remove());
+    spotsMarkers = [];
+
+    // Afficher les spots correspondant au sport de l'événement
+    spots.forEach(spot => {
+      if (spot.sport.includes(eventSport)) {
+        const el = document.createElement('div');
+        el.className = 'spot-marker';
+        el.innerHTML = '<i class="fas fa-binoculars"></i>'; // Icône de jumelles
+
+        const popupContent = SpotCard(spot);
+        const marker = new mapboxgl.Marker(el)
+          .setLngLat([spot.longitude, spot.latitude])
+          .setPopup(new mapboxgl.Popup({ className: 'custom-popup' })
+            .setDOMContent(popupContent))
+          .addTo(mapInstance);
+
+        spotsMarkers.push(marker);
+      }
+    });
+  } catch (error) {
+    console.error('Failed to load best spots:', error);
   }
 }
 
