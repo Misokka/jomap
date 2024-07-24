@@ -13,11 +13,21 @@ const EventDetail = (event) => {
             detail.parentElement.removeChild(detail);
         }
         currentEventDetailElement = null;
+
+        const eventCard = document.querySelector(`.event-card[data-event-id="${event.id}"]`);
+        if (eventCard) {
+            eventCard.style.display = 'block';
+        }
+
+        if (currentPopup) {
+            currentPopup.remove();
+            currentPopup = null;
+        }
     };
 
     const eventImage = document.createElement('img');
     eventImage.className = 'event-detail-image';
-    eventImage.src = event.image || 'image.jpg'; 
+    eventImage.src = event.image || '../images/marathon.png'; 
 
     const eventTitle = document.createElement('h2');
     eventTitle.className = 'event-detail-title';
