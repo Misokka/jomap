@@ -1,0 +1,29 @@
+.iconic-marker {
+    position: absolute; // Fixe la position par rapport à la carte
+    cursor: pointer;
+    width: rem(40); 
+    height: rem(40);
+    background-size: cover;
+    border-radius: 50%;
+    // @include flexbox(center, center); // Centrer l'image dans le marqueur
+    transform: translate(-50%, -50%); // Centre le marqueur exactement à la position des coordonnées
+  
+    &::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: rem(45);
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: rem(5);
+      border-radius: rem(3);
+      box-shadow: 0 rem(1) rem(2) rgba(0, 0, 0, 0.1);
+      display: none;
+      white-space: nowrap; // Empêche le passage à la ligne
+    }
+  
+    &:hover::after {
+      display: block;
+    }
+  }
+  

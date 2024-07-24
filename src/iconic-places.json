@@ -1,0 +1,83 @@
+[
+    {
+      "name": "Stade de France (Saint-Denis)",
+      "coordinates": [2.3601, 48.9245],
+      "image": "images/iconic_places/stadedefrance.jpg"
+    },
+    {
+      "name": "Tour Eiffel / Champ de Mars",
+      "coordinates": [2.2945, 48.8584],
+      "image": "images/iconic_places/toureiffel.jpg"
+    },
+    {
+      "name": "Place de la Concorde",
+      "coordinates": [2.3212, 48.8656],
+      "image": "images/iconic_places/placedelaconcorde.jpg"
+    },
+    {
+      "name": "Hôtel de Ville",
+      "coordinates": [2.3510, 48.8566],
+      "image": "images/iconic_places/hoteldeville.jpg"
+    },
+    {
+      "name": "Grand Palais",
+      "coordinates": [2.3125, 48.8662],
+      "image": "images/iconic_places/grandpalais.jpg"
+    },
+    {
+      "name": "Invalides",
+      "coordinates": [2.3122, 48.8575],
+      "image": "images/iconic_places/invalides.jpg"
+    },
+    {
+      "name": "Château de Versailles",
+      "coordinates": [2.1204, 48.8049],
+      "image": "images/iconic_places/chateaudeversailles.jpg"
+    },
+    {
+      "name": "Arena La Défense",
+      "coordinates": [2.2428, 48.8925],
+      "image": "images/iconic_places/parisladefensearena.jpg"
+    },
+    {
+      "name": "Arena Bercy",
+      "coordinates": [2.3809, 48.8380],
+      "image": "images/iconic_places/bercyarena.jpg"
+    },
+    {
+      "name": "Stade Roland-Garros",
+      "coordinates": [2.2530, 48.8470],
+      "image": "images/iconic_places/rolandgarros.jpg"
+    },
+    {
+      "name": "Golf National",
+      "coordinates": [2.0765, 48.7629],
+      "image": "images/iconic_places/golfnational.jpg"
+    },
+    {
+      "name": "Vélodrome National de Saint-Quentin-en-Yvelines",
+      "coordinates": [1.9644, 48.7829],
+      "image": "images/iconic_places/velodromeyvelines.jpg"
+    },
+    {
+      "name": "Stade Yves-du-Manoir",
+      "coordinates": [2.2499, 48.9369],
+      "image": "images/iconic_places/stadeyvesdumanoir.png"
+    },
+    {
+      "name": "Marina de Marseille",
+      "coordinates": [5.3764, 43.2965],
+      "image": "images/iconic_places/marinademarseille.jpg"
+    },
+    {
+      "name": "Pont Alexandre III",
+      "coordinates": [2.3131, 48.8636],
+      "image": "images/iconic_places/pontalexandre.jpg"
+    },
+    {
+      "name": "Seine",
+      "coordinates": [2.3449, 48.8566],
+      "image": "images/iconic_places/seine.jpg"
+    }
+]
+  

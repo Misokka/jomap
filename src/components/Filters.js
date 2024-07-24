@@ -1,5 +1,8 @@
 import { fetchEvents } from '../utils/fetchEvents.js'; 
-import { clearMarkers, createMarker } from '../utils/mapConfig.js';
+import { clearMarkers, createMarker, loadIconicPlaces, clearIconicPlaces } from '../utils/mapConfig.js';
+
+let activeFilters = [];
+let iconicMarkers = []; // Variable pour stocker les marqueurs des lieux iconiques
 
 const Filters = {
   type: 'div',
@@ -11,7 +14,7 @@ const Filters = {
       type: 'button',
       props: {
         class: 'filter-button filter', 
-        onclick: () => applyFilter('Sites de compétition'),
+        onclick: () => toggleFilter('Sites de compétition'),
       },
       children: [
         {
@@ -24,7 +27,7 @@ const Filters = {
       type: 'button',
       props: {
         class: 'filter-button filter', 
-        onclick: () => applyFilter('Événements culturels'),
+        onclick: () => toggleFilter('Événements culturels'),
       },
       children: [
         {
@@ -37,7 +40,7 @@ const Filters = {
       type: 'button',
       props: {
         class: 'filter-button filter', 
-        onclick: () => applyFilter('Lieux iconiques'),
+        onclick: () => toggleFilter('Lieux iconiques'),
       },
       children: [
         {
@@ -49,15 +52,53 @@ const Filters = {
   ],
 };
 
-async function applyFilter(filterType) {
+async function toggleFilter(filterType) {
   const map = window.map; 
   let markers = window.markers; 
 
-  const filteredEvents = await fetchEvents(filterType); 
+  // Sélectionner tous les boutons de filtre
+  const buttons = document.querySelectorAll('.filter-button.filter');
+  
+  buttons.forEach(button => {
+    if (button.textContent.trim() === filterType) {
+      if (activeFilters.includes(filterType)) {
+        // Désactiver le filtre
+        activeFilters = activeFilters.filter(f => f !== filterType);
+        button.classList.remove('active');
+
+        if (filterType === 'Lieux iconiques') {
+          iconicMarkers = clearIconicPlaces(iconicMarkers);
+        }
+      } else {
+        // Activer le filtre
+        activeFilters.push(filterType);
+        button.classList.add('active');
+
+        if (filterType === 'Lieux iconiques') {
+          if (iconicMarkers.length === 0) {
+            (async () => {
+              iconicMarkers = await loadIconicPlaces(map);
+            })();
+          }
+        }
+      }
+    }
+  });
+
+  // Réinitialiser les marqueurs sauf pour les lieux iconiques
   markers = clearMarkers(markers);
-  markers = filteredEvents.map(event => createMarker(event, map, markers));
-  window.markers = markers; 
-  window.events = filteredEvents; // Mise à jour des événements globaux
+  window.markers = markers;
+
+  // Charger les événements pour tous les filtres actifs sauf pour les lieux iconiques
+  for (const filter of activeFilters) {
+    if (filter !== 'Lieux iconiques') {
+      const filteredEvents = await fetchEvents(filter); 
+      markers = markers.concat(filteredEvents.map(event => createMarker(event, map, markers)));
+    }
+  }
+
+  window.markers = markers;
 }
 
 export default Filters;
+export { toggleFilter };
