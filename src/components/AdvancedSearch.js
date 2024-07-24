@@ -4,6 +4,7 @@ import AdvancedFilterBox from './AdvancedFilterBox.js';
 import EventCard from './EventCard.js';
 import { createElement } from '../utils/createElement.js';
 import EventItem from './EventItem.js';
+import iconicPlaces from '../iconic-places.json';
 
 const AdvancedSearch = {
   type: 'div',
@@ -54,6 +55,19 @@ const AdvancedSearch = {
             },
           ],
         },
+        {
+          type: 'button',
+          props: {
+            class: 'geo-button',
+            onclick: 'getAndShowNearbySpots()',
+          },
+          children: [
+            {
+              type: 'TEXT_NODE',
+              content: 'Utiliser ma position',
+            },
+          ],
+        },
       ],
     },
     {
@@ -91,11 +105,119 @@ function getAdvancedSelectedSports() {
   return selectedSports;
 }
 
-window.updateSearchResults = function () {
+function getUserLocation() {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        resolve,
+        reject,
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0
+        }
+      );
+    } else {
+      reject(new Error('La géolocalisation n\'est pas supportée par ce navigateur.'));
+    }
+  });
+}
+
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * (Math.PI / 180);
+  const dLon = (lon2 - lon1) * (Math.PI / 180);
+  const a = 
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c;
+  return distance;
+}
+
+window.getAndShowNearbySpots = async function () {
+  try {
+    console.log('Demande de géolocalisation...');
+    const position = await getUserLocation();
+    const userLat = position.coords.latitude;
+    const userLon = position.coords.longitude;
+    console.log('Position de l\'utilisateur:', userLat, userLon);
+
+    const placesWithDistance = iconicPlaces.map(place => {
+      const distance = calculateDistance(userLat, userLon, place.coordinates[1], place.coordinates[0]);
+      return { ...place, distance };
+    });
+
+    const nearbyPlaces = placesWithDistance.filter(place => place.distance <= 30); // réglage de la distance en km
+    console.log('Lieux à proximité:', nearbyPlaces);
+
+    const searchResultsElement = document.getElementById('search-results');
+    searchResultsElement.innerHTML = '';
+    nearbyPlaces.forEach(place => {
+      const placeElement = createElement({
+        type: 'div',
+        props: {
+          class: 'place-item',
+        },
+        children: [
+          {
+            type: 'img',
+            props: {
+              src: place.image,
+              alt: place.name,
+            },
+          },
+          {
+            type: 'h3',
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: place.name,
+              },
+            ],
+          },
+          {
+            type: 'p',
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: `Distance: ${place.distance.toFixed(2)} km`,
+              },
+            ],
+          },
+        ],
+      });
+      searchResultsElement.appendChild(placeElement);
+    });
+  } catch (error) {
+    console.error('Erreur de géolocalisation:', error);
+  }
+};
+
+
+window.updateSearchResults = async function () {
   const query = document.querySelector('.advanced-search .searchbar').value.toLowerCase();
   const selectedSports = getAdvancedSelectedSports();
+  console.log('Recherche avancée mise à jour:', { query, selectedSports });
 
-  performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports });
+  try {
+    const position = await getUserLocation();
+    const userLat = position.coords.latitude;
+    const userLon = position.coords.longitude;
+
+    const placesWithDistance = iconicPlaces.map(place => {
+      const distance = calculateDistance(userLat, userLon, place.coordinates[1], place.coordinates[0]);
+      return { ...place, distance };
+    });
+
+    const sortedPlaces = placesWithDistance.sort((a, b) => a.distance - b.distance);
+
+    performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports, sortedPlaces });
+  } catch (error) {
+    console.error('Erreur de géolocalisation:', error);
+    performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports });
+  }
 };
 
 window.updateAdvancedSelectedSports = getAdvancedSelectedSports;
