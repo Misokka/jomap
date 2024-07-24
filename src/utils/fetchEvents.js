@@ -4,6 +4,28 @@ export async function fetchEvents(type = 'Sites de compétition') {
     'Événements culturels': 'https://data.paris2024.org/api/explore/v2.1/catalog/datasets/paris-2024-evenements-olympiade-culturelle/records?limit=50',
   };
 
+  if (type === 'Lieux iconiques') {
+    try {
+      const response = await fetch('../iconic-places.json'); // Chemin relatif à la racine du projet
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const iconicPlaces = await response.json();
+
+      const events = iconicPlaces.map(place => ({
+        name: place.name,
+        description: place.description || 'No description available',
+        coordinates: place.coordinates,
+        type: 'Lieux iconiques',
+      }));
+
+      return events;
+    } catch (error) {
+      console.error('Fetching iconic places failed:', error);
+      return [];
+    }
+  }
+
   if (!urls[type]) {
     throw new Error('Invalid event type');
   }

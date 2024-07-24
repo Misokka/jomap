@@ -1,11 +1,12 @@
 import mapboxgl from 'mapbox-gl';
+import { BrowserLink } from "../components/BrowserRouter.js";
 import "../css/main.scss";
 import Filters from "../components/Filters.js";
 import AdvancedSearch from "../components/AdvancedSearch.js";
 import FilterBox from "../components/FilterBox.js";
 import EventCard from "../components/EventCard.js";
 import { fetchAllEvents } from "../utils/fetchEvents.js";
-import { initializeMap, createMarker, clearMarkers } from "../utils/mapConfig.js";
+import { initializeMap, createMarker, clearMarkers, loadIconicPlaces } from "../utils/mapConfig.js";
 import { handleSearchInput, setupFilterButtons } from "../utils/eventHandlers.js";
 import { showAdvancedSearch, hideAdvancedSearch, showFilterBox, hideFilterBox } from "../utils/uiHelpers.js";
 import { createElement } from "../utils/createElement.js";
@@ -28,9 +29,10 @@ async function initMap() {
 
     map = initializeMap([2.3522, 48.8566], 12);
     window.map = map;
-    map.on('load', () => {
-        markers = events.map(event => createMarker(event, map, markers));
+    map.on('load', async () => {
+        markers = events.map(event => createMarker(event, map, markers, onMarkerClick));
         window.markers = markers;
+        await loadIconicPlaces(map);
     });
 
     const searchBarInput = document.querySelector('.advanced-search .searchbar input');
@@ -47,16 +49,25 @@ async function initMap() {
         handleSearchInput(advancedSearchBarInput, advancedSearchResultsContainer, events, map, markers);
     }
 
-  // Configuration des boutons de filtre
-  setupFilterButtons(map, markers);
-  window.selectedSports = [];
-  window.events = events;
+    setupFilterButtons(map, markers);
+    window.selectedSports = [];
+    window.events = events;
+
+
+  function onMarkerClick(event) {
+      const popupContent = EventCard(event).outerHTML;
+      new mapboxgl.Popup({ className: 'custom-popup' })
+          .setLngLat(event.coordinates)
+          .setHTML(popupContent)
+          .addTo(map);
+  }
 
   window.showAdvancedSearch = showAdvancedSearch;
   window.hideAdvancedSearch = hideAdvancedSearch;
   window.showFilterBox = showFilterBox;
   window.hideFilterBox = hideFilterBox;
 }
+
 export { initMap };
 
 export default {
@@ -162,9 +173,5 @@ export default {
                 },
             ],
         },
-      ],
-    },
-  ],
-};
     ],
 };
