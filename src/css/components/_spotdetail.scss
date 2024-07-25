@@ -32,8 +32,8 @@
 
     .spot-detail-close-button {
         position: absolute;
-        top: rem(10);
-        right: rem(10);
+        top: rem(3);
+        right: rem(3);
         background: none;
         border: none;
         font-size: rem(24);
@@ -43,6 +43,7 @@
     .spot-detail-image {
         width: 100%;
         border-radius: rem(16);
+        margin-top: rem(10);
     }
 
     .spot-detail-title {

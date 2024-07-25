@@ -1,44 +1,9 @@
 import { performAdvancedSearch } from '../utils/searchUtils.js';
+import { clearMarkers } from '../utils/mapConfig.js';
 
-const sportsOptions = ['Athlétisme',
-  'Aviron',
-  // 'Badminton',
-  'Basketball',
-  // 'Basketball 3x3',
-  'Boxe',
-  // 'Canoë',
-  // 'Canoë sprint',
-  'Cyclisme',
-  // 'Cyclisme sur piste',
-  // 'VTT (Mountain Bike)',
-  // 'BMX (Freestyle et Racing)',
-  'Équitation',
-  'Escrime',
-  'Football',
-  'Golf',
-  'Gymnastique',
-  // 'Gymnastique rythmique',
-  // 'Trampoline',
-  // 'Haltérophilie',
-  'Handball',
-  // 'Hockey sur gazon',
-  'Judo',
-  'Lutte',
-  'Natation',
-  // 'Natation artistique',
-  // 'Natation en eau libre',
-  'Plongeon',
-  // 'Pentathlon moderne',
-  // 'Rugby',
-  // 'Taekwondo',
-  'Tennis',
-  // 'Tennis de table',
-  'Tir',
-  // 'Tir à l’arc',
-  'Triathlon',
-  'Voile',
-  'Volley',
-  'Breaking'];  // Liste fixe de sports
+const sportsOptions = ['Athlétisme', 'Aviron', 'Badminton', 'Basketball', 'Basketball 3x3', 'Boxe', 'Canoë', 'Canoë sprint', 'Cyclisme', 'Cyclisme sur piste', 'VTT (Mountain Bike)', 'BMX (Freestyle et Racing)', 'Équitation', 'Escrime', 'Football', 'Golf', 'Gymnastique', 'Gymnastique rythmique', 'Trampoline', 'Haltérophilie', 'Handball', 'Hockey sur gazon', 'Judo', 'Lutte', 'Natation', 'Natation artistique', 'Natation en eau libre', 'Plongeon', 'Pentathlon moderne', 'Rugby', 'Taekwondo', 'Tennis', 'Tennis de table', 'Tir', 'Tir à l’arc', 'Triathlon', 'Voile', 'Volley', 'Breaking'];
+
+const spotTypesOptions = ['bar', 'hotel', 'entrance', 'resto', 'shop'];
 
 const FilterBox = {
   type: 'div',
@@ -127,7 +92,7 @@ const FilterBox = {
               children: [
                 {
                   type: 'TEXT_NODE',
-                  content: 'A',
+                  content: 'À',
                 },
               ],
             },
@@ -142,46 +107,28 @@ const FilterBox = {
           ],
         },
         {
-          type: 'div',
+          type: 'button',
           props: {
-            class: 'filter-group',
+            class: 'selection-button',
+            onclick: 'toggleSportsBox()',
           },
           children: [
             {
-              type: 'h3',
-              props: {
-                class: 'filter-group-title',
-              },
-              children: [
-                {
-                  type: 'TEXT_NODE',
-                  content: 'Sports',
-                },
-              ],
+              type: 'TEXT_NODE',
+              content: 'Sélectionner les sports',
             },
+          ],
+        },
+        {
+          type: 'button',
+          props: {
+            class: 'selection-button',
+            onclick: 'toggleSpotsBox()',
+          },
+          children: [
             {
-              type: 'div',
-              props: {
-                id: 'sports-checkboxes',
-                class: 'filter-options',
-              },
-              children: sportsOptions.map(sport => ({
-                type: 'label',
-                children: [
-                  {
-                    type: 'input',
-                    props: {
-                      type: 'checkbox',
-                      value: sport,
-                      onchange: 'updateSelectedSports()',
-                    },
-                  },
-                  {
-                    type: 'TEXT_NODE',
-                    content: sport,
-                  },
-                ],
-              })),
+              type: 'TEXT_NODE',
+              content: 'Sélectionner les types de spots',
             },
           ],
         },
@@ -200,35 +147,244 @@ const FilterBox = {
         },
       ],
     },
+    {
+      type: 'div',
+      props: {
+        class: 'selection-box',
+        id: 'sports-selection-box',
+      },
+      children: [
+        {
+          type: 'div',
+          props: {
+            class: 'selection-box-header',
+          },
+          children: [
+            {
+              type: 'h2',
+              props: {
+                class: 'selection-box-title',
+              },
+              children: [
+                {
+                  type: 'TEXT_NODE',
+                  content: 'Sélectionner les sports',
+                },
+              ],
+            },
+            {
+              type: 'button',
+              props: {
+                class: 'selection-box-close-button',
+                onclick: 'toggleSportsBox()',
+              },
+              children: [
+                {
+                  type: 'TEXT_NODE',
+                  content: '×',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'div',
+          props: {
+            class: 'selection-box-content',
+          },
+          children: sportsOptions.map(sport => ({
+            type: 'button',
+            props: {
+              class: 'filter-option',
+              onclick: `toggleSportSelection('${sport}')`,
+            },
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: sport,
+              },
+            ],
+          })),
+        },
+        {
+          type: 'button',
+          props: {
+            class: 'validate-selection-button',
+            onclick: 'toggleSportsBox()',
+          },
+          children: [
+            {
+              type: 'TEXT_NODE',
+              content: 'Valider',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'div',
+      props: {
+        class: 'selection-box',
+        id: 'spots-selection-box',
+      },
+      children: [
+        {
+          type: 'div',
+          props: {
+            class: 'selection-box-header',
+          },
+          children: [
+            {
+              type: 'h2',
+              props: {
+                class: 'selection-box-title',
+              },
+              children: [
+                {
+                  type: 'TEXT_NODE',
+                  content: 'Sélectionner les types de spots',
+                },
+              ],
+            },
+            {
+              type: 'button',
+              props: {
+                class: 'selection-box-close-button',
+                onclick: 'toggleSpotsBox()',
+              },
+              children: [
+                {
+                  type: 'TEXT_NODE',
+                  content: '×',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'div',
+          props: {
+            class: 'selection-box-content',
+          },
+          children: spotTypesOptions.map(type => ({
+            type: 'button',
+            props: {
+              class: 'filter-option',
+              onclick: `toggleSpotTypeSelection('${type}')`,
+            },
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: type,
+              },
+            ],
+          })),
+        },
+        {
+          type: 'button',
+          props: {
+            class: 'validate-selection-button',
+            onclick: 'toggleSpotsBox()',
+          },
+          children: [
+            {
+              type: 'TEXT_NODE',
+              content: 'Valider',
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
-function getSelectedSports() {
-  const checkboxes = document.querySelectorAll('#sports-checkboxes input[type="checkbox"]');
-  const selectedSports = [];
-  checkboxes.forEach(checkbox => {
-    if (checkbox.checked) {
-      selectedSports.push(checkbox.value);
+let selectedSports = [];
+let selectedSpotTypes = [];
+
+window.toggleSportSelection = function (sport) {
+  const index = selectedSports.indexOf(sport);
+  if (index > -1) {
+    selectedSports.splice(index, 1);
+  } else {
+    selectedSports.push(sport);
+  }
+  updateSportButtons();
+};
+
+window.toggleSpotTypeSelection = function (type) {
+  const index = selectedSpotTypes.indexOf(type);
+  if (index > -1) {
+    selectedSpotTypes.splice(index, 1);
+  } else {
+    selectedSpotTypes.push(type);
+  }
+  updateSpotTypeButtons();
+};
+
+function updateSportButtons() {
+  const buttons = document.querySelectorAll('#sports-selection-box .filter-option');
+  buttons.forEach(button => {
+    if (selectedSports.includes(button.textContent)) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
     }
   });
+}
+
+function updateSpotTypeButtons() {
+  const buttons = document.querySelectorAll('#spots-selection-box .filter-option');
+  buttons.forEach(button => {
+    if (selectedSpotTypes.includes(button.textContent)) {
+      button.classList.add('active');
+    } else {
+      button.classList.remove('active');
+    }
+  });
+}
+
+function getSelectedSports() {
   return selectedSports;
+}
+
+function getSelectedSpotTypes() {
+  return selectedSpotTypes;
 }
 
 function resetQuickFilters() {
   document.querySelectorAll('.filter-button.filter').forEach(button => button.classList.remove('active'));
 }
 
-window.applyFilters = function () {
+window.applyFilters = async function () {
   const fromDate = document.getElementById('date-from').value;
   const toDate = document.getElementById('date-to').value;
   const selectedSports = getSelectedSports();
-  console.log('Filters applied:', { fromDate, toDate, selectedSports });
+  const selectedSpotTypes = getSelectedSpotTypes();
 
-  // Réinitialiser les filtres rapides
   resetQuickFilters();
 
-  // Appliquer la recherche avancée
-  performAdvancedSearch(window.events, window.map, window.markers, { fromDate, toDate, selectedSports });
+  window.markers = clearMarkers(window.markers);
+
+  await performAdvancedSearch(window.events, window.map, window.markers, { fromDate, toDate, selectedSports, selectedSpotTypes });
+};
+
+
+
+
+
+
+window.toggleSportsBox = function () {
+  const sportsBox = document.getElementById('sports-selection-box');
+  if (sportsBox) {
+    sportsBox.classList.toggle('show');
+  }
+};
+
+window.toggleSpotsBox = function () {
+  const spotsBox = document.getElementById('spots-selection-box');
+  if (spotsBox) {
+    spotsBox.classList.toggle('show');
+  }
 };
 
 export default FilterBox;

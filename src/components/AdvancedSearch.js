@@ -1,9 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import { performAdvancedSearch } from '../utils/searchUtils.js';
-import AdvancedFilterBox from './AdvancedFilterBox.js';
-import EventCard from './EventCard.js';
-import { createElement } from '../utils/createElement.js';
-import EventItem from './EventItem.js';
+import AdvancedFilterBox, { getAdvancedSelectedSports, getAdvancedSelectedSpotTypes } from './AdvancedFilterBox.js';
+import { clearMarkers } from '../utils/mapConfig.js';
 import iconicPlaces from '../iconic-places.json';
 
 const AdvancedSearch = {
@@ -94,35 +92,6 @@ const AdvancedSearch = {
   ],
 };
 
-function getAdvancedSelectedSports() {
-  const checkboxes = document.querySelectorAll('#advanced-sports-checkboxes input[type="checkbox"]');
-  const selectedSports = [];
-  checkboxes.forEach(checkbox => {
-    if (checkbox.checked) {
-      selectedSports.push(checkbox.value);
-    }
-  });
-  return selectedSports;
-}
-
-function getUserLocation() {
-  return new Promise((resolve, reject) => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        resolve,
-        reject,
-        {
-          enableHighAccuracy: true,
-          maximumAge: 0
-        }
-      );
-    } else {
-      reject(new Error('La géolocalisation n\'est pas supportée par ce navigateur.'));
-    }
-  });
-}
-
-
 function calculateDistance(lat1, lon1, lat2, lon2) {
   const R = 6371;
   const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -142,7 +111,6 @@ window.getAndShowNearbySpots = async function () {
     const position = await getUserLocation();
     const userLat = position.coords.latitude;
     const userLon = position.coords.longitude;
-    console.log('Position de l\'utilisateur:', userLat, userLon);
 
     const placesWithDistance = iconicPlaces.map(place => {
       const distance = calculateDistance(userLat, userLon, place.coordinates[1], place.coordinates[0]);
@@ -196,29 +164,20 @@ window.getAndShowNearbySpots = async function () {
 };
 
 
-window.updateSearchResults = async function () {
+window.updateSearchResults = function () {
   const query = document.querySelector('.advanced-search .searchbar').value.toLowerCase();
   const selectedSports = getAdvancedSelectedSports();
-  console.log('Recherche avancée mise à jour:', { query, selectedSports });
+  const selectedSpotTypes = getAdvancedSelectedSpotTypes();
+  console.log('Search query and filters:', { query, selectedSports, selectedSpotTypes });
 
-  try {
-    const position = await getUserLocation();
-    const userLat = position.coords.latitude;
-    const userLon = position.coords.longitude;
+  const advancedSearchResultsContainer = document.getElementById('search-results');
+  advancedSearchResultsContainer.innerHTML = '';
 
-    const placesWithDistance = iconicPlaces.map(place => {
-      const distance = calculateDistance(userLat, userLon, place.coordinates[1], place.coordinates[0]);
-      return { ...place, distance };
-    });
+  window.markers = clearMarkers(window.markers);
 
-    const sortedPlaces = placesWithDistance.sort((a, b) => a.distance - b.distance);
-
-    performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports, sortedPlaces });
-  } catch (error) {
-    console.error('Erreur de géolocalisation:', error);
-    performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports });
-  }
+  performAdvancedSearch(window.events, window.map, window.markers, { query, selectedSports, selectedSpotTypes });
 };
+
 
 window.updateAdvancedSelectedSports = getAdvancedSelectedSports;
 
@@ -238,5 +197,23 @@ window.onEventItemClick = function (event) {
       .setDOMContent(popupContent)
       .addTo(map);
 };
+
+function getUserLocation() {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        resolve,
+        reject,
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0
+        }
+      );
+    } else {
+      reject(new Error('La géolocalisation n\'est pas supportée par ce navigateur.'));
+    }
+  });
+}
+
 
 export default AdvancedSearch;

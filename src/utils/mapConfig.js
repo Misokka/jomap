@@ -15,25 +15,20 @@ export const initializeMap = (center, zoom) => {
   });
 };
 
-// Fonction pour créer un marqueur sur la carte
 export function createMarker(event, mapInstance, markers, onMarkerClick) {
   if (event.coordinates && event.coordinates.length === 2 && event.type !== 'Lieux iconiques') {
-    // Détermine l'icône à utiliser en fonction du type d'événement
-    const markerColor = event.type === 'Sites de compétition' ? '#FF0000' : '#0000FF'; // Rouge pour Sites de compétition, Bleu pour Événements culturels
+    const markerColor = event.type === 'Sites de compétition' ? '#FF0000' : '#0000FF';
 
-    // Crée un élément HTML pour le marqueur
     const el = document.createElement('div');
     el.className = 'marker';
     el.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="${markerColor}"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`;
 
-    // Crée un marqueur à partir des coordonnées de l'événement
     const marker = new mapboxgl.Marker(el)
       .setLngLat(event.coordinates)
       .setPopup(new mapboxgl.Popup({ className: 'custom-popup' })
         .setDOMContent(EventCard(event)))
       .addTo(mapInstance);
-    
-    // Ajouter l'événement de clic
+
     marker.getElement().addEventListener('click', () => {
       if (onMarkerClick) onMarkerClick(event);
       loadSpotsForEvent(event, mapInstance);
@@ -46,20 +41,23 @@ export function createMarker(event, mapInstance, markers, onMarkerClick) {
   }
 }
 
-// Fonction pour supprimer tous les marqueurs de la carte
 export function clearMarkers(markers) {
+  console.log('Clearing markers:', markers);
   if (markers && Array.isArray(markers)) {
     markers.forEach(marker => {
       if (marker) {
+        console.log('Removing marker:', marker);
         marker.remove();
       }
     });
-    return [];
+    markers.length = 0; 
   }
+  console.log('Markers after clearing:', markers);
   return markers;
 }
 
-// Fonction pour charger et afficher les lieux iconiques
+
+
 export async function loadIconicPlaces(mapInstance) {
   try {
     const response = await fetch('../iconic-places.json');
@@ -101,7 +99,6 @@ export async function loadIconicPlaces(mapInstance) {
   }
 }
 
-// Fonction pour charger et afficher les meilleurs spots pour un événement
 export async function loadSpotsForEvent(event, mapInstance) {
   try {
     const response = await fetch('../spot.json');
@@ -111,33 +108,33 @@ export async function loadSpotsForEvent(event, mapInstance) {
     const spots = await response.json();
     const eventSport = event.sport;
 
-    // Effacer les anciens marqueurs de spots
     spotsMarkers.forEach(marker => marker.remove());
     spotsMarkers = [];
 
-    // Afficher les spots correspondant au sport de l'événement
-    spots.forEach(spot => {
-      if (spot.sport.includes(eventSport)) {
-        const el = document.createElement('div');
-        el.className = 'spot-marker';
-        el.innerHTML = '<i class="fas fa-binoculars"></i>'; // Icône de jumelles
+    const filteredSpots = spots.filter(spot => spot.sport.includes(eventSport));
 
-        const popupContent = SpotCard(spot);
-        const marker = new mapboxgl.Marker(el)
-          .setLngLat([spot.longitude, spot.latitude])
-          .setPopup(new mapboxgl.Popup({ className: 'custom-popup' })
-            .setDOMContent(popupContent))
-          .addTo(mapInstance);
+    filteredSpots.forEach(spot => {
+      const el = document.createElement('div');
+      el.className = 'spot-marker';
+      el.innerHTML = '<i class="fas fa-binoculars"></i>';
 
-        spotsMarkers.push(marker);
-      }
+      const popupContent = SpotCard(spot);
+      const marker = new mapboxgl.Marker(el)
+        .setLngLat([spot.longitude, spot.latitude])
+        .setPopup(new mapboxgl.Popup({ className: 'custom-popup' })
+          .setDOMContent(popupContent))
+        .addTo(mapInstance);
+
+      spotsMarkers.push(marker);
     });
+
+    return filteredSpots;
   } catch (error) {
     console.error('Failed to load best spots:', error);
+    return [];
   }
 }
 
-// Fonction pour supprimer les marqueurs des lieux iconiques
 export function clearIconicPlaces(iconicMarkers) {
   if (iconicMarkers && Array.isArray(iconicMarkers)) {
     iconicMarkers.forEach(marker => {

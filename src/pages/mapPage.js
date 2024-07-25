@@ -1,4 +1,3 @@
-// mapPage.js
 import mapboxgl from 'mapbox-gl';
 import { BrowserLink } from "../components/BrowserRouter.js";
 import "../css/main.scss";
