@@ -42,17 +42,15 @@ export function createMarker(event, mapInstance, markers, onMarkerClick) {
 }
 
 export function clearMarkers(markers) {
-  console.log('Clearing markers:', markers);
+
   if (markers && Array.isArray(markers)) {
     markers.forEach(marker => {
       if (marker) {
-        console.log('Removing marker:', marker);
         marker.remove();
       }
     });
     markers.length = 0; 
   }
-  console.log('Markers after clearing:', markers);
   return markers;
 }
 

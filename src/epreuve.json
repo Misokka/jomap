@@ -1,0 +1,1429 @@
+[
+    {
+        "code_site": "STA",
+        "nom_site": "Stade de France",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Athlétisme",
+            "events": [
+              {
+                "event": "100m hommes",
+                "date": "2024-08-04",
+                "time": "20:30",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "200m femmes",
+                "date": "2024-08-07",
+                "time": "21:40",
+                "type": "Olympique",
+                "gender": "femmes"
+              },
+              {
+                "event": "Saut en longueur hommes",
+                "date": "2024-08-06",
+                "time": "20:20",
+                "type": "Olympique",
+                "gender": "hommes"
+              }
+            ]
+          },
+          {
+            "sport": "Rugby à 7",
+            "events": [
+              {
+                "event": "Phase de groupes",
+                "date": "2024-07-24",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              }
+            ]
+          },
+          {
+            "sport": "Cérémonie de clôture",
+            "events": [
+              {
+                "event": "Cérémonie de clôture",
+                "date": "2024-08-11",
+                "time": "20:00",
+                "type": "Olympique",
+                "gender": "mixte"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "STA",
+        "nom_site": "Stade de France",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Para Athlétisme",
+            "events": [
+              {
+                "event": "100m fauteuil roulant hommes",
+                "date": "2024-09-03",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              }
+            ]
+          },
+          {
+            "sport": "Cérémonie de clôture",
+            "events": [
+              {
+                "event": "Cérémonie de clôture",
+                "date": "2024-09-08",
+                "time": "20:00",
+                "type": "Paralympique",
+                "gender": "mixte"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "ALX",
+        "nom_site": "Pont Alexandre III",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Cyclisme sur route",
+            "events": [
+              {
+                "event": "Arrivée Contre-la-montre hommes",
+                "date": "2024-08-01",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Arrivée Contre-la-montre femmes",
+                "date": "2024-08-01",
+                "time": "12:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Triathlon",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-08-02",
+                "time": "08:30",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-08-04",
+                "time": "08:30",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "BCY",
+        "nom_site": "Arena Bercy",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Basketball",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Gymnastique artistique",
+            "events": [
+              {
+                "event": "Concours général individuel hommes",
+                "date": "2024-07-30",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Concours général individuel femmes",
+                "date": "2024-07-31",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "BOR",
+        "nom_site": "Stade de Bordeaux",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Football",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-25",
+                "time": "18:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-26",
+                "time": "21:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "EIF",
+        "nom_site": "Stade Tour Eiffel",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Volley-ball de plage",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "GRP",
+        "nom_site": "Grand Palais",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Escrime fauteuil",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-09-01",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-09-02",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Para Taekwondo",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-09-03",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-09-04",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "INV",
+        "nom_site": "Invalides",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Athlétisme",
+            "events": [
+              {
+                "event": "Arrivée Marathon hommes",
+                "date": "2024-08-10",
+                "time": "07:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Cyclisme sur route - départ Contre-la-montre hommes",
+                "date": "2024-08-10",
+                "time": "11:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              }
+            ]
+          },
+          {
+            "sport": "Tir à l'arc",
+            "events": [
+              {
+                "event": "Finale individuelle femmes",
+                "date": "2024-08-09",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              },
+              {
+                "event": "Finale par équipes hommes",
+                "date": "2024-08-10",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "LBO",
+        "nom_site": "Site d’escalade du Bourget",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Escalade",
+            "events": [
+              {
+                "event": "Épreuve de vitesse hommes",
+                "date": "2024-08-05",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve de vitesse femmes",
+                "date": "2024-08-06",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "LC4",
+        "nom_site": "La Concorde 4",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Skateboard",
+            "events": [
+              {
+                "event": "Street hommes",
+                "date": "2024-08-06",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Street femmes",
+                "date": "2024-08-07",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "LCO",
+        "nom_site": "La Concorde",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Parc Urbain la Concorde",
+            "events": [
+              {
+                "event": "Compétition hommes",
+                "date": "2024-07-27",
+                "time": "09:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Compétition femmes",
+                "date": "2024-07-28",
+                "time": "13:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "LGN",
+        "nom_site": "Golf National",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Golf",
+            "events": [
+              {
+                "event": "Tournoi hommes",
+                "date": "2024-09-01",
+                "time": "07:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Tournoi femmes",
+                "date": "2024-09-04",
+                "time": "07:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "LIL",
+        "nom_site": "Stade Pierre Mauroy",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Basketball",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Handball",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-29",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-30",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "NIC",
+        "nom_site": "Stade de Nice",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Football",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-24",
+                "time": "18:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-25",
+                "time": "21:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "SP4",
+        "nom_site": "Arena Paris Sud 4",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Tennis de table",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "SP6",
+        "nom_site": "Arena Paris Sud 6",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Handball",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-25",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-26",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Haltérophilie",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-28",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-29",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "SP4",
+        "nom_site": "Arena Paris Sud 4",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Tennis de table para",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-08-30",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-08-31",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "SP6",
+        "nom_site": "Arena Paris Sud 6",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Goalball",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-30",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-31",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "CSB",
+        "nom_site": "Clichy-sous-Bois",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Para cyclisme sur route",
+            "events": [
+              {
+                "event": "Course sur route hommes",
+                "date": "2024-09-04",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Course sur route femmes",
+                "date": "2024-09-05",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "CTX",
+        "nom_site": "Centre national de tir de Châteauroux",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Para Tir Sportif",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-30",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-31",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "DEF",
+        "nom_site": "Paris La Défense Arena",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Para Natation",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-30",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-31",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "EIF",
+        "nom_site": "Stade Tour Eiffel",
+        "category_id": "venue-paralympic",
+        "sports": [
+          {
+            "sport": "Cécifoot",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-09-01",
+                "time": "10:00",
+                "type": "Paralympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-09-02",
+                "time": "14:00",
+                "type": "Paralympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "HDV",
+        "nom_site": "Hôtel de Ville",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Athlétisme",
+            "events": [
+              {
+                "event": "Départ Marathon hommes",
+                "date": "2024-08-10",
+                "time": "07:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Départ Marathon femmes",
+                "date": "2024-08-11",
+                "time": "07:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "MAM",
+        "nom_site": "Marina de Marseille",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Voile",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-28",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-29",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "NAN",
+        "nom_site": "Stade de la Beaujoire",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Football",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-24",
+                "time": "18:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-25",
+                "time": "21:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "NPA",
+        "nom_site": "Arena Paris Nord",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Boxe",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Pentathlon moderne",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-02",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-03",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "PDP",
+        "nom_site": "Parc des Princes",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Football",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-24",
+                "time": "18:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-25",
+                "time": "21:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "RGA",
+        "nom_site": "Stade Roland Garros",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Tennis",
+            "events": [
+              {
+                "event": "Simple hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Simple femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Boxe",
+            "events": [
+              {
+                "event": "Match hommes",
+                "date": "2024-08-02",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match femmes",
+                "date": "2024-08-03",
+                "time": "18:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "SP1",
+        "nom_site": "Arena Paris Sud 1",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Volley-ball",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "TAH",
+        "nom_site": "Tahiti Teahupo'o",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Surf",
+            "events": [
+              {
+                "event": "Compétition hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Compétition femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VE1",
+        "nom_site": "Vélodrome National de Saint-Quentin-en-Yvelines",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Cyclisme sur piste",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-08-05",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-08-06",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VE2",
+        "nom_site": "Stade BMX de Saint-Quentin-en-Yvelines",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "BMX Racing",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-07",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-08",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VER",
+        "nom_site": "Château de Versailles",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Sports équestres",
+            "events": [
+              {
+                "event": "Dressage hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Dressage femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Pentathlon moderne",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-30",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-31",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VN1",
+        "nom_site": "Stade nautique de Vaires-sur-Marne - bassin d'eaux calmes",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Aviron",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Canoë - course en ligne",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-05",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-06",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VN2",
+        "nom_site": "Stade nautique de Vaires-sur-Marne - stade d'eaux vives",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Canoë-kayak slalom",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "RGA",
+        "nom_site": "Stade Roland Garros",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Tennis",
+            "events": [
+              {
+                "event": "Simple hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Simple femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Boxe",
+            "events": [
+              {
+                "event": "Match hommes",
+                "date": "2024-08-02",
+                "time": "16:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match femmes",
+                "date": "2024-08-03",
+                "time": "18:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "SP1",
+        "nom_site": "Arena Paris Sud 1",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Volley-ball",
+            "events": [
+              {
+                "event": "Match de poule hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Match de poule femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "TAH",
+        "nom_site": "Tahiti Teahupo'o",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Surf",
+            "events": [
+              {
+                "event": "Compétition hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Compétition femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VE1",
+        "nom_site": "Vélodrome National de Saint-Quentin-en-Yvelines",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Cyclisme sur piste",
+            "events": [
+              {
+                "event": "Épreuve individuelle hommes",
+                "date": "2024-08-05",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve individuelle femmes",
+                "date": "2024-08-06",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VE2",
+        "nom_site": "Stade BMX de Saint-Quentin-en-Yvelines",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "BMX Racing",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-07",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-08",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VER",
+        "nom_site": "Château de Versailles",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Sports équestres",
+            "events": [
+              {
+                "event": "Dressage hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Dressage femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Pentathlon moderne",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-30",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-31",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VN1",
+        "nom_site": "Stade nautique de Vaires-sur-Marne - bassin d'eaux calmes",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Aviron",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          },
+          {
+            "sport": "Canoë - course en ligne",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-08-05",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-08-06",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "VN2",
+        "nom_site": "Stade nautique de Vaires-sur-Marne - stade d'eaux vives",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Canoë-kayak slalom",
+            "events": [
+              {
+                "event": "Épreuve hommes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "hommes"
+              },
+              {
+                "event": "Épreuve femmes",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "femmes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code_site": "AQC",
+        "nom_site": "Centre Aquatique",
+        "category_id": "venue-olympic",
+        "sports": [
+          {
+            "sport": "Natation artistique",
+            "events": [
+              {
+                "event": "Épreuve par équipes",
+                "date": "2024-07-27",
+                "time": "10:00",
+                "type": "Olympique",
+                "gender": "mixte"
+              },
+              {
+                "event": "Épreuve individuelle",
+                "date": "2024-07-28",
+                "time": "14:00",
+                "type": "Olympique",
+                "gender": "mixte"
+              }
+            ]
+          }
+        ]
+    }
+]

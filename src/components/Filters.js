@@ -2,7 +2,7 @@ import { fetchEvents } from '../utils/fetchEvents.js';
 import { clearMarkers, createMarker, loadIconicPlaces, clearIconicPlaces } from '../utils/mapConfig.js';
 
 let activeFilters = [];
-let iconicMarkers = []; // Variable pour stocker les marqueurs des lieux iconiques
+let iconicMarkers = []; 
 
 const Filters = {
   type: 'div',
@@ -49,6 +49,19 @@ const Filters = {
         },
       ],
     },
+    {
+      type: 'button',
+      props: {
+        class: 'filter-button filter',
+        onclick: () => toggleFilter('Spots'),
+      },
+      children: [
+        {
+          type: 'TEXT_NODE',
+          content: 'Afficher tous les spots',
+        },
+      ],
+    },
   ],
 };
 
@@ -56,13 +69,11 @@ async function toggleFilter(filterType) {
   const map = window.map; 
   let markers = window.markers; 
 
-  // Sélectionner tous les boutons de filtre
   const buttons = document.querySelectorAll('.filter-button.filter');
   
   buttons.forEach(button => {
     if (button.textContent.trim() === filterType) {
       if (activeFilters.includes(filterType)) {
-        // Désactiver le filtre
         activeFilters = activeFilters.filter(f => f !== filterType);
         button.classList.remove('active');
 
@@ -70,7 +81,6 @@ async function toggleFilter(filterType) {
           iconicMarkers = clearIconicPlaces(iconicMarkers);
         }
       } else {
-        // Activer le filtre
         activeFilters.push(filterType);
         button.classList.add('active');
 
@@ -85,16 +95,19 @@ async function toggleFilter(filterType) {
     }
   });
 
-  // Réinitialiser les marqueurs sauf pour les lieux iconiques
   markers = clearMarkers(markers);
   window.markers = markers;
 
-  // Charger les événements pour tous les filtres actifs sauf pour les lieux iconiques
   for (const filter of activeFilters) {
     if (filter !== 'Lieux iconiques') {
       const filteredEvents = await fetchEvents(filter); 
       markers = markers.concat(filteredEvents.map(event => createMarker(event, map, markers)));
     }
+  }
+
+  if (activeFilters.includes('Spots')) {
+    const spots = await fetchEvents('Spots');
+    markers = markers.concat(spots.map(spot => createMarker(spot, map, markers)));
   }
 
   window.markers = markers;

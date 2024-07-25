@@ -394,5 +394,17 @@ window.hideAdvancedFilterBox = function () {
   }
 };
 
+window.resetAdvancedFilters = function () {
+    document.getElementById('advanced-date-from').value = '';
+    document.getElementById('advanced-date-to').value = '';
+    advancedSelectedSports = [];
+    advancedSelectedSpotTypes = [];
+    updateAdvancedSportButtons();
+    updateAdvancedSpotTypeButtons();
+    resetAdvancedFilters();
+    window.markers = clearMarkers(window.markers);
+    performAdvancedSearch(window.events, window.map, window.markers, { fromDate: '', toDate: '', selectedSports: [], selectedSpotTypes: [] });
+  };
+
 export { getAdvancedSelectedSports, getAdvancedSelectedSpotTypes };
 export default AdvancedFilterBox;
