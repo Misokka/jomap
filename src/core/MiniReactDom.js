@@ -27,6 +27,10 @@ const MiniReactDom = {
   },
 
   createElement: function (structure) {
+    if (!structure || !structure.type) {
+      return document.createElement('div');
+    }
+
     if (typeof structure.type === "string") {
       if (structure.type === "TEXT_NODE") {
         return document.createTextNode(structure.content);
@@ -34,11 +38,11 @@ const MiniReactDom = {
       return document.createElement(structure.type);
     } else if (typeof structure.type === "function") {
       // Handle custom components
-      const componentInstance = new structure.type(structure.props);
+      const componentInstance = new structure.type(structure.props || {});
       const componentRenderedStructure = componentInstance.render();
       return this.renderStructure(componentRenderedStructure);
     }
-    return document.createElement('div'); // Default fallback
+    return document.createElement('div');
   },
 
   applyProps: function (element, props) {
@@ -76,3 +80,5 @@ const MiniReactDom = {
 };
 
 export default MiniReactDom;
+
+

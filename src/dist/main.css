@@ -69,12 +69,16 @@ a {
   text-decoration: none;
 }
 
+input {
+  font-family: "Olympic Sans", sans-serif;
+}
+
 .buttons, .filter-button, .searchbar-close-button {
   cursor: pointer;
   border: none;
   background-color: transparent;
   display: inline-flex;
-  height: 2.5rem;
+  height: 3rem;
   padding: 0.625rem 0.9375rem;
   justify-content: center;
   align-items: center;
@@ -83,8 +87,6 @@ a {
   border: 0.0625rem solid var(--outline-theme_light-low_em, #ECECED);
   background: var(--surface-theme_light-surface_0, #FFF);
   box-shadow: 0px 0.0625rem 0.125rem -rem(1) rgba(17, 12, 34, 0.08);
-  margin: 0.625rem 0 0 0.625rem;
-  margin-right: 0.625rem;
   cursor: pointer;
 }
 .buttons.active, .filter-button.active, .searchbar-close-button.active {
@@ -100,8 +102,6 @@ a {
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
-  position: absolute;
-  right: 1.25rem;
 }
 
 .searchbar-button {
