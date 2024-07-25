@@ -2,7 +2,8 @@ import mapboxgl from 'mapbox-gl';
 import { performAdvancedSearch } from '../utils/searchUtils.js';
 import AdvancedFilterBox, { getAdvancedSelectedSports, getAdvancedSelectedSpotTypes } from './AdvancedFilterBox.js';
 import { clearMarkers } from '../utils/mapConfig.js';
-import iconicPlaces from '../iconic-places.json';
+import iconicPlaces from '../spot.json';
+import { createElement } from '../utils/createElement.js';
 
 const AdvancedSearch = {
   type: 'div',
@@ -113,7 +114,7 @@ window.getAndShowNearbySpots = async function () {
     const userLon = position.coords.longitude;
 
     const placesWithDistance = iconicPlaces.map(place => {
-      const distance = calculateDistance(userLat, userLon, place.coordinates[1], place.coordinates[0]);
+      const distance = calculateDistance(userLat, userLon, place.latitude, place.longitude);
       return { ...place, distance };
     });
 
@@ -126,27 +127,50 @@ window.getAndShowNearbySpots = async function () {
       const placeElement = createElement({
         type: 'div',
         props: {
-          class: 'place-item',
+          className: 'place-item',
         },
         children: [
-          {
-            type: 'img',
-            props: {
-              src: place.image,
-              alt: place.name,
-            },
-          },
           {
             type: 'h3',
             children: [
               {
                 type: 'TEXT_NODE',
-                content: place.name,
+                content: place.title,
               },
             ],
           },
           {
             type: 'p',
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: `Type: ${place.type}`,
+              },
+            ],
+          },
+          {
+            type: 'p',
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: `Description: ${place.label}`,
+              },
+            ],
+          },
+          {
+            type: 'p',
+            children: [
+              {
+                type: 'TEXT_NODE',
+                content: `Sports: ${place.sport}`,
+              },
+            ],
+          },
+          {
+            type: 'p',
+            props: {
+              class: 'place-distance',
+            },
             children: [
               {
                 type: 'TEXT_NODE',
@@ -162,6 +186,8 @@ window.getAndShowNearbySpots = async function () {
     console.error('Erreur de géolocalisation:', error);
   }
 };
+
+
 
 
 window.updateSearchResults = function () {

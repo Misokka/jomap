@@ -1225,4 +1225,32 @@ input {
   margin-left: 0.25rem;
 }
 
+.place-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.place-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.place-item h3 {
+  margin: 8px 0 4px;
+  font-size: 1.25rem;
+}
+.place-item p {
+  margin: 4px 0;
+  color: #555;
+}
+.place-item .place-distance {
+  font-weight: bold;
+  color: #333;
+}
+
 /*# sourceMappingURL=main.css.map */
