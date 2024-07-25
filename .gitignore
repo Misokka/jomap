@@ -33,3 +33,7 @@ jspm_packages/
 .vscode/
 .settings/
 *.code-workspace
+
+
+# Build
+src/dist/*
