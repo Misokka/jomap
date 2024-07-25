@@ -9,6 +9,10 @@ const SpotCard = (spot) => {
     card.className = 'spot-card';
     card.dataset.spotId = spot.id;
 
+    const spotImage = document.createElement('img');
+    spotImage.className = 'spot-card-image';
+    spotImage.src = spot.image || '../images/pont.jpg'; 
+
     const spotTitle = document.createElement('h2');
     spotTitle.className = 'spot-card-title';
     spotTitle.textContent = spot.title || 'Titre inconnu';
@@ -23,13 +27,21 @@ const SpotCard = (spot) => {
 
     const viewMoreButton = document.createElement('button');
     viewMoreButton.className = 'view-more-button';
-    viewMoreButton.textContent = 'Voir plus';
+
+    const buttonText = document.createElement('span');
+    buttonText.textContent = 'Voir plus';
+
+    const icon = document.createElement('i');
+    icon.className = 'fas fa-plus-circle'; 
+
+    viewMoreButton.appendChild(buttonText);
+    viewMoreButton.appendChild(icon);
+
     viewMoreButton.onclick = () => {
         if (currentSpotDetailElement && currentSpotDetailElement.parentElement) {
             currentSpotDetailElement.style.display = 'none';
             currentSpotDetailElement.parentElement.removeChild(currentSpotDetailElement);
         }
-        // Fermer la popup actuelle s'il y en a une
         if (currentPopup) {
             currentPopup.remove();
             currentPopup = null;
@@ -40,10 +52,10 @@ const SpotCard = (spot) => {
         spotDetailElement.style.display = 'block';
         currentSpotDetailElement = spotDetailElement;
 
-        // Masquer la carte
         card.style.display = 'none';
     };
 
+    card.appendChild(spotImage);
     card.appendChild(spotTitle);
     card.appendChild(spotLabel);
     card.appendChild(spotSport);

@@ -6,7 +6,11 @@ const SpotDetail = (spot) => {
 
     const closeButton = document.createElement('button');
     closeButton.className = 'spot-detail-close-button';
-    closeButton.textContent = '×';
+
+    const closeIcon = document.createElement('i');
+    closeIcon.className = 'far fa-window-close';
+
+    closeButton.appendChild(closeIcon);
     closeButton.onclick = () => {
         detail.style.display = 'none';
         if (detail.parentElement) {

@@ -1,12 +1,11 @@
 import EventItem from '../components/EventItem.js';
-import EventDetails from '../components/EventDetail.js'; // Correct import
-import { clearMarkers, createMarker } from './mapConfig.js';
+import EventDetails from '../components/EventDetail.js';
+import { clearMarkers, createMarker, loadSpotsForEvent } from './mapConfig.js';
 import mapboxgl from 'mapbox-gl';
-import { hideAdvancedSearch, showEventDetails } from './uiHelpers.js'; // Correct import
+import { hideAdvancedSearch, showEventDetails } from './uiHelpers.js';
 
-// Fonction pour effectuer une recherche avancée
-export function performAdvancedSearch(events, map, markers, filters) {
-  const { query, fromDate, toDate, selectedSports } = filters;
+export async function performAdvancedSearch(events, map, markers, filters) {
+  const { query, fromDate, toDate, selectedSports, selectedSpotTypes } = filters;
 
   const filteredEvents = events.filter(event => {
     const eventDate = new Date(event.start_date);
@@ -25,18 +24,22 @@ export function performAdvancedSearch(events, map, markers, filters) {
     return isDateInRange && isSportSelected && isQueryMatch;
   });
 
+  const eventsWithSpots = selectedSpotTypes.length > 0 
+    ? await Promise.all(filteredEvents.map(async event => {
+        const spotsForEvent = await loadSpotsForEvent(event, map);
+        return spotsForEvent.some(spot => selectedSpotTypes.includes(spot.type)) ? event : null;
+      }))
+    : filteredEvents;
+
+  const validEventsWithSpots = eventsWithSpots.filter(event => event !== null);
+
   markers = clearMarkers(markers);
-  window.markers = filteredEvents.map(event => createMarker(event, map, markers));
 
-  if (filteredEvents.length > 0) {
-    const bounds = new mapboxgl.LngLatBounds();
-    filteredEvents.forEach(event => bounds.extend(event.coordinates));
-    map.fitBounds(bounds, { padding: 50 });
-  }
+  window.markers = validEventsWithSpots.map(event => createMarker(event, map, markers));
 
-  const advancedSearchResultsContainer = document.querySelector('.advanced-search .search-results');
+  const advancedSearchResultsContainer = document.getElementById('search-results');
   advancedSearchResultsContainer.innerHTML = '';
-  filteredEvents.forEach(event => {
+  validEventsWithSpots.forEach(event => {
     const eventElement = EventItem(event);
     eventElement.addEventListener('click', () => {
       hideAdvancedSearch();
@@ -47,9 +50,20 @@ export function performAdvancedSearch(events, map, markers, filters) {
   });
 
   advancedSearchResultsContainer.style.display = 'block';
+
+  if (validEventsWithSpots.length > 0) {
+    const bounds = new mapboxgl.LngLatBounds();
+    validEventsWithSpots.forEach(event => bounds.extend(event.coordinates));
+    map.fitBounds(bounds, { padding: 50 });
+  } else {
+    map.fitBounds([[2.0, 48.5], [3.0, 49.0]], { padding: 50 }); 
+  }
 }
 
-// Fonction pour afficher tous les événements
+
+
+
+
 export function showAllEvents(events, map, markers) {
   markers = clearMarkers(markers);
   window.markers = events.map(event => createMarker(event, map, markers));

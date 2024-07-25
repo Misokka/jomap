@@ -23,19 +23,25 @@ const EventCard = (event) => {
 
     const viewMoreButton = document.createElement('button');
     viewMoreButton.className = 'view-more-button';
-    viewMoreButton.textContent = 'Voir plus';
+
+    const buttonText = document.createElement('span');
+    buttonText.textContent = 'Voir plus';
+
+    const icon = document.createElement('i');
+    icon.className = 'fas fa-plus-circle';
+
+    viewMoreButton.appendChild(buttonText);
+    viewMoreButton.appendChild(icon);
+
     viewMoreButton.onclick = () => {
-        // Fermer le détail précédent s'il est ouvert
         if (currentEventDetailElement && currentEventDetailElement.parentElement) {
             currentEventDetailElement.style.display = 'none';
             currentEventDetailElement.parentElement.removeChild(currentEventDetailElement);
         }
-        // Fermer la popup actuelle s'il y en a une
         if (currentPopup) {
             currentPopup.remove();
             currentPopup = null;
         }
-        // Créer et afficher le nouveau détail
         const eventDetailElement = createElement(EventDetail(event));
         const mapContainer = document.getElementById('map-container');
         mapContainer.appendChild(eventDetailElement);

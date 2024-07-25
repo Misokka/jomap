@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import currentEventDetailElement from './EventCard.js';
 
 const EventDetail = (event) => {
@@ -6,7 +7,11 @@ const EventDetail = (event) => {
 
     const closeButton = document.createElement('button');
     closeButton.className = 'event-detail-close-button';
-    closeButton.textContent = '×';
+
+    const closeIcon = document.createElement('i');
+    closeIcon.className = 'far fa-window-close';
+
+    closeButton.appendChild(closeIcon);
     closeButton.onclick = () => {
         detail.style.display = 'none';
         if (detail.parentElement) {
@@ -41,9 +46,12 @@ const EventDetail = (event) => {
     eventDescription.className = 'event-detail-description';
     eventDescription.innerHTML = `<i class="fas fa-info-circle"></i> ${event.description || 'Description non disponible'}`;
 
+    const startDateFormatted = format(new Date(event.start_date), 'dd MMMM yyyy, HH:mm');
+    const endDateFormatted = format(new Date(event.end_date), 'dd MMMM yyyy, HH:mm');
+
     const eventDate = document.createElement('div');
     eventDate.className = 'event-detail-date';
-    eventDate.innerHTML = `<i class="fas fa-calendar-alt"></i> Du ${event.start_date} au ${event.end_date}`;
+    eventDate.innerHTML = `<i class="fas fa-calendar-alt"></i> Du ${startDateFormatted} au ${endDateFormatted}`;
 
     detail.appendChild(closeButton);
     detail.appendChild(eventImage);
