@@ -6,7 +6,7 @@ import AdvancedSearch from "../components/AdvancedSearch.js";
 import FilterBox from "../components/FilterBox.js";
 import EventCard from "../components/EventCard.js";
 import EventDetail from "../components/EventDetail.js";
-import { fetchAllEvents } from "../utils/fetchEvents.js";
+import { fetchAllEvents, fetchEpreuves } from "../utils/fetchEvents.js";
 import { initializeMap, createMarker, clearMarkers, loadIconicPlaces, loadSpotsForEvent } from "../utils/mapConfig.js";
 import { handleSearchInput, setupFilterButtons } from "../utils/eventHandlers.js";
 import { showAdvancedSearch, hideAdvancedSearch, showFilterBox, hideFilterBox } from "../utils/uiHelpers.js";
@@ -68,6 +68,7 @@ async function initMap() {
     window.hideAdvancedSearch = hideAdvancedSearch;
     window.showFilterBox = showFilterBox;
     window.hideFilterBox = hideFilterBox;
+    window.epreuves = await fetchEpreuves();
 }
 
 export { initMap };

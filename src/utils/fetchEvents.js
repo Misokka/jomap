@@ -6,7 +6,7 @@ export async function fetchEvents(type = 'Sites de compétition') {
 
   if (type === 'Lieux iconiques') {
     try {
-      const response = await fetch('../iconic-places.json'); // Chemin relatif à la racine du projet
+      const response = await fetch('../iconic-places.json'); 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -107,6 +107,20 @@ export async function fetchAllEvents() {
     return events;
   } catch (error) {
     console.error('Fetching all events failed:', error);
+    return [];
+  }
+}
+
+export async function fetchEpreuves() {
+  try {
+    const response = await fetch('../epreuve.json');  
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const epreuves = await response.json();
+    return epreuves;
+  } catch (error) {
+    console.error('Fetching epreuves failed:', error);
     return [];
   }
 }

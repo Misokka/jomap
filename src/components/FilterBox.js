@@ -145,6 +145,19 @@ const FilterBox = {
             },
           ],
         },
+        {
+          type: 'button',
+          props: {
+            class: 'reset-filters-button',
+            onclick: 'resetFilters()',
+          },
+          children: [
+            {
+              type: 'TEXT_NODE',
+              content: 'Réinitialiser les filtres',
+            },
+          ],
+        },
       ],
     },
     {
@@ -385,6 +398,18 @@ window.toggleSpotsBox = function () {
   if (spotsBox) {
     spotsBox.classList.toggle('show');
   }
+};
+
+window.resetFilters = function () {
+  document.getElementById('date-from').value = '';
+  document.getElementById('date-to').value = '';
+  selectedSports = [];
+  selectedSpotTypes = [];
+  updateSportButtons();
+  updateSpotTypeButtons();
+  resetQuickFilters();
+  window.markers = clearMarkers(window.markers);
+  performAdvancedSearch(window.events, window.map, window.markers, { fromDate: '', toDate: '', selectedSports: [], selectedSpotTypes: [] });
 };
 
 export default FilterBox;

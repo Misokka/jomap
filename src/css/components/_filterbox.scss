@@ -88,6 +88,23 @@
     cursor: pointer;
   }
 
+  .reset-filters-button {
+    margin-top: rem(10);
+    padding: rem(10) rem(20);
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    border-radius: rem(5);
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+  
+    &:hover {
+      background-color: #bbb;
+    }
+  }
+
   .selection-box {
     display: none;
     width: 100%;

@@ -1,0 +1,82 @@
+.eventsitedetail-container {
+    position: fixed;
+    top: 14%;
+    left: 37%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(rem(13.5));
+    padding: rem(20);
+    border-radius: rem(16);
+    z-index: $z-index-modal;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 rem(2) rem(10) rgba(0, 0, 0, 0.3);
+    display: none;
+
+    &.show {
+        display: block;
+    }
+
+    .eventsitedetail-close-button {
+        display: block;
+        position: absolute;
+        top: rem(3);
+        right: rem(3);
+        background: none;
+        border: none;
+        font-size: rem(24);
+        cursor: pointer;
+    }
+
+    .eventsitedetail-title {
+        font-family: $font-sans-bold;
+        font-size: rem(16);
+        font-weight: bold;
+        margin-bottom: rem(8);
+        color: #000;
+        text-transform: none;
+    }
+
+    .eventsitedetail-content {
+        font-family: $font-sans-medium;
+        font-size: rem(16);
+        font-weight: medium;
+        margin-bottom: rem(8);
+        color: #000;
+        text-transform: none;
+    }
+
+    .eventsitedetail-content i {
+        margin-right: rem(8);
+    }
+
+    .epreuve-item {
+        margin-bottom: rem(10);
+    }
+}
+
+.view-epreuves-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(218);
+    padding: rem(4) rem(8);
+    gap: rem(4);
+    border-radius: rem(6);
+    border: rem(1) solid #ECECED;
+    background: #FFF;
+    box-shadow: 0 rem(1) rem(2) -rem(1) rgba(17, 12, 34, 0.08);
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: rem(14);
+    margin-top: rem(10);
+
+    &:hover {
+        background-color: #f1f1f1;
+    }
+
+    i {
+        margin-left: rem(4);
+    }
+}

@@ -1,5 +1,8 @@
 import { format } from 'date-fns';
-import currentEventDetailElement from './EventCard.js';
+import { showEpreuvesForSite } from './EventSiteDetail.js';  
+
+let currentEventDetailElement = null;
+let currentPopup = null;
 
 const EventDetail = (event) => {
     const detail = document.createElement('div');
@@ -53,12 +56,18 @@ const EventDetail = (event) => {
     eventDate.className = 'event-detail-date';
     eventDate.innerHTML = `<i class="fas fa-calendar-alt"></i> Du ${startDateFormatted} au ${endDateFormatted}`;
 
+    const epreuvesButton = document.createElement('button');
+    epreuvesButton.className = 'view-epreuves-button';
+    epreuvesButton.innerHTML = '<span>Voir les épreuves</span> <i class="fas fa-eye"></i>';
+    epreuvesButton.onclick = () => showEpreuvesForSite(event.name);
+
     detail.appendChild(closeButton);
     detail.appendChild(eventImage);
     detail.appendChild(eventTitle);
     detail.appendChild(eventLocation);
     detail.appendChild(eventDescription);
     detail.appendChild(eventDate);
+    detail.appendChild(epreuvesButton);  
 
     return detail;
 };
