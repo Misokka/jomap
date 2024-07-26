@@ -80,3 +80,32 @@
         margin-right: rem(8);
     }
 }
+
+@media (max-width: 768px) {
+    .event-detail {
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        left: 5%;
+        padding: rem(10);
+        border-radius: rem(8);
+        overflow-y: auto;
+    }
+
+    .event-detail-title,
+    .event-detail-location,
+    .event-detail-description,
+    .event-detail-date {
+        font-size: rem(14);
+    }
+
+    .event-detail-close-button {
+        top: rem(5);
+        right: rem(5);
+    }
+
+    .view-epreuves-button {
+        margin-top: rem(10);
+        margin-bottom: rem(10); 
+    }
+}

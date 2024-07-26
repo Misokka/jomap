@@ -93,3 +93,28 @@
         margin-bottom: rem(5);
     }
 }
+
+@media (max-width: 768px) {
+    .spot-detail {
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        left: 5%;
+        padding: rem(10);
+        border-radius: rem(8);
+        overflow-y: auto;
+    }
+
+    .spot-detail-title,
+    .spot-detail-label,
+    .spot-detail-sport,
+    .spot-detail-description,
+    .spot-detail-affluence {
+        font-size: rem(14);
+    }
+
+    .spot-detail-close-button {
+        top: rem(5);
+        right: rem(5);
+    }
+}

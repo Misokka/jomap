@@ -14,12 +14,42 @@
   background: rgba(255, 255, 255, 0.50);
   backdrop-filter: blur(rem(13.5));
   overflow-y: hidden;
+
   &.show {
-    display: block; 
+    display: block;
   }
 
   .advanced-search-header {
-    @include flexbox(row, nowrap, flex-start, center, 1rem);
+    @include flexbox(row, nowrap, space-between, center, 1rem);
+    width: 100%;
+
+    .search-input {
+      flex: 1;
+      margin: 0 rem(10);
+    }
+
+    .search-buttons {
+      display: flex;
+      align-items: center;
+      gap: rem(10);
+
+      .filter-button,
+      .close-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: rem(40);
+        height: rem(40);
+        border-radius: rem(8);
+        background: $white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background: lighten($white, 10%);
+        }
+      }
+    }
   }
 
   .advanced-search-title {
@@ -32,22 +62,22 @@
 
   .search-results {
     width: 100%;
-    height: 100%;
+    height: calc(100% - rem(60));
     padding-top: rem(21);
     padding-right: rem(40);
     padding-left: rem(22);
     z-index: $z-index-modal;
     background: none;
     border-radius: rem(8);
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
-    display: none; 
+    display: none;
     flex-direction: column;
     gap: rem(25);
     border: none;
 
     &.show {
-      display: flex; 
+      display: flex;
     }
 
     &:empty {
@@ -56,13 +86,49 @@
   }
 
   .filter-box-close-button {
-    height: rem(40); 
-    padding: rem(10) rem(15); 
-    margin: rem(10) 0 0 rem(10); 
+    height: rem(40);
+    padding: rem(10) rem(15);
+    margin: rem(10) 0 0 rem(10);
   }
 
   .custom-popup-content {
     background: $white;
     border-radius: rem(16);
+  }
+}
+
+@media (max-width: 768px) {
+  .advanced-search {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    transform: none;
+    border-radius: 0;
+    padding: rem(10);
+    box-sizing: border-box;
+
+    .advanced-search-header {
+      flex-direction: row;
+      align-items: center;
+      gap: rem(10);
+
+      .search-input {
+        flex: 1;
+        margin: 0;
+      }
+
+      .search-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        width: auto;
+      }
+    }
+
+    .search-results {
+      padding-right: rem(10);
+      padding-left: rem(10);
+      gap: rem(15);
+      height: calc(100% - rem(120));
+    }
   }
 }
