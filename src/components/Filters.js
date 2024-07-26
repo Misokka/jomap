@@ -36,19 +36,19 @@ const Filters = {
         },
       ],
     },
-    {
-      type: 'button',
-      props: {
-        class: 'filter-button filter', 
-        onclick: () => toggleFilter('Lieux iconiques'),
-      },
-      children: [
-        {
-          type: 'TEXT_NODE',
-          content: 'Lieux iconiques',
-        },
-      ],
-    },
+    // {
+    //   type: 'button',
+    //   props: {
+    //     class: 'filter-button filter', 
+    //     onclick: () => toggleFilter('Lieux iconiques'),
+    //   },
+    //   children: [
+    //     {
+    //       type: 'TEXT_NODE',
+    //       content: 'Lieux iconiques',
+    //     },
+    //   ],
+    // },
   ],
 };
 

@@ -66,3 +66,27 @@
 .searchbar-button {
   margin-right: rem(10);
 }
+
+@media (max-width: 768px) {
+  .button-container {
+    margin-left: 0;
+    @include flexbox(column, nowrap, center, center, rem(10));
+
+    .filter-button,
+    .search-button,
+    .searchbar-close-button {
+      width: 100%;
+      max-width: none;
+      margin-bottom: rem(10);
+    }
+  }
+}
+
+.filter-buttons {
+  position: absolute;
+  top: 5rem;  
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
