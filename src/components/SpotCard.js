@@ -11,7 +11,7 @@ const SpotCard = (spot) => {
 
     const spotImage = document.createElement('img');
     spotImage.className = 'spot-card-image';
-    spotImage.src = spot.image || '../images/pont.jpg'; 
+    spotImage.src = spot.image || '../images/jo.png'; 
 
     const spotTitle = document.createElement('h2');
     spotTitle.className = 'spot-card-title';

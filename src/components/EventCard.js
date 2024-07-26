@@ -11,7 +11,7 @@ const EventCard = (event) => {
 
     const eventImage = document.createElement('img');
     eventImage.className = 'event-card-image';
-    eventImage.src = event.image || '../images/marathon.png'; 
+    eventImage.src = event.image || '../images/jo.png'; 
 
     const eventSport = document.createElement('h2');
     eventSport.className = 'event-card-title';
@@ -33,7 +33,7 @@ const EventCard = (event) => {
     viewMoreButton.appendChild(buttonText);
     viewMoreButton.appendChild(icon);
 
-    viewMoreButton.onclick = () => {
+    viewMoreButton.onclick = async () => {
         if (currentEventDetailElement && currentEventDetailElement.parentElement) {
             currentEventDetailElement.style.display = 'none';
             currentEventDetailElement.parentElement.removeChild(currentEventDetailElement);
@@ -42,7 +42,7 @@ const EventCard = (event) => {
             currentPopup.remove();
             currentPopup = null;
         }
-        const eventDetailElement = createElement(EventDetail(event));
+        const eventDetailElement = await EventDetail(event);
         const mapContainer = document.getElementById('map-container');
         mapContainer.appendChild(eventDetailElement);
         eventDetailElement.style.display = 'block';
@@ -57,5 +57,35 @@ const EventCard = (event) => {
 
     return card;
 };
+
+// const apiKey = 'u8ytiBWB-koGoQaLSS3xf1-DTOZPdMwaUM741dwpUPE'; 
+// const requestLimit = 25; // Définir une limite sur le nombre de requêtes
+// let requestCount = 0; // Compteur de requêtes
+
+// async function fetchSportImage(sportName) {
+//     if (requestCount >= requestLimit) {
+//         console.warn('Request limit reached, using default image');
+//         return null; // Retourner null pour utiliser l'image par défaut
+//     }
+
+//     try {
+//         const response = await fetch(`https://api.unsplash.com/search/photos?query=${sportName}&client_id=${apiKey}`);
+//         if (response.status === 403) {
+//             console.warn('Rate limit exceeded or invalid API key');
+//             return null;
+//         }
+//         const data = await response.json();
+//         if (data.results && data.results.length > 0) {
+//             requestCount++; // Incrémenter le compteur de requêtes
+//             return data.results[0].urls.regular;
+//         } else {
+//             console.warn(`No image found for sport: ${sportName}`);
+//             return null;
+//         }
+//     } catch (error) {
+//         console.error('Error fetching image from Unsplash:', error);
+//         return null;
+//     }
+// }
 
 export default EventCard;
