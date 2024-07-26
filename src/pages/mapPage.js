@@ -1,5 +1,4 @@
 import mapboxgl from 'mapbox-gl';
-import { BrowserLink } from "../components/BrowserRouter.js";
 import "../css/main.scss";
 import Filters from "../components/Filters.js";
 import AdvancedSearch from "../components/AdvancedSearch.js";
@@ -10,7 +9,6 @@ import { fetchAllEvents, fetchEpreuves } from "../utils/fetchEvents.js";
 import { initializeMap, createMarker, clearMarkers, loadIconicPlaces, loadSpotsForEvent } from "../utils/mapConfig.js";
 import { handleSearchInput, setupFilterButtons } from "../utils/eventHandlers.js";
 import { showAdvancedSearch, hideAdvancedSearch, showFilterBox, hideFilterBox } from "../utils/uiHelpers.js";
-import { createElement } from "../utils/createElement.js";
 import { showAllEvents } from '../utils/searchUtils.js';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWlzb2thIiwiYSI6ImNseGhnczJweDE3bzMycnF0NHRqM3F0ZmoifQ.HHqpWObbvpH65lb6Ma14mQ';
@@ -64,7 +62,10 @@ async function initMap() {
         await loadSpotsForEvent(event, map);
     }
 
-    window.showAdvancedSearch = showAdvancedSearch;
+    window.showAdvancedSearch = () => {
+        console.log("showAdvancedSearch called"); // Ajouté pour le débogage
+        showAdvancedSearch();
+    };
     window.hideAdvancedSearch = hideAdvancedSearch;
     window.showFilterBox = showFilterBox;
     window.hideFilterBox = hideFilterBox;
@@ -131,46 +132,52 @@ export default {
                 },
                 {
                     type: 'div',
-                    props: {
-                        class: 'search-filter-container',
-                    },
                     children: [
                         {
-                            type: 'button',
-                            props: {
-                                class: 'filter-button',
-                                onclick: 'showFilterBox()',
-                            },
-                            children: [
-                                {
-                                    type: 'i',
-                                    props: {
-                                        class: 'fas fa-filter',
-                                    },
-                                },
-                            ],
+                          type: 'div',
+                          props: {
+                            class: 'search-filter-container',
+                          },
+                          children: [
+                            {
+                              type: 'button',
+                              props: {
+                                  class: 'filter-button',
+                                  onclick: 'showFilterBox()',
+                              },
+                              children: [
+                                  {
+                                      type: 'i',
+                                      props: {
+                                          class: 'fas fa-filter',
+                                      },
+                                  },
+                              ],
+                          },
+                          {
+                              type: 'button',
+                              props: {
+                                  class: 'search-button',
+                                  onclick: 'showAdvancedSearch()',
+                              },
+                              children: [
+                                  {
+                                      type: 'TEXT_NODE',
+                                      content: 'Rechercher ',
+                                  },
+                                  {
+                                      type: 'i',
+                                      props: {
+                                          class: 'fas fa-search',
+                                      },
+                                  },
+                              ],
+                          },
+                          Filters,
+                          ]
                         },
-                        {
-                            type: 'button',
-                            props: {
-                                class: 'filter-button',
-                                onclick: 'showAdvancedSearch()',
-                            },
-                            children: [
-                                {
-                                    type: 'TEXT_NODE',
-                                    content: 'Rechercher ',
-                                },
-                                {
-                                    type: 'i',
-                                    props: {
-                                        class: 'fas fa-search',
-                                    },
-                                },
-                            ],
-                        },
+                        
                         FilterBox,
-                        Filters,
                         AdvancedSearch,
                     ],
                 },

@@ -27,6 +27,11 @@ export function showAdvancedSearch() {
     filtersElement.style.display = 'none';
   }
 
+  const filtersContainer = document.querySelector('.search-filter-container');
+  if (filtersContainer) {
+    filtersContainer.style.display = 'none';
+  }
+
   // Afficher tous les événements dès que la recherche avancée est affichée
   showAllEvents(window.events, window.map, window.markers);
 }
@@ -44,6 +49,10 @@ export function hideAdvancedSearch() {
   const filtersElement = document.querySelector('.filters');
   if (filtersElement) {
     filtersElement.style.display = 'block';
+  }
+  const filtersContainer = document.querySelector('.search-filter-container');
+  if (filtersContainer) {
+    filtersContainer.style.display = 'flex';
   }
 }
 
