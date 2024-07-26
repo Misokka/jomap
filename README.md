@@ -67,7 +67,7 @@ We welcome contributions from the community! To contribute, please follow these 
 
 ## Who Did What
 - **Maheanuu ALLAIN** **Jeremy Caron-Labalette** **Loan Pena**: JavaScript development, integration of interactive map, implementation of search and filtering features.
-- **Maheanuu ALLAIN**: Web design using Figma, responsive design for mobile and desktop, user experience optimization.
+- **Maheanuu ALLAIN**: JavaScript development, Web design using Figma, responsive design for mobile and desktop, user experience optimization.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
