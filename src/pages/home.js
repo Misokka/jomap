@@ -1,6 +1,6 @@
 import { BrowserLink } from "../components/BrowserRouter.js";
-import Header from "../components/Header.js";
 import svg from "../../svg/xl_right_icon.svg"
+import Header from "../components/Header.js";
 
 export default {
     type: "div",
