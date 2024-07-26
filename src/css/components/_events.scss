@@ -1,17 +1,38 @@
 .event-item {
   @include flexbox(row, nowrap, space-between, center);
-  background: rgba(255, 255, 255, 0.258);
+  background: #ffff;
   border-radius: rem(8);
   padding: rem(15);
-  margin-bottom: rem(10);
+  margin-bottom: rem(20);
   border: none;
 
   .event-date {
+    width: rem(90);
+    height: rem(90);
     @include flexbox(column, nowrap, center, center);
     background: $jaune-jo;
     border-radius: rem(8);
-    padding: rem(10);
+    padding: 0 2rem;
     color: var(--text-color, #000);
+    .date-text {
+      color: #000;
+      text-align: center;
+      font-family: $font-sans-medium;
+      font-size: rem(12);
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .time-text {
+      color: #000;
+
+      text-align: center;
+      font-family: $font-sans-bold;
+      font-size: rem(16);
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
   }
 
   .event-details {
@@ -19,20 +40,27 @@
     margin-left: rem(15);
 
     .event-type {
-      font-size: rem(16);
-      font-weight: bold;
-      color: var(--text-color, #333);
+      color: #000;
+      font-family: $font-sans-bold;
+      font-size: rem(20);
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
 
     .event-description {
-      font-size: rem(14);
-      color: var(--text-color, #666);
+      color: #000;
+      font-family: $font-sans-medium;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
       margin-top: rem(5);
     }
 
     .event-location {
       @include flexbox(row, nowrap, flex-start, center);
-      margin-top: rem(5);
+      margin-top: rem(10);
 
       img {
         margin-right: rem(5);

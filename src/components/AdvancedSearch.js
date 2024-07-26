@@ -53,19 +53,6 @@ const AdvancedSearch = {
             },
           ],
         },
-        {
-          type: 'button',
-          props: {
-            class: 'geo-button',
-            onclick: 'getAndShowNearbySpots()',
-          },
-          children: [
-            {
-              type: 'TEXT_NODE',
-              content: 'Utiliser ma position',
-            },
-          ],
-        },
       ],
     },
     {
@@ -189,6 +176,11 @@ window.onEventItemClick = function (event) {
   const advancedSearchElement = document.querySelector('.advanced-search');
   if (advancedSearchElement) {
     advancedSearchElement.style.display = 'none';
+  }
+
+  const filtersContainer = document.querySelector('.search-filter-container');
+  if (filtersContainer) {
+    filtersContainer.style.display = 'flex';
   }
 
   const popupContent = createElement(EventCard(event));

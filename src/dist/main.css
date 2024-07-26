@@ -73,7 +73,11 @@ input {
   font-family: "Olympic Sans", sans-serif;
 }
 
-.buttons, .filter-button, .searchbar-close-button {
+button {
+  font-family: "Olympic Sans", sans-serif;
+}
+
+.filter-button {
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -89,13 +93,58 @@ input {
   box-shadow: 0px 0.0625rem 0.125rem -rem(1) rgba(17, 12, 34, 0.08);
   cursor: pointer;
 }
-.buttons.active, .filter-button.active, .searchbar-close-button.active {
+.filter-button.active {
+  background-color: var(--primary-color, #007bff);
+  color: #fff;
+  border-color: var(--primary-color, #007bff);
+}
+
+.search-button {
+  width: 12rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.75rem;
+  border: 0.0625rem solid var(--outline-theme_light-low_em, #ECECED);
+  background: var(--surface-theme_light-surface_0, #FFF);
+  box-shadow: 0px 0.0625rem 0.125rem -rem(1) rgba(17, 12, 34, 0.08);
+  cursor: pointer;
+}
+.search-button.active {
+  background-color: var(--primary-color, #007bff);
+  color: #fff;
+  border-color: var(--primary-color, #007bff);
+}
+
+.searchbar-close-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--outline-theme_light-low_em, #ECECED);
+  background: var(--surface-theme_light-surface_0, #FFF);
+  box-shadow: 0px 0.0625rem 0.125rem -rem(1) rgba(17, 12, 34, 0.08);
+  cursor: pointer;
+}
+.searchbar-close-button.active {
   background-color: var(--primary-color, #007bff);
   color: #fff;
   border-color: var(--primary-color, #007bff);
 }
 
 .button-container {
+  margin-left: 4rem;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -120,13 +169,15 @@ input {
   justify-content: space-between;
   align-items: center;
   gap: 0;
-  background: rgba(255, 255, 255, 0.258);
+  background: white;
   border-radius: 0.5rem;
   padding: 0.9375rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
   border: none;
 }
 .event-item .event-date {
+  width: 5.625rem;
+  height: 5.625rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -135,21 +186,46 @@ input {
   gap: 0;
   background: #fbc17a;
   border-radius: 0.5rem;
-  padding: 0.625rem;
+  padding: 0 2rem;
   color: var(--text-color, #000);
+}
+.event-item .event-date .date-text {
+  color: #000;
+  text-align: center;
+  font-family: "Olympic Sans Medium", sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.event-item .event-date .time-text {
+  color: #000;
+  text-align: center;
+  font-family: "Olympic Sans Bold", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .event-item .event-details {
   flex-grow: 1;
   margin-left: 0.9375rem;
 }
 .event-item .event-details .event-type {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--text-color, #333);
+  color: #000;
+  font-family: "Olympic Sans Bold", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .event-item .event-details .event-description {
-  font-size: 0.875rem;
-  color: var(--text-color, #666);
+  color: #000;
+  font-family: "Olympic Sans Medium", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   margin-top: 0.3125rem;
 }
 .event-item .event-details .event-location {
@@ -159,7 +235,7 @@ input {
   justify-content: flex-start;
   align-items: center;
   gap: 0;
-  margin-top: 0.3125rem;
+  margin-top: 0.625rem;
 }
 .event-item .event-details .event-location img {
   margin-right: 0.3125rem;
@@ -250,10 +326,9 @@ input {
   background: var(--background-color, #fff);
   padding: 0.625rem 0.9375rem;
   border-radius: 0.5rem;
-  height: 2.5rem;
+  height: 3rem;
   width: 100%;
   border: none;
-  margin-top: 0.625rem;
   box-shadow: 0px 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
 }
 .searchbar input {
@@ -286,23 +361,25 @@ input {
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
-  gap: 0;
+  gap: 1rem;
   width: calc(100% - 2.5rem);
 }
 
 .advanced-search {
-  width: 31.25rem;
-  height: 46.0625rem;
+  width: 37.5rem;
+  height: 80vh;
   flex-shrink: 0;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(0.84375rem);
   position: absolute;
-  top: 0.125rem;
-  left: 0.0625rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 1.25rem;
   z-index: 1050;
   display: none;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.84375rem);
 }
 .advanced-search.show {
   display: block;
@@ -311,9 +388,9 @@ input {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 0;
+  gap: 1rem;
 }
 .advanced-search .advanced-search-title {
   color: var(--text-color, #000);
@@ -323,21 +400,23 @@ input {
   line-height: normal;
 }
 .advanced-search .search-results {
-  position: absolute;
-  top: 7.5rem;
-  left: 1.25rem;
+  width: 100%;
+  max-height: 68vh;
+  padding-top: 1.3125rem;
+  padding-right: 2.5rem;
+  padding-left: 1.375rem;
   z-index: 1050;
   background: none;
   border-radius: 0.5rem;
-  width: calc(100% - 2.5rem);
-  max-height: 31.25rem;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: none;
-  padding: 0.625rem;
+  flex-direction: column;
+  gap: 1.5625rem;
   border: none;
 }
 .advanced-search .search-results.show {
-  display: block;
+  display: flex;
 }
 .advanced-search .search-results:empty {
   display: none;
@@ -346,6 +425,10 @@ input {
   height: 2.5rem;
   padding: 0.625rem 0.9375rem;
   margin: 0.625rem 0 0 0.625rem;
+}
+.advanced-search .custom-popup-content {
+  background: white;
+  border-radius: 1rem;
 }
 
 .filter-box {
@@ -1223,6 +1306,41 @@ input {
 }
 .view-epreuves-button i {
   margin-left: 0.25rem;
+}
+
+.input-search-container {
+  padding: 0 1rem;
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+  background: #FFF;
+  backdrop-filter: blur(0px);
+}
+.input-search-container:focus-visible {
+  outline: solid;
+}
+.input-search-container input {
+  width: 23.75rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "Olympic Sans", sans-serif;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #4F4B5C;
+}
+.input-search-container input:focus-visible {
+  outline: none;
 }
 
 /*# sourceMappingURL=main.css.map */

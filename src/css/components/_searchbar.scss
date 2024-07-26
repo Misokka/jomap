@@ -10,10 +10,9 @@
   background: var(--background-color, #fff);
   padding: rem(10) rem(15); 
   border-radius: rem(8);
-  height: rem(40); 
+  height: rem(48); 
   width: 100%;
   border: none;
-  margin-top: rem(10);
   box-shadow: 0px rem(1) rem(2) rgba(0, 0, 0, 0.1);
 
   input {
@@ -42,6 +41,6 @@
   position: absolute;
   top: rem(20); 
   left: rem(20);
-  @include flexbox(row, nowrap, flex-start, center);
+  @include flexbox(row, nowrap, flex-start, center, 1rem);
   width: calc(100% - rem(40));
 }
