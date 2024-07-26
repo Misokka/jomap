@@ -49,25 +49,12 @@ const Filters = {
         },
       ],
     },
-    {
-      type: 'button',
-      props: {
-        class: 'filter-button filter',
-        onclick: () => toggleFilter('Spots'),
-      },
-      children: [
-        {
-          type: 'TEXT_NODE',
-          content: 'Afficher tous les spots',
-        },
-      ],
-    },
   ],
 };
 
 async function toggleFilter(filterType) {
   const map = window.map; 
-  let markers = window.markers; 
+  let markers = window.markers || []; 
 
   const buttons = document.querySelectorAll('.filter-button.filter');
   
@@ -95,19 +82,20 @@ async function toggleFilter(filterType) {
     }
   });
 
-  markers = clearMarkers(markers);
-  window.markers = markers;
+  markers = await clearMarkers(markers);
 
   for (const filter of activeFilters) {
     if (filter !== 'Lieux iconiques') {
       const filteredEvents = await fetchEvents(filter); 
-      markers = markers.concat(filteredEvents.map(event => createMarker(event, map, markers)));
+      const newMarkers = await Promise.all(filteredEvents.map(event => createMarker(event, map, markers)));
+      markers = markers.concat(newMarkers.filter(Boolean));
     }
   }
 
   if (activeFilters.includes('Spots')) {
     const spots = await fetchEvents('Spots');
-    markers = markers.concat(spots.map(spot => createMarker(spot, map, markers)));
+    const newMarkers = await Promise.all(spots.map(spot => createMarker(spot, map, markers)));
+    markers = markers.concat(newMarkers.filter(Boolean));
   }
 
   window.markers = markers;

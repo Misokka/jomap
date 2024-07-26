@@ -51,18 +51,16 @@ export async function performAdvancedSearch(events, map, markers, filters) {
 
   advancedSearchResultsContainer.style.display = 'block';
 
-  if (validEventsWithSpots.length > 0) {
-    const bounds = new mapboxgl.LngLatBounds();
-    validEventsWithSpots.forEach(event => bounds.extend(event.coordinates));
-    map.fitBounds(bounds, { padding: 50 });
-  } else {
-    map.fitBounds([[2.0, 48.5], [3.0, 49.0]], { padding: 50 }); 
+  if (filters.fromDate || filters.toDate || selectedSports.length > 0 || selectedSpotTypes.length > 0) {
+    if (validEventsWithSpots.length > 0) {
+      const bounds = new mapboxgl.LngLatBounds();
+      validEventsWithSpots.forEach(event => bounds.extend(event.coordinates));
+      map.fitBounds(bounds, { padding: 50 });
+    } else {
+      map.fitBounds([[2.0, 48.5], [3.0, 49.0]], { padding: 50 });
+    }
   }
 }
-
-
-
-
 
 export function showAllEvents(events, map, markers) {
   markers = clearMarkers(markers);

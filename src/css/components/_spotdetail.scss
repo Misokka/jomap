@@ -17,14 +17,15 @@
     height: rem(600);
     flex-shrink: 0;
     border-radius: rem(16);
-    background: rgba(255, 255, 255, 0.50);
+    background: rgba(255, 255, 255, 0.90);
     backdrop-filter: blur(rem(13.5));
     position: absolute;
     top: rem(20);
     left: rem(20);
     padding: rem(20);
     z-index: $z-index-modal;
-    display: none;
+    overflow-y: auto; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     &.show {
         display: block;
@@ -48,28 +49,47 @@
 
     .spot-detail-title {
         font-family: $font-sans-bold;
-        font-size: rem(16); 
+        font-size: rem(20); 
         font-weight: bold; 
-        margin-bottom: rem(8);
+        margin-bottom: rem(12);
         color: #000;
         text-transform: none;
     }
 
     .spot-detail-label,
-    .spot-detail-sport {
+    .spot-detail-sport,
+    .spot-detail-description,
+    .spot-detail-affluence {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin-top: rem(10);
-        font-family: $font-sans-bold;
+        font-family: $font-sans-medium;
         font-size: rem(16); 
-        font-weight: bold; 
-        margin-bottom: rem(8);
+        font-weight: medium;  
         color: #000;
         text-transform: none;
     }
 
+    .spot-detail-description,
+    .spot-detail-affluence {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .spot-detail-label i,
-    .spot-detail-sport i {
+    .spot-detail-sport i,
+    .spot-detail-description i,
+    .spot-detail-affluence i {
         margin-right: rem(8);
+    }
+
+    .spot-detail-description span,
+    .spot-detail-affluence span {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .spot-detail-affluence div {
+        margin-bottom: rem(5);
     }
 }

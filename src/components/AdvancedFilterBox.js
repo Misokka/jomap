@@ -363,6 +363,8 @@ window.applyAdvancedFilters = async function () {
 
   resetAdvancedFilters();
 
+  window.markers = clearMarkers(window.markers);
+
   await performAdvancedSearch(window.events, window.map, window.markers, { fromDate, toDate, selectedSports, selectedSpotTypes });
 };
 

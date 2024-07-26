@@ -35,7 +35,7 @@ const EventDetail = (event) => {
 
     const eventImage = document.createElement('img');
     eventImage.className = 'event-detail-image';
-    eventImage.src = event.image || '../images/marathon.png'; 
+    eventImage.src = event.image || '../images/jo.png'; 
 
     const eventTitle = document.createElement('h2');
     eventTitle.className = 'event-detail-title';
@@ -71,5 +71,36 @@ const EventDetail = (event) => {
 
     return detail;
 };
+
+// const apiKey = 'u8ytiBWB-koGoQaLSS3xf1-DTOZPdMwaUM741dwpUPE';
+// const requestLimit = 25; 
+// let requestCount = 0; 
+
+// async function fetchSportImage(sportName) {
+//     if (requestCount >= requestLimit) {
+//         console.warn('Request limit reached, using default image');
+//         return null; 
+//     }
+
+//     try {
+//         const response = await fetch(`https://api.unsplash.com/search/photos?query=${sportName}&client_id=${apiKey}`);
+//         if (response.status === 403) {
+//             console.warn('Rate limit exceeded or invalid API key');
+//             return null;
+//         }
+//         const data = await response.json();
+//         if (data.results && data.results.length > 0) {
+//             requestCount++; // Incrémenter le compteur de requêtes
+//             return data.results[0].urls.regular;
+//         } else {
+//             console.warn(`No image found for sport: ${sportName}`);
+//             return null;
+//         }
+//     } catch (error) {
+//         console.error('Error fetching image from Unsplash:', error);
+//         return null;
+//     }
+// }
+
 
 export default EventDetail;

@@ -117,7 +117,7 @@ window.getAndShowNearbySpots = async function () {
       return { ...place, distance };
     });
 
-    const nearbyPlaces = placesWithDistance.filter(place => place.distance <= 30); // réglage de la distance en km
+    const nearbyPlaces = placesWithDistance.filter(place => place.distance <= 30); 
     console.log('Lieux à proximité:', nearbyPlaces);
 
     const searchResultsElement = document.getElementById('search-results');

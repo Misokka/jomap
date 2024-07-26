@@ -7,16 +7,22 @@
     <list default="true" id="ce6a6b47-d766-4cea-96e4-6f6e56f852d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AdvancedFilterBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdvancedFilterBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AdvancedSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AdvancedSearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BrowserRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BrowserRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EventCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EventCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EventDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EventDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FilterBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FilterBox.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Filters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Filters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/components/_advancedfilterbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/components/_advancedfilterbox.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/components/_filterbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/components/_filterbox.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SpotCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SpotCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SpotDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SpotDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/components/_spotdetail.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/components/_spotdetail.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dist/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/dist/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dist/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/dist/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mapPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mapPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/fetchEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/fetchEvents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/epreuve.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/epreuve.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/iconic_places/parisladefensearena.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spot.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/spot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/eventHandlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/eventHandlers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/searchUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/searchUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/uiHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/uiHelpers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -5,7 +5,17 @@
         "label": "péniche avec terrasse sur la Seine",
         "sport": "Cyclisme sur route - arrivée Contre-la-montre (CRD), Natation marathon (OWS), Triathlon (TRI)",
         "latitude": 48.86343420126087,
-        "longitude": 2.31583999880963
+        "longitude": 2.31583999880963,
+        "description": "Un bar convivial sur une péniche offrant une belle vue sur la Seine, idéal pour profiter d'un verre en plein air.",
+        "affluence": {
+            "lundi": "12:00-00:00",
+            "mardi": "12:00-00:00",
+            "mercredi": "12:00-00:00",
+            "jeudi": "12:00-02:00",
+            "vendredi": "12:00-02:00",
+            "samedi": "12:00-02:00",
+            "dimanche": "12:00-00:00"
+        }
     },
     {
         "title": "Opening Ceremony Entrance F4 Access 13",
@@ -13,7 +23,17 @@
         "label": "quaies sur la Seine",
         "sport": "Cyclisme sur route - arrivée Contre-la-montre (CRD), Natation marathon (OWS), Triathlon (TRI)",
         "latitude": 48.86330889155494,
-        "longitude": 2.317482717506573
+        "longitude": 2.317482717506573,
+        "description": "Accès principal pour la cérémonie d'ouverture avec une vue imprenable sur la Seine.",
+        "affluence": {
+            "lundi": "07:00-23:00",
+            "mardi": "07:00-23:00",
+            "mercredi": "07:00-23:00",
+            "jeudi": "07:00-23:00",
+            "vendredi": "07:00-23:00",
+            "samedi": "07:00-23:00",
+            "dimanche": "07:00-23:00"
+        }
     },
     {
         "title": "Riviera Fuga",
@@ -21,7 +41,17 @@
         "label": "péniche avec terrasse sur la Seine",
         "sport": "Cyclisme sur route - arrivée Contre-la-montre (CRD), Natation marathon (OWS), Triathlon (TRI)",
         "latitude": 48.86310897315466,
-        "longitude": 2.312529028019661
+        "longitude": 2.312529028019661,
+        "description": "Un bar flottant avec une terrasse spacieuse offrant une ambiance détendue sur la Seine.",
+        "affluence": {
+            "lundi": "15:00-23:00",
+            "mardi": "15:00-23:00",
+            "mercredi": "15:00-23:00",
+            "jeudi": "15:00-01:00",
+            "vendredi": "15:00-01:00",
+            "samedi": "15:00-01:00",
+            "dimanche": "15:00-23:00"
+        }
     },
     {
         "title": "Bridge Club",
@@ -29,7 +59,17 @@
         "label": "quai sur la Seine",
         "sport": "Cyclisme sur route - arrivée Contre-la-montre (CRD), Natation marathon (OWS), Triathlon (TRI)",
         "latitude": 48.86422088687875,
-        "longitude": 2.311927752133588
+        "longitude": 2.311927752133588,
+        "description": "Un bar élégant situé sur les quais, parfait pour une soirée sophistiquée avec vue sur la Seine.",
+        "affluence": {
+            "lundi": "14:00-02:00",
+            "mardi": "14:00-02:00",
+            "mercredi": "14:00-02:00",
+            "jeudi": "14:00-02:00",
+            "vendredi": "14:00-04:00",
+            "samedi": "14:00-04:00",
+            "dimanche": "14:00-02:00"
+        }
     },
     {
         "title": "Café Lapérouse Concorde",
@@ -37,15 +77,35 @@
         "label": "café avec terrasse",
         "sport": "Basketball 3x3 (BK3), Breaking (BKG)",
         "latitude": 48.86677060085702,
-        "longitude": 2.322980555676446
+        "longitude": 2.322980555676446,
+        "description": "Un café chic avec une terrasse offrant une vue imprenable sur la Place de la Concorde.",
+        "affluence": {
+            "lundi": "08:00-22:00",
+            "mardi": "08:00-22:00",
+            "mercredi": "08:00-22:00",
+            "jeudi": "08:00-23:00",
+            "vendredi": "08:00-23:00",
+            "samedi": "08:00-23:00",
+            "dimanche": "08:00-22:00"
+        }
     },
     {
         "title": "Nonos & comestibles",
         "type": "resto",
-        "label": "resraurant avec terrasse 4,8 étoiles sur Google",
+        "label": "restaurant avec terrasse 4,8 étoiles sur Google",
         "sport": "Basketball 3x3 (BK3), Breaking (BKG)",
         "latitude": 48.86726167579227,
-        "longitude": 2.3211617916548763
+        "longitude": 2.3211617916548763,
+        "description": "Un restaurant réputé avec une terrasse charmante, offrant une cuisine raffinée et très bien noté sur Google.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:30",
+            "samedi": "12:00-23:30",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "Hotel Daguessau",
@@ -53,7 +113,17 @@
         "label": "hotel 4 étoiles avec chambre vue sur place de la concorde et terrasse",
         "sport": "Basketball 3x3 (BK3), Breaking (BKG)",
         "latitude": 48.86734943416911,
-        "longitude": 2.3212113294353554
+        "longitude": 2.3212113294353554,
+        "description": "Un hôtel de luxe offrant des chambres élégantes avec vue sur la Place de la Concorde et une terrasse.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Hôtel de la Marine",
@@ -61,7 +131,17 @@
         "label": "hotel 5 étoiles avec chambre vue sur place de la concorde et terrasse",
         "sport": "Basketball 3x3 (BK3), Breaking (BKG)",
         "latitude": 48.866487477595236,
-        "longitude": 2.3234785549653467
+        "longitude": 2.3234785549653467,
+        "description": "Un hôtel prestigieux offrant des chambres somptueuses avec vue sur la Place de la Concorde et une magnifique terrasse.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Hôtel Saint-Florentin",
@@ -69,15 +149,35 @@
         "label": "hotel 4 étoiles avec chambre vue sur place de la concorde et terrasse",
         "sport": "Basketball 3x3 (BK3), Breaking (BKG)",
         "latitude": 48.866613265714435,
-        "longitude": 2.323759773179418
+        "longitude": 2.323759773179418,
+        "description": "Un hôtel de charme avec des chambres élégantes, vue sur la Place de la Concorde et une agréable terrasse.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Café de l'Esplanade",
         "type": "bar",
-        "label": "café avec terrasse vue sur les Invalides, 3,9 sur google",
+        "label": "café avec terrasse vue sur les Invalides, 3,9 sur Google",
         "sport": "Athlétisme - arrivée Marathon (ATM), Cyclisme sur route - départ Contre-la-montre (CRD), Tir à l'arc (ARC)",
         "latitude": 48.85822295296121,
-        "longitude": 2.3110649998945156
+        "longitude": 2.3110649998945156,
+        "description": "Un café agréable avec une grande terrasse offrant une vue magnifique sur les Invalides.",
+        "affluence": {
+            "lundi": "08:00-22:00",
+            "mardi": "08:00-22:00",
+            "mercredi": "08:00-22:00",
+            "jeudi": "08:00-23:00",
+            "vendredi": "08:00-23:00",
+            "samedi": "08:00-23:00",
+            "dimanche": "08:00-22:00"
+        }
     },
     {
         "title": "Restaurant Divellec",
@@ -85,7 +185,17 @@
         "label": "restaurant 5 étoiles avec terrasse vue sur les Invalides",
         "sport": "Athlétisme - arrivée Marathon (ATM), Cyclisme sur route - départ Contre-la-montre (CRD), Tir à l'arc (ARC)",
         "latitude": 48.86103679049716,
-        "longitude": 2.311371178789578
+        "longitude": 2.311371178789578,
+        "description": "Un restaurant gastronomique renommé offrant une vue splendide sur les Invalides depuis sa terrasse.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:00",
+            "samedi": "12:00-23:00",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "Hôtel de Monaco - Résidence de l'Ambassadeur de Pologne",
@@ -93,7 +203,17 @@
         "label": "hotel 5 étoiles avec chambre vue sur les Invalides et terrasse",
         "sport": "Athlétisme - arrivée Marathon (ATM), Cyclisme sur route - départ Contre-la-montre (CRD), Tir à l'arc (ARC)",
         "latitude": 48.85925044771933,
-        "longitude": 2.3154349103495115
+        "longitude": 2.3154349103495115,
+        "description": "Un hôtel luxueux avec des chambres offrant une vue magnifique sur les Invalides et une terrasse élégante.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Francette",
@@ -101,7 +221,17 @@
         "label": "péniche avec terrasse vue sur la Seine",
         "sport": "Athlétisme marche (ATW), Cyclisme sur route - Course sur route (CRD)",
         "latitude": 48.85878409506672,
-        "longitude": 2.291346498306723
+        "longitude": 2.291346498306723,
+        "description": "Un bar flottant avec une terrasse offrant une vue panoramique sur la Seine, parfait pour se détendre.",
+        "affluence": {
+            "lundi": "15:00-23:00",
+            "mardi": "15:00-23:00",
+            "mercredi": "15:00-23:00",
+            "jeudi": "15:00-01:00",
+            "vendredi": "15:00-01:00",
+            "samedi": "15:00-01:00",
+            "dimanche": "15:00-23:00"
+        }
     },
     {
         "title": "Bateaux Parisiens",
@@ -109,7 +239,17 @@
         "label": "péniche avec terrasse vue sur la Seine",
         "sport": "Athlétisme marche (ATW), Cyclisme sur route - Course sur route (CRD)",
         "latitude": 48.86036533836528,
-        "longitude": 2.2935546122929766
+        "longitude": 2.2935546122929766,
+        "description": "Un bar sur péniche offrant des croisières avec une vue imprenable sur la Seine et ses monuments.",
+        "affluence": {
+            "lundi": "11:00-23:00",
+            "mardi": "11:00-23:00",
+            "mercredi": "11:00-23:00",
+            "jeudi": "11:00-23:00",
+            "vendredi": "11:00-23:00",
+            "samedi": "11:00-23:00",
+            "dimanche": "11:00-23:00"
+        }
     },
     {
         "title": "Bateau Boréas",
@@ -117,7 +257,17 @@
         "label": "péniche avec chambre vue sur la Seine et terrasse",
         "sport": "Athlétisme marche (ATW), Cyclisme sur route - Course sur route (CRD)",
         "latitude": 48.86113188612295,
-        "longitude": 2.292539308800561
+        "longitude": 2.292539308800561,
+        "description": "Un hôtel unique sur une péniche offrant des chambres avec une vue magnifique sur la Seine et une terrasse.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Ducasse sur Seine",
@@ -125,7 +275,17 @@
         "label": "restaurant 5 étoiles avec terrasse vue sur la Seine",
         "sport": "Athlétisme marche (ATW), Cyclisme sur route - Course sur route (CRD)",
         "latitude": 48.86053118057383,
-        "longitude": 2.2918297162523746
+        "longitude": 2.2918297162523746,
+        "description": "Un restaurant gastronomique flottant offrant une cuisine raffinée avec une vue époustouflante sur la Seine.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:00",
+            "samedi": "12:00-23:00",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "Eiffel Tower",
@@ -133,7 +293,17 @@
         "label": "monument avec terrasse",
         "sport": "Volley-ball de plage (VBV)",
         "latitude": 48.858324867861725,
-        "longitude": 2.294488991084519
+        "longitude": 2.294488991084519,
+        "description": "Le monument le plus emblématique de Paris avec une terrasse offrant une vue panoramique sur la ville.",
+        "affluence": {
+            "lundi": "09:00-00:45",
+            "mardi": "09:00-00:45",
+            "mercredi": "09:00-00:45",
+            "jeudi": "09:00-00:45",
+            "vendredi": "09:00-00:45",
+            "samedi": "09:00-00:45",
+            "dimanche": "09:00-00:45"
+        }
     },
     {
         "title": "Résidence Charles Floquet - Hotel",
@@ -141,7 +311,17 @@
         "label": "hotel 5 étoiles avec chambre vue sur la Tour Eiffel et terrasse",
         "sport": "Volley-ball de plage (VBV)",
         "latitude": 48.85609745403892,
-        "longitude": 2.2940809604176176
+        "longitude": 2.2940809604176176,
+        "description": "Un hôtel de luxe offrant des chambres avec une vue spectaculaire sur la Tour Eiffel et une terrasse agréable.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Hôtel De Fredoc",
@@ -149,7 +329,17 @@
         "label": "hotel 5 étoiles avec chambre vue sur la Tour Eiffel et terrasse",
         "sport": "Volley-ball de plage (VBV)",
         "latitude": 48.856501423096006,
-        "longitude": 2.3002094462815807
+        "longitude": 2.3002094462815807,
+        "description": "Un hôtel prestigieux offrant des chambres somptueuses avec vue sur la Tour Eiffel et une magnifique terrasse.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Zara",
@@ -157,31 +347,71 @@
         "label": "magasin de vêtements",
         "sport": "Athlétisme - départ Marathon (ATM)",
         "latitude": 48.85822544216284,
-        "longitude": 2.349561613259875
+        "longitude": 2.349561613259875,
+        "description": "Un magasin de vêtements populaire offrant une large gamme de produits de mode pour tous les goûts.",
+        "affluence": {
+            "lundi": "10:00-20:00",
+            "mardi": "10:00-20:00",
+            "mercredi": "10:00-20:00",
+            "jeudi": "10:00-20:00",
+            "vendredi": "10:00-20:00",
+            "samedi": "10:00-20:00",
+            "dimanche": "11:00-19:00"
+        }
     },
     {
         "title": "The Green Linnet",
         "type": "bar",
-        "label": "pub irlandais avec terrasse vue sur lhôtel de ville",
+        "label": "pub irlandais avec terrasse vue sur l'hôtel de ville",
         "sport": "Athlétisme - départ Marathon (ATM)",
         "latitude": 48.85735387545058,
-        "longitude": 2.3496699365704288
+        "longitude": 2.3496699365704288,
+        "description": "Un pub irlandais convivial avec une terrasse offrant une vue sur l'hôtel de ville, parfait pour une soirée animée.",
+        "affluence": {
+            "lundi": "12:00-02:00",
+            "mardi": "12:00-02:00",
+            "mercredi": "12:00-02:00",
+            "jeudi": "12:00-02:00",
+            "vendredi": "12:00-03:00",
+            "samedi": "12:00-03:00",
+            "dimanche": "12:00-02:00"
+        }
     },
     {
         "title": "Apartment WS Hotel De Ville - Le Marais",
         "type": "hotel",
-        "label": "hotel 4 étoiles avec chambre vue sur lhôtel de ville et terrasse",
+        "label": "hotel 4 étoiles avec chambre vue sur l'hôtel de ville et terrasse",
         "sport": "Athlétisme - départ Marathon (ATM)",
         "latitude": 48.85783583852729,
-        "longitude": 2.34993909355828
+        "longitude": 2.34993909355828,
+        "description": "Un hôtel élégant offrant des chambres avec vue sur l'hôtel de ville et une terrasse agréable.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "B&B Hotel Paris Clichy-Sous-Bois",
         "type": "hotel",
-        "label": "hotel 3 étoiles avec chambre vue sur le boulvard",
+        "label": "hotel 3 étoiles avec chambre vue sur le boulevard",
         "sport": "Para cyclisme sur route (PCRD)",
         "latitude": 48.90563665313307,
-        "longitude": 2.550953516386383
+        "longitude": 2.550953516386383,
+        "description": "Un hôtel abordable offrant des chambres confortables avec vue sur le boulevard, idéal pour un séjour pratique.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "McDonald's",
@@ -189,7 +419,17 @@
         "label": "fast food",
         "sport": "Para cyclisme sur route (PCRD)",
         "latitude": 48.904909527017125,
-        "longitude": 2.5494770023174884
+        "longitude": 2.5494770023174884,
+        "description": "Un restaurant de fast food bien connu offrant une variété de repas rapides et pratiques.",
+        "affluence": {
+            "lundi": "07:00-00:00",
+            "mardi": "07:00-00:00",
+            "mercredi": "07:00-00:00",
+            "jeudi": "07:00-00:00",
+            "vendredi": "07:00-01:00",
+            "samedi": "07:00-01:00",
+            "dimanche": "07:00-00:00"
+        }
     },
     {
         "title": "Château de Versailles",
@@ -197,7 +437,17 @@
         "label": "château",
         "sport": "Para Equitation (PEQU)",
         "latitude": 48.80474333643212,
-        "longitude": 2.120200891226667
+        "longitude": 2.120200891226667,
+        "description": "Le célèbre Château de Versailles, une attraction historique majeure avec de magnifiques jardins.",
+        "affluence": {
+            "lundi": "09:00-18:30",
+            "mardi": "09:00-18:30",
+            "mercredi": "09:00-18:30",
+            "jeudi": "09:00-18:30",
+            "vendredi": "09:00-18:30",
+            "samedi": "09:00-18:30",
+            "dimanche": "09:00-18:30"
+        }
     },
     {
         "title": "Les Fermes de Gally - Jardinerie, Marché, Épicerie",
@@ -205,7 +455,17 @@
         "label": "marché",
         "sport": "Para Equitation (PEQU)",
         "latitude": 48.817451391023255,
-        "longitude": 2.080744580398762
+        "longitude": 2.080744580398762,
+        "description": "Un marché et jardinerie populaire offrant des produits frais et des articles de jardinage.",
+        "affluence": {
+            "lundi": "09:00-19:00",
+            "mardi": "09:00-19:00",
+            "mercredi": "09:00-19:00",
+            "jeudi": "09:00-19:00",
+            "vendredi": "09:00-19:00",
+            "samedi": "09:00-19:00",
+            "dimanche": "09:00-19:00"
+        }
     },
     {
         "title": "Skybar nhow",
@@ -213,7 +473,17 @@
         "label": "bar avec terrasse vue sur la mer",
         "sport": "Voile (SAL)",
         "latitude": 43.26830383110287,
-        "longitude": 5.369294306301805
+        "longitude": 5.369294306301805,
+        "description": "Un bar chic avec une terrasse offrant une vue imprenable sur la mer, parfait pour un coucher de soleil.",
+        "affluence": {
+            "lundi": "17:00-01:00",
+            "mardi": "17:00-01:00",
+            "mercredi": "17:00-01:00",
+            "jeudi": "17:00-01:00",
+            "vendredi": "17:00-02:00",
+            "samedi": "17:00-02:00",
+            "dimanche": "17:00-01:00"
+        }
     },
     {
         "title": "Restaurant Les Bains",
@@ -221,7 +491,17 @@
         "label": "restaurant avec terrasse vue sur la mer",
         "sport": "Voile (SAL)",
         "latitude": 43.26861737969129,
-        "longitude": 5.369023181642602
+        "longitude": 5.369023181642602,
+        "description": "Un restaurant élégant avec une terrasse offrant une vue panoramique sur la mer, idéal pour un dîner romantique.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:00",
+            "samedi": "12:00-23:00",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "Spa nhow Marseille",
@@ -229,7 +509,17 @@
         "label": "spa avec vue sur la mer",
         "sport": "Voile (SAL)",
         "latitude": 43.26829687906851,
-        "longitude": 5.368362630667666
+        "longitude": 5.368362630667666,
+        "description": "Un spa luxueux offrant une vue magnifique sur la mer, parfait pour une journée de détente.",
+        "affluence": {
+            "lundi": "10:00-20:00",
+            "mardi": "10:00-20:00",
+            "mercredi": "10:00-20:00",
+            "jeudi": "10:00-20:00",
+            "vendredi": "10:00-20:00",
+            "samedi": "10:00-20:00",
+            "dimanche": "10:00-20:00"
+        }
     },
     {
         "title": "Hotel nhow Marseille",
@@ -237,7 +527,17 @@
         "label": "hotel 5 étoiles avec chambre vue sur la mer et terrasse",
         "sport": "Voile (SAL)",
         "latitude": 43.26873848928272,
-        "longitude": 5.368487005274358
+        "longitude": 5.368487005274358,
+        "description": "Un hôtel de luxe offrant des chambres avec une vue spectaculaire sur la mer et une terrasse élégante.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "Le Comptoir Marseillais",
@@ -245,7 +545,17 @@
         "label": "restaurant avec terrasse vue sur la mer",
         "sport": "Voile (SAL)",
         "latitude": 43.26757554577569,
-        "longitude": 5.372279764372622
+        "longitude": 5.372279764372622,
+        "description": "Un restaurant décontracté avec une terrasse offrant une vue imprenable sur la mer, parfait pour un repas en famille.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:00",
+            "samedi": "12:00-23:00",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "La Maison Mickael",
@@ -253,7 +563,17 @@
         "label": "restaurant avec terrasse vue sur la mer",
         "sport": "Voile (SAL)",
         "latitude": 43.266544713851864,
-        "longitude": 5.372925296176448
+        "longitude": 5.372925296176448,
+        "description": "Un restaurant réputé offrant une cuisine délicieuse avec une terrasse offrant une vue magnifique sur la mer.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:00",
+            "samedi": "12:00-23:00",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "Menu Picotin",
@@ -261,7 +581,17 @@
         "label": "restaurant avec terrasse vue sur la mer",
         "sport": "Voile (SAL)",
         "latitude": 43.266640194129764,
-        "longitude": 5.372816373433807
+        "longitude": 5.372816373433807,
+        "description": "Un restaurant charmant avec une terrasse offrant une vue panoramique sur la mer, parfait pour un dîner intime.",
+        "affluence": {
+            "lundi": "12:00-23:00",
+            "mardi": "12:00-23:00",
+            "mercredi": "12:00-23:00",
+            "jeudi": "12:00-23:00",
+            "vendredi": "12:00-23:00",
+            "samedi": "12:00-23:00",
+            "dimanche": "12:00-22:00"
+        }
     },
     {
         "title": "Monument à Rimbaud de Jean Amado",
@@ -269,7 +599,17 @@
         "label": "monument",
         "sport": "Voile (SAL)",
         "latitude": 43.26497938121978,
-        "longitude": 5.371773043832086
+        "longitude": 5.371773043832086,
+        "description": "Un monument dédié à Arthur Rimbaud, offrant une perspective culturelle intéressante.",
+        "affluence": {
+            "lundi": "00:00-24:00",
+            "mardi": "00:00-24:00",
+            "mercredi": "00:00-24:00",
+            "jeudi": "00:00-24:00",
+            "vendredi": "00:00-24:00",
+            "samedi": "00:00-24:00",
+            "dimanche": "00:00-24:00"
+        }
     },
     {
         "title": "A Hi'o To Mou'a",
@@ -277,7 +617,17 @@
         "label": "hotel 5 étoiles avec chambre vue sur la mer et terrasse",
         "sport": "Surf (SRF)",
         "latitude": -17.856055615960795,
-        "longitude": -149.25336616916192
+        "longitude": -149.25336616916192,
+        "description": "Un hôtel de luxe avec des chambres offrant une vue imprenable sur la mer et une terrasse paisible.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     },
     {
         "title": "TEREHAUNUI TEAHUPOO",
@@ -285,22 +635,16 @@
         "label": "hotel 5 étoiles avec chambre vue sur la mer et terrasse",
         "sport": "Surf (SRF)",
         "latitude": -17.860360687689933,
-        "longitude": -149.24912180336239
-    },
-    {
-        "title": "Bungalows Havae Teahupoo",
-        "type": "hotel",
-        "label": "hotel 5 étoiles avec chambre vue sur la mer et terrasse",
-        "sport": "Surf (SRF)",
-        "latitude": -17.861202206633237,
-        "longitude": -149.24918610377264
-    },
-    {
-        "title": "Moana @ Teahupo'o",
-        "type": "hotel",
-        "label": "hotel 5 étoiles avec chambre vue sur la mer et terrasse",
-        "sport": "Surf (SRF)",
-        "latitude": -17.8559541234192,
-        "longitude": -149.25564829017495
+        "longitude": -149.24912180336239,
+        "description": "Un hôtel de luxe avec des chambres offrant une vue imprenable sur la mer et une terrasse paisible.",
+        "affluence": {
+            "lundi": "24h/24",
+            "mardi": "24h/24",
+            "mercredi": "24h/24",
+            "jeudi": "24h/24",
+            "vendredi": "24h/24",
+            "samedi": "24h/24",
+            "dimanche": "24h/24"
+        }
     }
 ]
