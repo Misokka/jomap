@@ -1,9 +1,9 @@
 /* Error: Can't find stylesheet to import.
  *    ,
- * 24 | @import "components/input";
- *    |         ^^^^^^^^^^^^^^^^^^
+ * 23 | @import "components/geolocalisation";
+ *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *    '
- *   src/css/main.scss 24:9  root stylesheet */
+ *   src/css/main.scss 23:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a    \2577 \a 24 \2502  @import \"components/input\";\a    \2502          ^^^^^^^^^^^^^^^^^^\a    \2575 \a   src/css/main.scss 24:9  root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 23 \2502  @import \"components/geolocalisation\";\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src/css/main.scss 23:9  root stylesheet";
 }
