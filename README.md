@@ -63,6 +63,7 @@ We welcome contributions from the community! To contribute, please follow these 
 ## Team Members
 - **Maheanuu ALLAIN** - [Github](https://github.com/Menztel)
 - **Loan PENA** - [Github](https://github.com/Lolitoooo)
+- **Jérémy Caron-Labalette** - [Github](https://github.com/Misokka)
 
 ## Who Did What
 - **Maheanuu ALLAIN** **Jeremy Caron-Labalette** **Loan Pena**: JavaScript development, integration of interactive map, implementation of search and filtering features.
