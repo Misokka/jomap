@@ -4,11 +4,11 @@ const Menu = {
     props: {},
     children: [
         BrowserLink({
-            title: "Home",
+            title: "",
             to: "/home",
         }),
         BrowserLink({
-            title: "Map",
+            title: "",  
             to: "/map",
         }),
     ],

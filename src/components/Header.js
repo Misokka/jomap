@@ -1,4 +1,3 @@
-import Menu from './Menu.js';
 const Header = {
     type: 'header',
   props: {
@@ -29,7 +28,6 @@ const Header = {
           },
         ],
       },
-      Menu
   ],
 };
 export default Header;

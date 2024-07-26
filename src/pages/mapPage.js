@@ -58,7 +58,7 @@ async function initMap() {
             .setLngLat(event.coordinates)
             .setHTML(popupContent)
             .addTo(map);
-        
+
         await loadSpotsForEvent(event, map);
     }
 
@@ -176,12 +176,12 @@ export default {
                           Filters,
                           ]
                         },
-                        
+
                         FilterBox,
                         AdvancedSearch,
                     ],
                 },
-                
+
             ],
         },
     ],
