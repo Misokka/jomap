@@ -57,6 +57,19 @@ const AdvancedSearch = {
       ],
     },
     {
+      type: 'button',
+      props: {
+        onclick: 'getAndShowNearbySpots()',
+        class: 'geo-button',
+      },
+      children: [
+        {
+          type: 'TEXT_NODE',
+          content: 'Utiliser ma position',
+        },
+      ],
+    },
+    {
       type: 'h2',
       props: {
         class: 'advanced-search-title',
