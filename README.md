@@ -45,7 +45,7 @@ To set up the project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Menztel/MappyJO
+   git clone https://github.com/Misokka/jomap
 
 ## Usage
 To use the application, simply open the `index.html` file in a web browser. The interactive map and other features will be available for exploration.
